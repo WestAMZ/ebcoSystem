@@ -1,0 +1,246 @@
+/*
+    EBCO System styles
+*/
+
+body
+{
+    background: #dedede;
+}
+
+/*
+    _________________________________Login_________________________________
+*/
+#formlogin
+{
+    height: auto;
+    width: 50%;
+    background-color: #ffffff;
+    margin: 70px auto;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px;
+    padding: 0px;
+    padding-bottom: 20px;
+}
+#backgroundtitle
+{
+    height: 40px;
+
+    padding: 10px;
+    padding-bottom: 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+#backgroundtitle h4
+{
+    color: #000000;
+    font-size: 18px;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 5px;
+}
+#checkboxlogin
+{
+    margin-left: 20px;
+}
+#buttonaccess
+{
+    margin: 10px 0px;
+    background: #003252;
+}
+.input-field
+{
+    padding: 10px 30px;
+    text-align: center;
+}
+#login-container
+{
+    background: #223963;
+    margin: 0px;
+}
+
+/*
+   ******************** contenedores principales
+*/
+h1,h2,h3,h4,h5,h6
+{
+    text-align: center;
+}
+#logo
+{
+    max-height: 60px;
+    width: 90%;
+}
+.side-nav
+{
+    background: #003252;
+}
+.full
+{
+    padding: 0px !important;
+    margin: 0px !important;
+}
+.max-height
+{
+    height: 100vh;
+}
+#main-nav
+{
+    background: #003252;
+    padding: 0px 25px;
+}
+#main-nav *
+{
+    color:white;
+}
+#main-nav li.active
+{
+    background: black;
+}
+.hide-on-med-and-down  a:hover, .side-nav a:hover
+{
+    background: #f46227;
+}
+#welcome
+{
+    background: #00aaff;
+    color: white;
+    font-size: 25px;
+    text-align: center;
+    height: 64px;
+    padding-top:40px;
+    margin: 0px;
+}
+#right-main
+{
+    background: #dedede;
+    width: 80%;
+    transition: 1s all ease-in;
+    overflow: hidden;
+}
+#left-main
+{
+    width: 20%;
+    min-width: 250px;
+    transition: 1s all ease-in;
+    overflow: hidden;
+    background: white;
+}
+#notification-title
+{
+    border-bottom: solid 1px black;
+    border-top: solid 1px black;
+}
+.menu-btn
+{
+    background: white;
+    box-shadow: 0px 0px 10px grey;
+    -moz-box-shadow: 0px 0px 10px grey;
+    border-radius: 20px;
+    margin: 20px 30px;
+    height: 150px;
+    width: 40%;
+    display: inline-block;
+    transition: 0.2s all ease-in;
+}
+.menu-btn:hover
+{
+    box-shadow: 0px 0px 10px #00b5ff;
+    -moz-box-shadow: 0px 0px 20px #00b5ff;
+    transform: scale(1.1);
+}
+#menu-container
+{
+    height: calc(100vh - 530px);
+    overflow-y: scroll;
+    width: 100%;
+}
+#menu
+{
+    padding-bottom: 100px;
+    width: 100%;
+}
+.manu-btn .title
+{
+    font-weight: bold;
+}
+.menu-btn .menu-div
+{
+    width: 45%;
+    margin-top: 15px;
+    height: 120px;
+    display: inline-block;
+    float: left;
+    font-size: 20px;
+    line-height: 25px;
+    padding-left: 25px;
+}
+.menu-btn .menu-div:nth-child(odd)
+{
+    border-right: solid 2px black;
+}
+.menu-btn img
+{
+    width: 90%;
+    height: 90%;
+}
+#profile-preview /*img*/
+{
+    width: 250px;
+    height: 250px;
+    margin: 0px auto;
+    background-size: cover !important;
+    background-position: top;
+    border-radius: 100%;
+    padding: 20px;
+}
+#notifications-container
+{
+    height: calc(100vh - 364px);
+    overflow-y: scroll;
+}
+.notification:last-child
+{
+    margin-bottom: 100px;
+}
+.notification
+{
+    display: block;
+    padding: 10px;
+    width: 100%;
+    background: #4388cc;
+    color: white;
+    border-bottom:solid 1px white;
+    margin: 0px;
+    transition: all  0.5s ease-in;
+    margin: 5px;
+}
+.slider-container
+{
+    background: white;
+    width: 90%;
+    margin: 20px auto;
+    -moz-box-shadow: 5px 5px 10px black;
+    -webkit-box-shadow: 5px 5px 5px black;
+    -o-box-shadow: 5px 5px 5px black;
+    -ms-box-shadow: 5px 5px 5px black;
+}
+.notification:hover
+{
+    background: black;
+}
+.notification i
+{
+    color:#ffffff;
+}
+.slider h3,h5
+{
+    color: black;
+    text-align: justify;
+}
+.slider .date
+{
+    color: #0097d4 !important;
+    font-size: 20px;
+    text-align: right;
+}
