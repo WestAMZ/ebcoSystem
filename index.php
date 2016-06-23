@@ -1,5 +1,6 @@
 <?php
     require('controllers/core.php');
+    Connection::initSession();
     if(isset($_GET['view']))
     {
         if(file_exists(PHP_DIR . strtolower($_GET['view']) . 'Controller.php'))

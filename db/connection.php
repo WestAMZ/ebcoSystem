@@ -22,7 +22,7 @@
                 }
                 else
                 {
-                    session_start();
+                    self::initSession();
                     $_SESSION['session'] = 'active';
                     $_SESSION['id_usuario'] = $row['id_usuario'];
                     $_SESSION['role'] = $row['role'];
@@ -74,7 +74,7 @@
             $_SESSION['role'] = null;
             session_unset();
             session_destroy();
-            header('Location: ../index.php');
+            header('Location: ?view=index');
             self :: close();
         }
 
@@ -112,6 +112,16 @@
                 header('?view=index');
             }
         }
+        public static function initSession()
+        {
+            #$isSessionActive = (session_status() == PHP_SESSION_ACTIVE);
+            $isSessionActive = isset($_SESSION);
+            if( ! $isSessionActive)
+            {
+                session_start();
+            }
+        }
+
 
         public static function filterInput($string)
         {

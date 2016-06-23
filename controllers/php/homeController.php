@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    Connection::initSession();
     if(isset($_SESSION['role']))
     {
         switch($_SESSION['role'])
