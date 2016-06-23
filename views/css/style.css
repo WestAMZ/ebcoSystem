@@ -124,14 +124,12 @@ h1,h2,h3,h4,h5,h6
 {
     background: #dedede;
     width: 80%;
-    transition: 1s all ease-in;
     overflow: hidden;
 }
 #left-main
 {
     width: 20%;
     min-width: 250px;
-    transition: 1s all ease-in;
     overflow: hidden;
     background: white;
 }
@@ -160,7 +158,7 @@ h1,h2,h3,h4,h5,h6
 }
 #menu-container
 {
-    height: calc(100vh - 530px);
+    height: calc(100vh - 64px);
     overflow-y: scroll;
     width: 100%;
 }
