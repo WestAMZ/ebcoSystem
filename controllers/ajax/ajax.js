@@ -37,7 +37,7 @@ function login(url,data,result,modal,message_area_modal)
         {
             text = '<div class="alert alert-dismissible alert-info">' +
                 '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                '<img src="views/img/load.gif"></img> The request is being processed...</div>';
+                '<img src="views/img/load.gif"></img> La solicitud esta procesando...</div>';
             result.html(text);
         }
     }

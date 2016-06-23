@@ -32,6 +32,15 @@
         static function getMenuGG()
         {
             include(HTML_DIR . 'menu-gg.html');
+
+        }
+        static function getMenuGS()
+        {
+            include(HTML_DIR . 'menu-gs.html');
+        }
+        static function getMenuE()
+        {
+            include(HTML_DIR . 'menu-e.html');
         }
     }
 ?>
