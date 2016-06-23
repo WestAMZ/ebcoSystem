@@ -28,7 +28,7 @@ function login(url,data,result,modal,message_area_modal)
             }
             else
             {
-                message_area_modal.html('<img src="views/<?php echo(IMG_DIR)?>error.png"></img> ' +http.responseText);
+                message_area_modal.html('<img src="views/img/error.png"></img> ' +http.responseText);
                 modal.openModal();
                 result.html('');
             }
@@ -37,7 +37,7 @@ function login(url,data,result,modal,message_area_modal)
         {
             text = '<div class="alert alert-dismissible alert-info">' +
                 '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                '<img src="views/<?php echo(IMG_DIR)?>load.gif"></img> La solicitud esta procesando...</div>';
+                '<img src="views/img/load.gif"></img> La solicitud esta procesando...</div>';
             result.html(text);
         }
     }

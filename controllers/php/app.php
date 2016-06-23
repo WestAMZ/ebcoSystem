@@ -38,5 +38,9 @@
         {
             include(HTML_DIR . 'menu-gs.html');
         }
+        static function getMenuE()
+        {
+            include(HTML_DIR . 'menu-e.html');
+        }
     }
 ?>
