@@ -36,7 +36,10 @@ function login(url,data,result,modal,message_area_modal)
         }
         else if(http.readyState != 4)
         {
-            result.html("<img src='/views/img/load.gif'><spam>Procesando...</spam>");
+            text = '<div class="alert alert-dismissible alert-info">' +
+                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                '<img src="views/img/load.gif"></img> The request is being processed...</div>';
+            result.html(text);
         }
     }
     http.open('POST',url);

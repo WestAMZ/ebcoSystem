@@ -15,6 +15,10 @@ h3
     font-family: verdana,fantasy,helvetica;
     font-size: 25px;
 }
+#result
+{
+    text-align: center;
+}
 #formlogin
 {
     height: auto;
@@ -26,14 +30,14 @@ h3
     padding: 0px;
     padding-bottom: 20px;
 }
-#backgroundtitle
+#form-title
 {
-    height: 40px;
 
     padding: 10px;
-    padding-bottom: 30px;
+    padding-bottom: 10px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    border-bottom: solid black 1px;
 }
 #backgroundtitle h4
 {

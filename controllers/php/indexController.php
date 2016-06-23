@@ -7,7 +7,7 @@
         <div id="formlogin" class="col s6">
             <form id="login_form" class="col s12 m12">
                 <div class="row">
-                    <div id="backgroundtitle" class="col s12">
+                    <div id="form-title" class="col s12">
                         <h3> Inicio de Sesion</h3>
                     </div>
                 </div>
@@ -47,6 +47,7 @@
             Materialize.updateTextFields();
             $('#login_form').submit(function()
             {
+                var result = $("#result");
                 var data = $('#login_form').serialize();
                 login('?post=login', data, result, $('#myModal'), $('#message'));
                 return false;
