@@ -1,5 +1,5 @@
 <?php
-    App::getHead('Inicio');
+    App::getHead('Gerencìa general');
 ?>
     <div id="main-container" class="container-fluid row full">
 
