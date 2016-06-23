@@ -8,7 +8,7 @@
             <form id="login_form" class="col s12 m12">
                 <div class="row">
                     <div id="backgroundtitle" class="col s12">
-                        <h4> Inicio de Sesion</h4>
+                        <h3> Inicio de Sesion</h3>
                     </div>
                 </div>
                 <div id="result"></div>
