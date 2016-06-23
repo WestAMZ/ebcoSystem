@@ -10,7 +10,7 @@
 
             self :: connect();
             $pass = self :: codify($pass);
-            $query = "SELECT id_usuario,password,role,id_empleado, FROM usuario  WHERE correo = '$correo' ";
+            $query = "SELECT id_usuario,password,role,id_empleado FROM usuario  WHERE correo = '$correo' ";
             $result = self :: getConnection() ->query($query);
             if($result->num_rows > 0)
             {
@@ -27,6 +27,7 @@
                     $_SESSION['id_usuario'] = $row['id_usuario'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION['id_empleado'] = $row['id_empleado'];
+                    echo 1;
                 }
             }
             self :: getConnection()->close();

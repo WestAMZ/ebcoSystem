@@ -17,5 +17,21 @@
         {
             include(HTML_DIR . 'left-main.html');
         }
+        static function getRightMain()
+        {
+            include(HTML_DIR . 'right-main.html');
+        }
+        static function getNavBar()
+        {
+            include (HTML_DIR . 'navbar.html');
+        }
+        static function getEmployee()
+        {
+            include(HTML_DIR . 'employee.html');
+        }
+        static function getMenuGG()
+        {
+            include(HTML_DIR . 'menu-gg.html');
+        }
     }
 ?>

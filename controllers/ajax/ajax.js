@@ -28,7 +28,7 @@ function login(url,data,result,modal,message_area_modal)
             }
             else
             {
-                message_area_modal.html('<img src="views/img/load.gif"></img> ' +http.responseText);
+                message_area_modal.html('<img src="views/img/error.png"></img> ' +http.responseText);
                 modal.openModal();
                 result.html('');
             }
