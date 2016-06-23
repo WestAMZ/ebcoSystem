@@ -1,9 +1,75 @@
-<div class="col s10 offset-s1 panelbackground">
+<form class="col s10 offset-s1 panelbackground">
+    <div class="row">
+        <div class="col s5 m2" style="border:1px solid black;margin:20px">
+            <p>
+                <input name="group1" type="radio" id="test1" checked/>
+                <label for="test1">Agregar</label>
+            </p>
 
-</div>
+            <p>
+                <input name="group1" type="radio" id="test2" />
+                <label for="test2">Modificar</label>
+            </p>
+        </div>
+
+        <div class="input-field col s6 m2 offset-m1">
+            <input id="icon_prefix cedula" type="text" class="validate center" name="cedula" pattern="[0-9]{3}-[0-9]{6}-[0-9]{4}[A-Z]{1}" required>
+            <label for="icon_prefix" data-error="Cedula invalida" data-success="Correcto">Cedula</label>
+        </div>
+        <div class="input-field col s6 m2">
+            <input id="icon_prefix" type="text" class="validate center" name="nombre1" required>
+            <label for="icon_prefix">Primer Nombre</label>
+        </div>
+        <div class="input-field col s6 m2">
+            <input id="icon_prefix" type="text" class="validate center" name="nombre2">
+            <label for="icon_prefix">Segundo Nombre</label>
+        </div>
+        <div class="input-field col s6 m2">
+            <input id="icon_prefix" type="text" class="validate center" name="apellido1" required>
+            <label for="icon_prefix">Primer Apellido</label>
+        </div>
+        <div class="input-field col s6 m2 offset-m1">
+            <input id="icon_prefix" type="text" class="validate center" name="apellido2">
+            <label for="icon_prefix">Segundo Apellido</label>
+        </div>
+        <div class="input-field col s6 m2">
+            <input id="icon_prefix" type="text" class="validate center" name="telefono" pattern="[0-9]{8}">
+            <label for="icon_prefix" data-error="Telefono invalido" data-success="Correcto">Telefono</label>
+        </div>
+        <div class="input-field col s6 m2">
+            <select>
+                <option value="" disabled selected>Cargo</option>
+                <option value="1">Supervisor</option>
+                <option value="2">Bodega</option>
+                <option value="3">Vendedor</option>
+            </select>
+        </div>
+        <div class="input-field col s6 m2">
+            <select>
+                <option value="" disabled selected>Jefe</option>
+                <option value="1">Supervisor</option>
+                <option value="2">Bodega</option>
+                <option value="3">Vendedor</option>
+            </select>
+        </div>
+        <button class="btn-floating btn-large waves-effect waves-light green tooltipped" type="submit" data-position="top" data-delay="50" data-tooltip="Agregar">
+            <i class="material-icons">add</i>
+        </button>
+        <button class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="top" data-delay="50" data-tooltip="Modificar">    <i class="material-icons">edit</i>
+        </button>
+        <div class="input-field col s6 m2">
+            <input id="icon_prefix" type="text" class="validate center" name="telefono" pattern="[0-9]{8}">
+            <label for="icon_prefix" data-error="Telefono invalido" data-success="Correcto">Inss</label>
+        </div>
+    </div>
 
 
-
+</form>
+<script>
+    $(document).ready(function () {
+        $('select').material_select();
+    });
+</script>
 </div>
 
 </div>
