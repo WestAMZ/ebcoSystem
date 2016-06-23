@@ -15,14 +15,14 @@
                 <div class="row">
                     <div class="input-field col s11 center">
                         <i class="material-icons prefix">account_circle</i>
-                        <input id="email" type="email" class="validate" required name="correo">
-                        <label for="email" data-error="email invalido">Email</label>
+                        <input id="email" type="email" class="validate center" required name="correo">
+                        <label for="email" data-error="email invalido" data-success="email correcto">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col s11">
                         <i class="material-icons prefix">vpn_key</i>
-                        <input id="password" type="password" class="validate" name="password"required>
+                        <input id="password" type="password" class="validate center" name="password"required>
                         <label for="password">Password</label>
                     </div>
                 </div>
