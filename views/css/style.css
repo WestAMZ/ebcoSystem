@@ -253,3 +253,39 @@ h1,h2,h3,h4,h5,h6
     font-size: 20px;
     text-align: right;
 }
+
+.panelbackground
+{
+    height: 300px;
+    background: white;
+    margin-top: 50px;
+    border-radius: 15px;
+}
+
+@media screen and (max-width: 750px)
+{
+    #left-main
+    {
+        display: none;
+    }
+    #right-main
+    {
+        width: 100%;
+    }
+    .menu-btn
+    {
+        width: 80%;
+    }
+    #formlogin
+    {
+        width: 90%;
+    }
+    #main-nav a
+    {
+        height: 56px;
+    }
+    #menu-container
+    {
+        height : calc(100vh - 56px);
+    }
+
