@@ -24,14 +24,13 @@ function login(url,data,result,modal,message_area_modal)
         {
             if(http.responseText == 1)
             {
-                window.location = '?view=menu';
+                window.location = '?view=home';
             }
             else
             {
-                /*message_area_modal.html('<strong>No ha podido ingresar</strong><br> , verifique sus datos!!');*/
-                message_area_modal.html(http.responseText);
+                message_area_modal.html('<img src="views/img/load.gif"></img> ' +http.responseText);
                 modal.openModal();
-                //result.html('');
+                result.html('');
             }
         }
         else if(http.readyState != 4)

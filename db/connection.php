@@ -10,7 +10,7 @@
 
             self :: connect();
             $pass = self :: codify($pass);
-            $query = "SELECT password,role,id_empleado FROM usuario  WHERE correo = '$correo' ";
+            $query = "SELECT id_usuario,password,role,id_empleado, FROM usuario  WHERE correo = '$correo' ";
             $result = self :: getConnection() ->query($query);
             if($result->num_rows > 0)
             {
@@ -18,30 +18,18 @@
 
                 if (!($row['password'] == $pass))
                 {
-                    echo "<script>";
-                    echo "alert('No se a podido conectar verifique los datos pass!!');";
-                    echo "</script>";
-                    self :: getConnection()->close();
+                    echo "Datos ingresados incorrectos o cuenta inactiva";
                 }
                 else
                 {
                     session_start();
                     $_SESSION['session'] = 'active';
-                    $_SESSION['nombre'] = $row['password'];
+                    $_SESSION['id_usuario'] = $row['id_usuario'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION['id_empleado'] = $row['id_empleado'];
-                    echo("<script>window.location ='?view=home' </script>");
-                    self :: getConnection()->close();
                 }
             }
-            else
-            {
-                echo "<script>";
-                echo "alert('No se a podido conectar verifique los datos 0 datos!!');";
-                echo "</script>";
-                self :: getConnection()->close();
-            }
-            echo('correo y pass: ' . $correo .' : ' .$pass);
+            self :: getConnection()->close();
 
         }
         //conecction
