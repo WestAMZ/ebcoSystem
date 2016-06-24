@@ -70,7 +70,8 @@
         {
             session_start();
             $_SESSION['session'] = null;
-            $_SESSION['nombre'] = null;
+            $_SESSION['id_user'] = null;
+            $_SESSION['id_empleado'] = null;
             $_SESSION['role'] = null;
             session_unset();
             session_destroy();
