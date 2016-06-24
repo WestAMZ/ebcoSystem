@@ -110,4 +110,28 @@
         }
         Connection ::close();
     }
+    static function saveSitio()
+    {
+        $added = false;
+        Connection :: connect();
+        $returned = Connection :: getConnection() -> query("SELECT nombre as nombre, pais as pais, ciudad as ciudad  FROM sitio where nombre = '$this->nombre' and pais != '$this->pais' and ciudad != '$this->ciudad' LIMIT 1");
+        if(!($returned->num_rows >0))
+        {
+            $query = "INSERT INTO `sitio`(`nombre`,`pais`,`ciudad`,`direccion`,`latitud`,`longitud`,`telefono`,`estado`) VALUES('$this->nombre','$this->pais','$this->ciudad','$this->direccion','$this->latitud','$this->longitud','$this->telefono',true)";
+            $result = Connection :: getConnection() -> query($query);
+            $added = true;
+        }
+        else
+        {
+            $obj = $returned->fetch_assoc();
+              if(strtolower($obj['nombre']) == strtolower($this->nombre) and strtolower($obj['pais']) == strtolower($this->pais) and strtolower($obj['ciudad']) == strtolower($this->ciudad))
+              {
+                  $this->add_error = '<div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    Ya existe un sitio con ese nombre en la misma ciudad y pais </div>';
+              }
+        }
+        Connection :: close();
+        return $added;
+    }
 ?>

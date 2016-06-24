@@ -256,8 +256,19 @@ h1,h2,h3,h4,h5,h6
 {
     height:auto;
     background: white;
-    margin-top: 50px;
+    margin: 50px auto;
     border-radius: 15px;
+}
+
+#titulo
+{
+    border-top-left-radius:50px;
+    border-top-right-radius:10px
+}
+#submenus
+{
+    border:1px solid black !important;
+    margin:20px !important;
 }
 
 @media screen and (max-width: 750px)
@@ -286,5 +297,6 @@ h1,h2,h3,h4,h5,h6
     {
         height : calc(100vh - 56px);
     }
+
 }
 

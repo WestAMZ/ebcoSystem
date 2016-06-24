@@ -42,5 +42,9 @@
         {
             include(HTML_DIR . 'menu-e.html');
         }
+        static function getSitio()
+        {
+            include(HTML_DIR . 'sitio.html');
+        }
     }
 ?>
