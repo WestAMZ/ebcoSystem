@@ -48,7 +48,7 @@ function login(url,data,result,modal,message_area_modal)
 
 function addsitio(url,data,result,modal,message_area_modal)
 {
-     http = Connect();
+    http = Connect();
     http.onreadystatechange = function ()
     {
          if (http.readyState == 4 && http.status == 200)
@@ -72,8 +72,11 @@ function addsitio(url,data,result,modal,message_area_modal)
         {
             text = '<div class="alert alert-dismissible alert-info">' +
                 '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                '<img src="views/img/load.gif"></img> The request is being processed...</div>';
+                '<img src="views/img/load.gif"></img> Procesando acción...</div>';
             result.html(text);
         }
     }
+    http.open('POST',url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(data);
 }
