@@ -170,6 +170,13 @@
         {
             return $this->estado;
         }
+        static function getEmpleadoById($id)
+        {
+            Connection::connect();
+            $query = "SELECT `id_empleado`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `cedula`, `telefono`, `firma`, `id_puesto`, `id_sitio`, `id_jefe`, `inss`, `fecha_ingreso`, `estado` FROM `empleado` WHERE id_empleado = '$id' ";
+            Connection::getConnection()->query($query);
+            Connection::close();
+        }
     }
 
 ?>

@@ -1,9 +1,13 @@
+<?
+    include(MODEL_DIR . 'empleado' );
+?>
 <div id="left-main" class="col s3 full max-height">
     <div id="welcome" class="full">
         <img src="<?php echo(IMG_DIR)?>logo.png" alt="" id="logo">
     </div>
     <div id="profile-preview" style="background:url(<?php echo(PROFILE_DIR)?>120161106.jpg)">
     <img src="" alt="" class="circle responsive-img">
+    <h4><?php User::getUserBYId($_SESSION['id'])->getNombre()?></h4>
     </div>
     <div id="notification-title" class="col s12">
         <h5><i class="fa fa-bell-o" aria-hidden="true"></i>
