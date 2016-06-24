@@ -201,9 +201,17 @@ h1,h2,h3,h4,h5,h6
     border-radius: 100%;
     padding: 20px;
 }
+#user-name
+{
+    display: inline-block;
+    font-family: fantasy,verdana;
+    font-size: 25px;
+    padding: 5px;
+    text-align: center;
+}
 #notifications-container
 {
-    height: calc(100vh - 364px);
+    height: calc(100vh - 412px);
     overflow-y: scroll;
 }
 .notification:last-child
@@ -297,6 +305,7 @@ h1,h2,h3,h4,h5,h6
     {
         height : calc(100vh - 56px);
     }
+
 
 }
 

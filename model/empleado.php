@@ -21,8 +21,9 @@
         /*
         constructor por defecto
         */
-        function __construct($id_empleado,$nombre1,$nombre2,$apellido1,$apellido2,$cedula,$telefono,$firma,$id_puesto,$id_sitio,$id_jefe,$inss,$fecha_ingreso,$fecha_retiro,$estado)
+        function __construct($id_empleado,$nombre1,$nombre2,$apellido1,$apellido2,$cedula,$telefono,$firma,$id_puesto,$id_sitio,$id_jefe,$inss,$fecha_ingreso,$estado)
         {
+            //quité la fecha de retiro
             $this->id_empleado = $id_empleado;
             $this->nombre1 = $nombre1;
             $this->nombre2 = $nombre2;
@@ -36,7 +37,7 @@
             $this->id_jefe = $id_jefe;
             $this->inss = $inss;
             $this->fecha_ingreso = $fecha_ingreso;
-            $this->fecha_retiro = $fecha_retiro;
+            //$this->fecha_retiro = $fecha_retiro;
             $this->estado = $estado;
         }
 
@@ -116,7 +117,7 @@
         }
         function getNombre1()
         {
-            return $this->nombrer1;
+            return $this->nombre1;
         }
         function getNombre2()
         {
@@ -170,12 +171,23 @@
         {
             return $this->estado;
         }
+        function getFullName()
+        {
+            $full_name = $this->getNombre1() . ' '. $this->getApellido1();
+            return $full_name;
+        }
         static function getEmpleadoById($id)
         {
             Connection::connect();
             $query = "SELECT `id_empleado`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `cedula`, `telefono`, `firma`, `id_puesto`, `id_sitio`, `id_jefe`, `inss`, `fecha_ingreso`, `estado` FROM `empleado` WHERE id_empleado = '$id' ";
-            Connection::getConnection()->query($query);
+            //$id_empleado,$nombre1,$nombre2,$apellido1,$apellido2,$cedula,$telefono,$firma,$id_puesto,$id_sitio,$id_jefe,$inss,$fecha_ingreso,$fecha_retiro,$estado
+            $result = Connection::getConnection()->query($query);
+            $row=$result->fetch_assoc();
+            $empleado =  new Empleado($row['id_empleado'],$row['nombre1'],$row['nombre2'],$row['apellido1'],
+                $row['apellido2'],$row['cedula'],$row['telefono'],$row['firma'],$row['id_puesto'],
+                $row['id_sitio'],$row['id_jefe'],$row['inss'],$row['fecha_ingreso'],$row['estado']);
             Connection::close();
+            return $empleado;
         }
     }
 

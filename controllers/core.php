@@ -10,7 +10,7 @@
     define('HTML_DIR','views/html/');
     define('CSS_DIR','views/css/');
     define('PHP_DIR','controllers/php/');
-    define('MODELS_DIR','models/');
+    define('MODELS_DIR','model/');
     define('DB_DIR','db/');
     define('JS_DIR','views/js/');
     define('LIBS_DIR','controllers/libs/');
