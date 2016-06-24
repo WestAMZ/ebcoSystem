@@ -134,4 +134,12 @@
         Connection :: close();
         return $added;
     }
+    static function updateSitio()
+    {
+        Connection :: connect();
+
+        $query = "UPDATE sitio set `nombre` = '$this->nombre', `pais` = '$this->pais', `ciudad` = '$this->ciudad', `direccion` = '$this->direccion', `latitud` = '$this->latitud', `longitud` = '$this->longitud', `telefono` = '$this->telefono', `estado` = '$this->estado' where `id_sitio` = '$this->idSitio'";
+        $result = Connection::getConnection()->query($query);
+        Connection :: close();
+    }
 ?>

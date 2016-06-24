@@ -118,7 +118,7 @@
         {
             #$isSessionActive = (session_status() == PHP_SESSION_ACTIVE);
             $isSessionActive = isset($_SESSION);
-            if( ! $isSessionActive)
+            if(!$isSessionActive)
             {
                 session_start();
             }

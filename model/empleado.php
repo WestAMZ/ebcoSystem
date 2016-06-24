@@ -170,6 +170,41 @@
         {
             return $this->estado;
         }
+        $id_empleado,$nombre1,$nombre2,$apellido1,$apellido2,$cedula,$telefono,$firma,$id_puesto,$id_sitio,$id_jefe,$inss,$fecha_ingreso,$fecha_retiro,$estado
+        static function getEmpleados()
+        {
+             Connection :: connect();
+             $query = "SELECT e.id_empleado as id_empleado, e.cedula as cedula, e.nombre1 as nombre1, e.nombre2 as nombre2, e.apellido1 as apellido1, e.apellido2 as apellido2, e.telefono as telefono, e.id_puesto as id_puesto, e.id_sitio as id_sitio, e.id_jefe as id_jefe, e.inss as inss, e.fecha_ingreso as fecha_Ingreso, e.estado as estado FROM empleado e";
+             $result = Connection::getConnection()->query($query);
+             $empleados = array();
+             while( $row =$ result ->fetch_assoc())
+             {
+                $empleado = new Empleado($row['id_empleado'],$row['nombre1'],$row['nombre2'],$row['apellido1'],$row['apellido2'],$row['telefono'],$row['id_puesto'],$row['id_sitio'],$row['id_jefe'],$row['inss'],$row['fecha_Ingreso'],$row['estado']);
+                array_push($empleados,$empleado);
+             }
+            Connection ::close();
+        }
     }
-
+    static function saveEmpleado()
+    {
+        $added = false;
+        Connection :: connect();
+        $returned = Connection :: getConnection() -> query("SELECT cedula as cedula FROM empleado LIMIT 1");
+        if(!($returned->num_rows >0))
+        {
+                $query = "INSERT INTO empleado(`id_empleado`,`nombre1`,`nombre2`,`apellido1`,`apellido2`,`cedula`,`telefono`,`firma`,`id_puesto``id_sitio`,`id_jefe`,`inss`,`fecha_ingreso`,`estado`) VALUES('$this->id_empleado','$this->nombre1','$this->nombre2','$this->apellido1','$this->apellido2','$this->cedula','$this->telefono','$this->firma','$this->id_puesto','$this->id_sitio','$this->id_jefe','$this->inss','$this->fecha_ingreso','$this->estado')";
+                $result = Connection :: getConnection() -> query($query);
+                $added = true;
+        }
+        else
+        {
+            $obj = $returned->fetch_assoc();
+                if(strtolower($obj['cedula']) == strtolower($this->cedula))
+                {
+                    $this->add_error = '<div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    Ya existe un usuario registrado con este numero de cedula !! </div>';
+                }
+        }
+    }
 ?>
