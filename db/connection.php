@@ -27,6 +27,7 @@
                     $_SESSION['id_usuario'] = $row['id_usuario'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION['id_empleado'] = $row['id_empleado'];
+                    $_SESSION['hora_conexion'] = date("Y-m-d") .' '. date("h:i:sa");
                     echo 1;
                 }
             }
@@ -133,5 +134,36 @@
             return $string;
         }
 
+        /*
+                Obtención de IP del visitante
+        */
+        function getIp()
+        {
+
+            if (isset($_SERVER["HTTP_CLIENT_IP"]))
+            {
+                return $_SERVER["HTTP_CLIENT_IP"];
+            }
+            elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"]))
+            {
+                return $_SERVER["HTTP_X_FORWARDED_FOR"];
+            }
+            elseif (isset($_SERVER["HTTP_X_FORWARDED"]))
+            {
+                return $_SERVER["HTTP_X_FORWARDED"];
+            }
+            elseif (isset($_SERVER["HTTP_FORWARDED_FOR"]))
+            {
+                return $_SERVER["HTTP_FORWARDED_FOR"];
+            }
+            elseif (isset($_SERVER["HTTP_FORWARDED"]))
+            {
+                return $_SERVER["HTTP_FORWARDED"];
+            }
+            else
+            {
+                return $_SERVER["REMOTE_ADDR"];
+            }
+        }
     }
 ?>

@@ -96,4 +96,18 @@
     {
         $this->estado = $estado;
     }
+    static function getSitios()
+    {
+        Connection :: connect();
+        $query = "SELECT `id_sitio`, `nombre`, `pais`, `ciudad`, `direccion`, `latitud`, `longitud`, `telefono`, `estado` FROM `sitio`";
+        $result = Connection::getConnection()->query($query);
+        $users = array();
+        while( $row =$ result ->fetch_assoc())
+        {
+            //$idSitio, $nombre, $pais, $ciudad, $direccion, $telefono, $latitud, $longitud, $estado
+            $sitio = new Sitio( $row['id_sitio'] ,$row['nombre'] , $row['pais'] ,$row['ciudad'] ,$row['direccion'] , $row['latitud'] , $row['longitud'] , $row['telefono'] , estado);
+            array_push($users,$user);
+        }
+        Connection ::close();
+    }
 ?>
