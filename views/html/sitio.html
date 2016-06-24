@@ -1,91 +1,92 @@
-<form id="formsitio" class="col s10 m10 offset-m1 offset-s1 panelbackground" method="get" action="">
-    <h5 class="center black-text">Gestionar Sitios</h5>
-    <hr>
-    <div id="result">
-    </div>
-    <div id="submenus" class="col s4 m2" style="border:1px solid black !important; margin:20px !important;">
-        <p>
-            <input name="group1" type="radio" id="test1" checked/>
-            <label for="test1">Agregar</label>
-        </p>
+<div id="menu-container">
+    <form id="formsitio" class="col s10 m10 offset-m1 offset-s1 panelbackground" method="get" action="">
+        <h5 class="center black-text">Gestionar Sitios</h5>
+        <hr>
+        <div id="result">
+        </div>
+        <div id="submenus" class="col s4 m2" style="border:1px solid black !important; margin:20px !important;">
+            <p>
+                <input name="group1" type="radio" id="test1" checked/>
+                <label for="test1">Agregar</label>
+            </p>
 
-        <p>
-            <input name="group1" type="radio" id="test2" />
-            <label for="test2">Modificar</label>
-        </p>
-    </div>
-    <div class="input-field col s6 m3">
-        <input id="icon_prefix" type="text" class="validate center" name="nombre" required>
-        <label for="icon_prefix">Nombre</label>
-    </div>
-    <div class="input-field col s6 m3">
-        <input id="icon_prefix" type="text" class="validate center" name="pais" required>
-        <label for="icon_prefix">Pais</label>
-    </div>
-    <div class="input-field col s6 m3">
-        <input id="icon_prefix" type="text" class="validate center" name="ciudad" required>
-        <label for="icon_prefix">Ciudad</label>
-    </div>
-    <div class="input-field col s6 m3">
-        <input id="icon_prefix" type="text" class="validate center" pattern="[0-9]{8}" name="telefono" required>
-        <label for="icon_prefix" data-error="Numero invalido" data-success="Correcto">Telefono</label>
-    </div>
-    <div class="input-field col s6 m3">
-        <input id="icon_prefix" type="number" class="validate center" name="longitud" required>
-        <label for="icon_prefix">Longitud</label>
-    </div>
-    <div class="input-field col s6 m3">
-        <input id="icon_prefix" type="number" class="validate center" name="latitud" required>
-        <label for="icon_prefix">Latitud</label>
-    </div>
-    <div class="col s6 m3 center">
-        <button class="btn-floating btn-large waves-effect waves-light green tooltipped" type="submit" data-position="top" data-delay="50" data-tooltip="Agregar"><i class="material-icons">add</i></button>
-        <button class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="top" data-delay="50" data-tooltip="Modificar"><i class="material-icons">edit</i></button>
-    </div>
-    <div class="input-field col s8">
-        <textarea id="textarea1" class="materialize-textarea" name="direccion"></textarea>
-        <label for="textarea1">Direccion</label>
-    </div>
+            <p>
+                <input name="group1" type="radio" id="test2" />
+                <label for="test2">Modificar</label>
+            </p>
+        </div>
+        <div class="input-field col s6 m3">
+            <input id="icon_prefix" type="text" class="validate center" name="nombre" required>
+            <label for="icon_prefix">Nombre</label>
+        </div>
+        <div class="input-field col s6 m3">
+            <input id="icon_prefix" type="text" class="validate center" name="pais" required>
+            <label for="icon_prefix">Pais</label>
+        </div>
+        <div class="input-field col s6 m3">
+            <input id="icon_prefix" type="text" class="validate center" name="ciudad" required>
+            <label for="icon_prefix">Ciudad</label>
+        </div>
+        <div class="input-field col s6 m3">
+            <input id="icon_prefix" type="text" class="validate center" pattern="[0-9]{8}" name="telefono" required>
+            <label for="icon_prefix" data-error="Numero invalido" data-success="Correcto">Telefono</label>
+        </div>
+        <div class="input-field col s6 m3">
+            <input id="icon_prefix" type="number" class="validate center" name="longitud" required>
+            <label for="icon_prefix">Longitud</label>
+        </div>
+        <div class="input-field col s6 m3">
+            <input id="icon_prefix" type="number" class="validate center" name="latitud" required>
+            <label for="icon_prefix">Latitud</label>
+        </div>
+        <div class="col s6 m3 center">
+            <button class="btn-floating btn-large waves-effect waves-light green tooltipped" type="submit" data-position="top" data-delay="50" data-tooltip="Agregar"><i class="material-icons">add</i></button>
+            <button class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="top" data-delay="50" data-tooltip="Modificar"><i class="material-icons">edit</i></button>
+        </div>
+        <div class="input-field col s8">
+            <textarea id="textarea1" class="materialize-textarea" name="direccion"></textarea>
+            <label for="textarea1">Direccion</label>
+        </div>
 
-    <div class="row">
-        <table id="sitios" class="col s12 m10 offset-m1 centered bordered">
-            <thead>
-                <tr>
-                    <th data-field="id">No. Sucursal</th>
-                    <th data-field="Nombre">Nombre</th>
-                    <th data-field="ciudad">Ciudad</th>
-                    <th data-field="Pais">Pais</th>
-                </tr>
-            </thead>
+        <div class="row">
+            <table id="sitios" class="col s12 m10 offset-m1 centered bordered">
+                <thead>
+                    <tr>
+                        <th data-field="id">No. Sucursal</th>
+                        <th data-field="Nombre">Nombre</th>
+                        <th data-field="ciudad">Ciudad</th>
+                        <th data-field="Pais">Pais</th>
+                    </tr>
+                </thead>
 
-            <tbody>
-                <tr class="sitio">
-                    <td>01</td>
-                    <td>Ebco jr</td>
-                    <td>Rio de Janeiro</td>
-                    <td>Brazil</td>
-                </tr>
-                <tr class="sitio">
-                    <td>02</td>
-                    <td>Bello Horizonte</td>
-                    <td>Managua</td>
-                    <td>Nicaragua</td>
-                </tr>
-                <tr class="sitio">
-                    <td>03</td>
-                    <td>El Progreso</td>
-                    <td>San jose</td>
-                    <td>Costa Rica</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</form>
-
+                <tbody>
+                    <tr class="sitio">
+                        <td>01</td>
+                        <td>Ebco jr</td>
+                        <td>Rio de Janeiro</td>
+                        <td>Brazil</td>
+                    </tr>
+                    <tr class="sitio">
+                        <td>02</td>
+                        <td>Bello Horizonte</td>
+                        <td>Managua</td>
+                        <td>Nicaragua</td>
+                    </tr>
+                    <tr class="sitio">
+                        <td>03</td>
+                        <td>El Progreso</td>
+                        <td>San jose</td>
+                        <td>Costa Rica</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
 
 <script>
-    $("formsitio").submit(function () {
-        var data = $("formsitio").serialize();
+    $("#formsitio").submit(function () {
+        var data = $("#formsitio").serialize();
         result = $('#result');
         addsitio('?post=sitio', data, result, $('#myModal'),null);
 
