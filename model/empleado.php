@@ -171,8 +171,7 @@
         {
             return $this->estado;
         }
-<<<<<<< HEAD
-        $id_empleado,$nombre1,$nombre2,$apellido1,$apellido2,$cedula,$telefono,$firma,$id_puesto,$id_sitio,$id_jefe,$inss,$fecha_ingreso,$fecha_retiro,$estado
+
         static function getEmpleados()
         {
              Connection :: connect();
