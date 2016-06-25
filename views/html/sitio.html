@@ -58,26 +58,22 @@
                         <th data-field="Pais">Pais</th>
                     </tr>
                 </thead>
-
                 <tbody>
+                <?php
+                    include( MODELS_DIR . 'sitio.php');
+                    $sitios = Sitio::getSitios();
+                    foreach ($sitios as &$sitio)
+                    {
+                ?>
                     <tr class="sitio">
-                        <td>01</td>
-                        <td>Ebco jr</td>
-                        <td>Rio de Janeiro</td>
-                        <td>Brazil</td>
+                        <td><?php echo($sitio->getIdSitio())?></td>
+                        <td><?php echo($sitio->getName())?></td>
+                        <td><?php echo($sitio->getCity())?></td>
+                        <td><?php echo($sitio->getCountry())?></td>
                     </tr>
-                    <tr class="sitio">
-                        <td>02</td>
-                        <td>Bello Horizonte</td>
-                        <td>Managua</td>
-                        <td>Nicaragua</td>
-                    </tr>
-                    <tr class="sitio">
-                        <td>03</td>
-                        <td>El Progreso</td>
-                        <td>San jose</td>
-                        <td>Costa Rica</td>
-                    </tr>
+                    <?php
+                    }
+                    ?>
                 </tbody>
             </table>
         </div>
