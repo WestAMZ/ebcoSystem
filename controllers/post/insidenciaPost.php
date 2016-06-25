@@ -3,15 +3,15 @@
     include(MODELS_DIR . 'insidencia.php');
     if($_POST)
     {
-       $insidencia = new Insidencia(null,);
+       $insidencia = new Insidencia(null,null,$_POST['descripcion'],0,1,$_SESSION['id_empleado'],null);
 
-        if($sitio->saveSitio())
+        if($insidencia->saveInsidencia())
         {
             echo ('1');
         }
         else
         {
-            echo ($sitio->add_error());
+            echo ($insidencia->add_error());
         }
     }
 ?>

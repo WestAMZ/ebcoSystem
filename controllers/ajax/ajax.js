@@ -80,3 +80,39 @@ function addsitio(url,data,result,modal,message_area_modal)
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
 }
+
+function agregarinsidencia(url,data,result,modal,message_area_modal)
+{
+    http = Connect();
+    http.onreadystatechange = function ()
+    {
+         if (http.readyState == 4 && http.status == 200)
+         {
+            if (result != null)
+            {
+                if (http.responseText == 1)
+                {
+                    message_area_modal.html('La insidencia ha sido publicada');
+                    modal.openModal();
+                    result.html('publicado');
+                } else
+                {
+                    text = '<div class="alert alert-dismissible alert-danger">' +
+                        '<button type="button" class="close" data-dismiss="alert">&times;</button>' + http.responseText + '</div>';
+                    result.html(http.responseText);
+                }
+            }
+        }
+        else if (http.readyState != 4)
+        {
+            text = '<div class="alert alert-dismissible alert-info">' +
+                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                '<img src="views/img/load.gif"></img> Publicando insidencia </div>';
+            result.html(text);
+        }
+    }
+    http.open('POST',url);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(data);
+}
+
