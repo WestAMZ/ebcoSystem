@@ -13,7 +13,7 @@
       var $latitud;
       var $longitud;
       var $estado;
-  }
+
     // constructor
     function __construct($idSitio, $nombre, $pais, $ciudad, $direccion, $telefono, $latitud, $longitud, $estado)
     {
@@ -96,25 +96,12 @@
     {
         $this->estado = $estado;
     }
-    function getSitios()
-    {
-        Connection :: connect();
-        $query = "SELECT `id_sitio`, `nombre`, `pais`, `ciudad`, `direccion`, `latitud`, `longitud`, `telefono`, `estado` FROM `sitio`";
-        $result = Connection::getConnection()->query($query);
-        $users = array();
-        while( $row = $result ->fetch_assoc())
-        {
-            //$idSitio, $nombre, $pais, $ciudad, $direccion, $telefono, $latitud, $longitud, $estado
-            $sitio = new Sitio( $row['id_sitio'] ,$row['nombre'] , $row['pais'] ,$row['ciudad'] ,$row['direccion'] , $row['latitud'] , $row['longitud'] , $row['telefono'] , estado);
-            array_push($users,$user);
-        }
-        Connection ::close();
-    }
     function saveSitio()
     {
         $added = false;
         Connection :: connect();
-        $returned = Connection :: getConnection() -> query("SELECT nombre as nombre, pais as pais, ciudad as ciudad  FROM sitio where nombre = '$this->nombre' and pais != '$this->pais' and ciudad != '$this->ciudad' LIMIT 1");
+        $query = "SELECT nombre as nombre, pais as pais, ciudad as ciudad  FROM sitio where nombre = '$this->nombre' and pais != '$this->pais' and ciudad != '$this->ciudad' LIMIT 1";
+        $returned = Connection :: getConnection() -> query($query);
         if(!($returned->num_rows >0))
         {
             $query = "INSERT INTO `sitio`(`nombre`,`pais`,`ciudad`,`direccion`,`latitud`,`longitud`,`telefono`,`estado`) VALUES('$this->nombre','$this->pais','$this->ciudad','$this->direccion','$this->latitud','$this->longitud','$this->telefono',true)";
@@ -134,6 +121,21 @@
         Connection :: close();
         return $added;
     }
+    function getSitios()
+    {
+        Connection :: connect();
+        $query = "SELECT `id_sitio`, `nombre`, `pais`, `ciudad`, `direccion`, `latitud`, `longitud`, `telefono`, `estado` FROM `sitio`";
+        $result = Connection::getConnection()->query($query);
+        $users = array();
+        while( $row = $result ->fetch_assoc())
+        {
+            //$idSitio, $nombre, $pais, $ciudad, $direccion, $telefono, $latitud, $longitud, $estado
+            $sitio = new Sitio( $row['id_sitio'] ,$row['nombre'] , $row['pais'] ,$row['ciudad'] ,$row['direccion'] , $row['latitud'] , $row['longitud'] , $row['telefono'] , estado);
+            array_push($users,$user);
+        }
+        Connection ::close();
+    }
+
     function updateSitio()
     {
         Connection :: connect();
@@ -142,4 +144,5 @@
         $result = Connection::getConnection()->query($query);
         Connection :: close();
     }
+}
 ?>

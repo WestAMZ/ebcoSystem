@@ -3,7 +3,9 @@
     include(MODELS_DIR . 'sitio.php');
     if($_POST)
     {
-        $sitio = new Sitio(null,$_POST['nombre'],$_POST['pais'],$_POST['ciudad'],$_POST['direccion'],$_POST['telefono'],$_POST['name'],$_POST['latitud'],$_POST['longitud'],null);
+        //$idSitio, $nombre, $pais, $ciudad, $direccion, $telefono, $latitud, $longitud, $estado
+        $sitio = new
+         Sitio(null,$_POST['nombre'],$_POST['pais'],$_POST['ciudad'],$_POST['direccion'],$_POST['telefono'],$_POST['latitud'],$_POST['longitud'],1);
 
         if($sitio->saveSitio())
         {
