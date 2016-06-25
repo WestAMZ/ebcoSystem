@@ -46,5 +46,9 @@
         {
             include(HTML_DIR . 'sitio.html');
         }
+        static function getInsidencia()
+        {
+            include(HTML_DIR . 'insidencia.html');
+        }
     }
 ?>

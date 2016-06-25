@@ -84,6 +84,11 @@
         {
             return $this->adjunto;
         }
+        static function uploadfile()
+        {
+
+        }
+
     }
 
 ?>
