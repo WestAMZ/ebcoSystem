@@ -3,7 +3,7 @@
     include(MODELS_DIR . 'insidencia.php');
     if($_POST)
     {
-       $insidencia = new Insidencia();
+       $insidencia = new Insidencia(null,);
 
         if($sitio->saveSitio())
         {
