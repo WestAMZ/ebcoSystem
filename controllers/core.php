@@ -16,6 +16,7 @@
     define('LIBS_DIR','controllers/libs/');
     define('AJAX_DIR','controllers/ajax/');
     define('POST_DIR','controllers/post/');
+    define('GET_DIR','controllers/get/');
     define('IMG_DIR','views/img/');
 
     /*
