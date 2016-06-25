@@ -85,10 +85,11 @@
 </div>
 
 <script>
-    $("#formsitio").submit(function () {
+    $("#formsitio").submit(function ()
+    {
         var data = $("#formsitio").serialize();
         result = $('#result');
         addsitio('?post=sitio', data, result, $('#myModal'),null);
-
+        return false;
     });
 </script>
