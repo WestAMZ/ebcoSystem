@@ -100,7 +100,7 @@
     {
         $added = false;
         Connection :: connect();
-        $query = "SELECT nombre as nombre, pais as pais, ciudad as ciudad  FROM sitio where nombre = '$this->nombre' and pais != '$this->pais' and ciudad != '$this->ciudad' LIMIT 1";
+        $query = "SELECT `nombre`, `pais`, `ciudad` `estado` FROM `sitio` WHERE nombre = '$this->nombre' AND pais != '$this->pais' AND ciudad != '$this->ciudad' LIMIT 1";
         $returned = Connection :: getConnection() -> query($query);
         if(!($returned->num_rows >0))
         {

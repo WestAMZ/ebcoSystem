@@ -53,20 +53,20 @@ function addsitio(url,data,result,modal,message_area_modal)
     {
          if (http.readyState == 4 && http.status == 200)
          {
-            if (result != null)
+
+            if (http.responseText == 1)
             {
-                if (http.responseText == 1)
-                {
-                    message_area_modal.html('El sito ha sido registrado satisfactoriamente');
-                    modal.openModal();
-                    result.html('');
-                } else
-                {
-                    text = '<div class="alert alert-dismissible alert-danger">' +
-                        '<button type="button" class="close" data-dismiss="alert">&times;</button>' + http.responseText + '</div>';
-                    result.html(http.responseText);
-                }
+                message_area_modal.html("<img src='views/img/success.png'></img> El sito ha sido registrado satisfactoriamente");
+                modal.openModal();
+                result.html('');
             }
+            else
+            {
+                text = '<div class="alert alert-dismissible alert-danger">' +
+                    '<button type="button" class="close" data-dismiss="alert">&times;</button>' + http.responseText + '</div>';
+                    result.html(http.responseText);
+            }
+
         }
         else if (http.readyState != 4)
         {
