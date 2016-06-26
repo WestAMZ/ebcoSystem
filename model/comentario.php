@@ -5,15 +5,15 @@ class Comentario
     var $fecha;
     var $contenido;
     var $usuario;
-    var $incidencias
+    var $id_incidencia;
 
-    function __contruct($id_comentario, $fecha, $contenido, $usuario, $incidencias)
+    function __contruct($id_comentario, $fecha, $contenido, $usuario, $id_incidencia)
     {
         $this->id_comentario = $id_comentario;
         $this->fecha = $fecha;
         $this->contenido = $contenido;
         $this->usuario = $usuario;
-        $this->incidencias = $incidencias
+        $this->id_incidencia = $id_incidencia;
     }
 
     function setIdComentario($id_comentario)
@@ -48,13 +48,23 @@ class Comentario
     {
         return $this->usuario;
     }
-    function setIncidencias($incidencias)
+    function setId_Incidencia($id_incidencia)
     {
-        $this->incidencias = $incidencias;
+        $this->id_incidencia = $id_incidencia;
     }
-    function getIncidencias()
+    function getId_Incidencia()
     {
-        return $this->incidencias;
+        return $this->id_incidencia;
+    }
+    static function getTotalComment($idinsidencia)
+    {
+            Connection::connect();
+            $query = "SELECT COUNT(id_comentario) as cantidad FROM `comentario` WHERE id_insidencias = '$idinsidencia'";
+            $result = Connection::getConnection()->query($query);
+            $row=$result->fetch_assoc();
+            $cantidad = $row['cantidad'];
+            Connection::close();
+            return $cantidad;
     }
 }
 ?>

@@ -93,7 +93,7 @@ function agregarinsidencia(url,data,result,modal,message_area_modal)
             {
                 if (http.responseText == 1)
                 {
-                    message_area_modal.html('La insidencia ha sido publicada');
+                    message_area_modal.html("<img src='views/img/success.png'></img> la insidencia ha sido posteada");
                     modal.openModal();
                     result.html('');
 

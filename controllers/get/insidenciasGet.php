@@ -1,6 +1,7 @@
 <?php
     include(MODELS_DIR . 'insidencia.php');
     include(MODELS_DIR . 'usuario.php');
+    include(MODELS_DIR . 'comentario.php');
 
     $insidencias = Insidencia :: getInsidencias();
     foreach ($insidencias as &$insidencia)
@@ -12,7 +13,7 @@
     <div class="row">
         <div class="col s12 m10 offset-m1" style="margin-bottom:50px">
             <div class="card">
-                <div class="card-content" style="height:auto">
+                <div class="card-content" style="height:auto;">
                     <div class="row">
                         <div class="col s2">
                             <img src="img/perfil.jpg" class="circle responsive-img">
@@ -31,6 +32,7 @@
                 </div>
                 <div class="card-action row">
                     <div class="col s12 m2 card-action-share left-align">
+                       <span class="badge green white-text left-align" style="border-radius:10px"> <?php echo(Comentario :: getTotalComment($insidencia->getId_Insidencia( )))?></span>
                         <a class="activator" style="cursor:pointer">Ver Comentarios</a>
                     </div>
                     <div class="input-field col s10 m8">

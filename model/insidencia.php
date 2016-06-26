@@ -93,7 +93,7 @@
             try
             {
             Connection :: connect();
-            $query = "INSERT INTO `insidencia`(`fecha`,`descripcion`,`nivel`,`estado`,`id_usuario`,`adjunto`) VALUES('CURRENT_DATE','$this->descripcion','$this->nivel','$this->estado','$this->id_usuario','$this->adjunto')";
+            $query = "INSERT INTO `insidencia`(`fecha`,`descripcion`,`nivel`,`estado`,`id_usuario`,`adjunto`) VALUES(CURRENT_DATE,'$this->descripcion','$this->nivel','$this->estado','$this->id_usuario','$this->adjunto')";
             $result = Connection :: getConnection() -> query($query);
             $added = true;
             }catch(Exception $e)
@@ -109,7 +109,8 @@
         static function getInsidencias()
         {
             Connection :: connect();
-            $query = "SELECT i.`id_insidencia` as id_insidencia, DATE_FORMAT(i.`fecha`,'%W %D %M %Y') as fecha, i.`descripcion` as descripcion, i.`nivel` as nivel, i.`estado` as estado, i.`id_usuario` as id_usuario, i.`adjunto` as archivo  FROM `insidencia` i";
+            $query = "SELECT i.`id_insidencia` as id_insidencia, DATE_FORMAT(i.`fecha`,'%W %D %M %Y') as fecha, i.`descripcion` as descripcion, i.`nivel` as nivel, i.`estado` as estado, i.`id_usuario` as id_usuario, i.`adjunto` as archivo  FROM `insidencia` i
+ORDER BY id_insidencia DESC";
             $result = Connection::getConnection()->query($query);
             $insidencias = array();
             while($row = $result->fetch_assoc())
