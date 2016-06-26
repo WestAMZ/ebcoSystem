@@ -5,15 +5,13 @@
         <div id="result">
         </div>
         <div id="submenus" class="col s4 m2" style="border:1px solid black !important; margin:20px !important;">
-            <p>
-                <input name="group1" type="radio" id="test1" checked/>
-                <label for="test1">Agregar</label>
-            </p>
-
-            <p>
-                <input name="group1" type="radio" id="test2" />
-                <label for="test2">Modificar</label>
-            </p>
+            <div class="switch">
+                <label>
+                    Agregar
+                    <input type="checkbox" name="editar">
+                    <span class="lever"></span>Editar
+                </label>
+            </div>
         </div>
         <div class="input-field col s6 m3">
             <input id="icon_prefix" type="text" class="validate center" name="nombre" required>
@@ -59,7 +57,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php include( GET_DIR . 'sitiosGet.php')?>
+                    <?php include( GET_DIR . 'sitiosGet.php')?>
                 </tbody>
             </table>
         </div>
@@ -67,11 +65,17 @@
 </div>
 
 <script>
-    $("#formsitio").submit(function ()
-    {
-        var data = $("#formsitio").serialize();
-        result = $('#result');
-        addsitio('?post=sitio', data, result, $('#myModal'),null);
+    $("#formsitio").submit(function () {
+        if($('[name = "editar"]').prop('checked') == false)
+        {
+            var data = $("#formsitio").serialize();
+            result = $('#result');
+            addsitio('?post=sitio', data, result, $('#myModal'), $('#message'));
+        }
+        else
+        {
+            alert('editar');
+        }
         return false;
     });
 </script>

@@ -53,20 +53,20 @@ function addsitio(url,data,result,modal,message_area_modal)
     {
          if (http.readyState == 4 && http.status == 200)
          {
-            if (result != null)
+
+            if (http.responseText == 1)
             {
-                if (http.responseText == 1)
-                {
-                    message_area_modal.html('El sito ha sido registrado satisfactoriamente');
-                    modal.openModal();
-                    result.html('');
-                } else
-                {
-                    text = '<div class="alert alert-dismissible alert-danger">' +
-                        '<button type="button" class="close" data-dismiss="alert">&times;</button>' + http.responseText + '</div>';
-                    result.html(http.responseText);
-                }
+                message_area_modal.html("<img src='views/img/success.png'></img> El sito ha sido registrado satisfactoriamente");
+                modal.openModal();
+                result.html('');
             }
+            else
+            {
+                text = '<div class="alert alert-dismissible alert-danger">' +
+                    '<button type="button" class="close" data-dismiss="alert">&times;</button>' + http.responseText + '</div>';
+                    result.html(http.responseText);
+            }
+
         }
         else if (http.readyState != 4)
         {
@@ -82,12 +82,6 @@ function addsitio(url,data,result,modal,message_area_modal)
 }
 
 
-
-
-
-/*
-    |-------------------- Loads: metodos de carga dinamica de contenidos --------------------|
-*/
 function agregarinsidencia(url,data,result,modal,message_area_modal)
 {
     http = Connect();
@@ -124,3 +118,27 @@ function agregarinsidencia(url,data,result,modal,message_area_modal)
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
 }
+/*
+    |-------------------- Loads: metodos de carga dinamica de contenidos --------------------|
+*/
+
+function loadSitios(table)
+{
+    http = Connect();
+    http.onreadystatechange = function()
+    {
+        if(http.readyState == 4 && http.status ==200)
+        {
+            table.html(http.responseText);
+        }
+        else if(http.readyState != 4)
+        {
+            text = '<img src="views/img/load2.gif"></img>';
+            result.html(table);
+        }
+    }
+    http.open('GET','?get=sitios');
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(null);
+}
+

@@ -7,6 +7,7 @@
 <?php
         App::getLeftMain();
         App::getRightMain();
+        App::getModal();
         App::getSitio();
 ?>
 
