@@ -81,17 +81,14 @@ function addsitio(url,data,result,modal,message_area_modal)
     http.send(data);
 }
 
-<<<<<<< HEAD
-function agregarinsidencia(url,data,result,modal,message_area_modal)
-=======
+
 
 
 
 /*
     |-------------------- Loads: metodos de carga dinamica de contenidos --------------------|
 */
-function addsitio(sitios_container)
->>>>>>> origin/master
+function agregarinsidencia(url,data,result,modal,message_area_modal)
 {
     http = Connect();
     http.onreadystatechange = function ()
@@ -102,15 +99,11 @@ function addsitio(sitios_container)
             {
                 if (http.responseText == 1)
                 {
-<<<<<<< HEAD
                     message_area_modal.html('La insidencia ha sido publicada');
                     modal.openModal();
-                    result.html('publicado');
-=======
-                    message_area_modal.html('El sito ha sido registrado satisfactoriamente');
-                    modal.openModal();
                     result.html('');
->>>>>>> origin/master
+
+
                 } else
                 {
                     text = '<div class="alert alert-dismissible alert-danger">' +
@@ -123,7 +116,6 @@ function addsitio(sitios_container)
         {
             text = '<div class="alert alert-dismissible alert-info">' +
                 '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-<<<<<<< HEAD
                 '<img src="views/img/load.gif"></img> Publicando insidencia </div>';
             result.html(text);
         }
@@ -132,14 +124,3 @@ function addsitio(sitios_container)
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
 }
-
-=======
-                '<img src="views/img/load.gif"></img> Procesando acción...</div>';
-            result.html(text);
-        }
-    }
-    http.open('GET','');
-    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.send(data);
-}
->>>>>>> origin/master
