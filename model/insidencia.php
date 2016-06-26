@@ -109,10 +109,10 @@
         static function getInsidencias()
         {
             Connection :: connect();
-            $query = "SELECT `id_insidencia` as id_insidencia,`fecha` as fecha,`descripcion` as descripcion, `nivel` as nivel, i.`estado` as estado, i.`id_usuario` as id_usuario, i.`adjunto` as archivo  FROM `insidencia` i INNER JOIN usuario u on i.`id_usuario` = u.id_usuario INNER JOIN empleado e on u.id_empleado = e.id_empleado";
+            $query = "SELECT i.`id_insidencia` as id_insidencia, DATE_FORMAT(i.`fecha`,'%W %D %M %Y') as fecha, i.`descripcion` as descripcion, i.`nivel` as nivel, i.`estado` as estado, i.`id_usuario` as id_usuario, i.`adjunto` as archivo  FROM `insidencia` i";
             $result = Connection::getConnection()->query($query);
             $insidencias = array();
-            while($row = $result->fetch_assoc)
+            while($row = $result->fetch_assoc())
             {
                 $insidencia = new Insidencia($row['id_insidencia'],$row['fecha'],$row['descripcion'],$row['nivel'],$row['estado'],$row['id_usuario'],$row['archivo']);
                 array_push($insidencias,$insidencia);

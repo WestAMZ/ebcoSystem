@@ -71,5 +71,29 @@ class Usuario
     {
         return $id_empleado;
     }
+    //$id_usuario, $correo, $contrasena, $foto, $role, $estado, $id_empleado
+    static function getUsuarioById($id)
+    {
+        Connection::connect();
+            $query = "SELECT `id_usuario` as id_usuario,`correo` as correo,`password` as password,`id_empleado` as id_empleado,`role` as role,`estado` as estado,`foto` as foto FROM `usuario` WHERE `id_usuario` = '$id'";
+
+            $result = Connection::getConnection()->query($query);
+            $row=$result->fetch_assoc();
+            $usuario =  new Usuario($row['id_usuario'],$row['$correo'],$row['password'],$row['foto'],$row['role'],$row['estado'],$row['id_empleado']);
+            Connection::close();
+            return $usuario;
+    }
+    static function getNameUser($id)
+    {
+            Connection::connect();
+            $query = "select CONCAT(e.nombre1,' ',e.apellido1) as nombre from  usuario u INNER JOIN empleado e on u.id_empleado = e.id_empleado where u.id_usuario = '$id'";
+            $result = Connection::getConnection()->query($query);
+            $row=$result->fetch_assoc();
+            $fullname = $row['nombre'];
+            Connection::close();
+            return $fullname;
+    }
+
+
 }
 ?>
