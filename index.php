@@ -10,7 +10,7 @@
         }
         else
         {
-            include(PHP_DIR . 'indexController.php');
+            include(PHP_DIR . '404Controller.php');
         }
     }
     //Verficamos existencia de la variable post
@@ -22,7 +22,7 @@
         }
         else
         {
-            include(PHP_DIR . 'indexController.php');
+            include(PHP_DIR . '404Controller.php');
         }
     }
     //Verficamos existencia de la variable get
@@ -34,7 +34,7 @@
         }
         else
         {
-            include(PHP_DIR . 'indexController.php');
+            include(PHP_DIR . '404Controller.php');
         }
     }
     //en este punto verificamos que no existe ni una de las tres variables anteriores
