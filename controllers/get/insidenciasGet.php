@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-action row">
+                <form id="formcomentario" class="card-action row">
                     <div class="col s12 m2 card-action-share left-align">
                         <span class="badge green white-text left-align" style="border-radius:10px"> <?php echo(Comentario :: getTotalComment($insidencia->getId_Insidencia()))?></span>
                         <a class="activator" style="cursor:pointer">Ver Comentarios</a>
@@ -44,9 +44,27 @@
                     <div class="col s1 m1" style="margin-top:40px">
                         <a class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="top" data-delay="50" data-tooltip="Enviar comentario"><i class="material-icons">send</i></a>
                     </div>
-                </div>
+                </form>
                 <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4 left-align">Commentarios<i class="material-icons right">close</i></span>
+                    <span class="card-title grey-text text-darken-4 left-align">Comentarios<i class="material-icons right">close</i></span>
+                    <ul class="collection">
+                        <?php
+                        $comentarios = Comentario::getComentarios($insidencia->getId_Insidencia());
+
+                        foreach ($comentarios as &$comentario)
+                        {
+                    ?>
+                            <li class="collection-item avatar">
+                                <img src="<?php echo(PROFILE_DIR . (Usuario::getUsuarioById($comentario->getUsuario()))->getFoto())?>" alt="" class="circle responsive-img">
+                                <span class="title green-text left"> <?php echo($insidencia->getId_Insidencia())?> </span>
+                                <br>
+                                <p class="left-align"> <?php echo($comentario->getContenido()) ?> </p>
+                            </li>
+                            <?php
+
+                        }
+                    ?>
+                    </ul>
                 </div>
             </div>
         </div>

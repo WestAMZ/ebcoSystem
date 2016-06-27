@@ -89,8 +89,8 @@ function agregarinsidencia(url,data,result,modal,message_area_modal)
     {
          if (http.readyState == 4 && http.status == 200)
          {
-            if (result != null)
-            {
+          //  if (result != null)
+        //    {
                 if (http.responseText == 1)
                 {
                     message_area_modal.html("<img src='views/img/success.png'></img> la insidencia ha sido posteada");
@@ -104,7 +104,7 @@ function agregarinsidencia(url,data,result,modal,message_area_modal)
                         '<button type="button" class="close" data-dismiss="alert">&times;</button>' + http.responseText + '</div>';
                     result.html(http.responseText);
                 }
-            }
+           // }
         }
         else if (http.readyState != 4)
         {
