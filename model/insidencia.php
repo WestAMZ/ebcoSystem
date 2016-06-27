@@ -92,10 +92,10 @@
             $added = false;
             try
             {
-            Connection :: connect();
-            $query = "INSERT INTO `insidencia`(`fecha`,`descripcion`,`nivel`,`estado`,`id_usuario`,`adjunto`) VALUES(CURRENT_DATE,'$this->descripcion','$this->nivel','$this->estado','$this->id_usuario','$this->adjunto')";
-            $result = Connection :: getConnection() -> query($query);
-            $added = true;
+                Connection :: connect();
+                $query = "INSERT INTO `insidencia`(`fecha`,`descripcion`,`nivel`,`estado`,`id_usuario`,`adjunto`) VALUES(CURRENT_DATE,'$this->descripcion','$this->nivel','$this->estado','$this->id_usuario','$this->adjunto')";
+                $result = Connection :: getConnection() -> query($query);
+                $added = true;
             }catch(Exception $e)
             {
                 $this->add_error = '<div class="alert alert-dismissible alert-danger">

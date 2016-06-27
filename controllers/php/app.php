@@ -27,7 +27,7 @@
         }
         static function getEmployee()
         {
-            include(HTML_DIR . 'employee.html');
+            include(HTML_DIR . 'empleado.html');
         }
         static function getMenuGG()
         {
@@ -49,6 +49,10 @@
         static function getInsidencia()
         {
             include(HTML_DIR . 'insidencia.html');
+        }
+        static function get404()
+        {
+            include(HTML_DIR . '404.html');
         }
     }
 ?>
