@@ -44,7 +44,14 @@ class Usuario
     }
     function getFoto()
     {
-        return $this->foto;
+        if($this->foto == null)
+        {
+            return 'profile.svg';
+        }
+        else
+        {
+            return $this->foto;
+        }
     }
     function setRole($role)
     {

@@ -193,13 +193,23 @@ h1,h2,h3,h4,h5,h6
 }
 #profile-preview /*img*/
 {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     margin: 0px auto;
     background-size: cover !important;
     background-position: top;
     border-radius: 100%;
     padding: 20px;
+}
+.profile-style /*img*/
+{
+    width: 50;
+    height: 200px;
+    margin: 0px auto;
+    background-size: cover !important;
+    background-position: top;
+    border-radius: 100%;
+
 }
 #user-name
 {
