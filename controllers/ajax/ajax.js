@@ -121,7 +121,7 @@ function agregarinsidencia(url,data,result,modal,message_area_modal)
     |-------------------- Loads: metodos de carga dinamica de contenidos --------------------|
 */
 
-function loadSitios(table)
+function loadSitios(table,result,modal,message_area_modal)
 {
     http = Connect();
     http.onreadystatechange = function()
@@ -129,11 +129,16 @@ function loadSitios(table)
         if(http.readyState == 4 && http.status ==200)
         {
             table.html(http.responseText);
+            message_area_modal.html("<img src='views/img/success.png'></img> El sito ha sido registrado satisfactoriamente");
+            modal.openModal();
+            result.html('');
         }
         else if(http.readyState != 4)
         {
-            text = '<img src="views/img/load2.gif"></img>';
-            result.html(table);
+            text = '<div class="alert alert-dismissible alert-info center s12 m12">' +
+                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                '<img src="views/img/load2.gif"></img> Cargando...</div>';
+            table.html(text);
         }
     }
     http.open('GET','?get=sitios');
