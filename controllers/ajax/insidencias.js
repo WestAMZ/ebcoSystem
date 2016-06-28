@@ -6,7 +6,7 @@ $("#agregarinsidencia").submit(function ()
     var modal = $('#myModal');
 
     agregarinsidencia('?post=insidencia', data, result, modal, ms);
-
+    loadSitios($('#insidencias'),result,modal,ms);
     return false;
 });
 /*-------
@@ -44,4 +44,34 @@ function agregarinsidencia(url,data,result,modal,message_area_modal)
     http.open('POST',url);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
+}
+
+/*-------
+            AJAX Metodos load
+---------*/
+
+
+function loadSitios(div,result,modal,message_area_modal)
+{
+    http = Connect();
+    http.onreadystatechange = function()
+    {
+        if(http.readyState == 4 && http.status ==200)
+        {
+            table.html(http.responseText);
+            message_area_modal.html("<img src='views/img/success.png'></img> La insidencia ha sido publicada satisfactoriamente");
+            modal.openModal();
+            result.html('');
+        }
+        else if(http.readyState != 4)
+        {
+            text = '<div class="alert alert-dismissible alert-info center s12 m12">' +
+                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                '<img src="views/img/load2.gif"></img> Cargando...</div>';
+            div.html(text);
+        }
+    }
+    http.open('GET','?get=insidencias');
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(null);
 }
