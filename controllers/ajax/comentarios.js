@@ -1,8 +1,12 @@
 $(".formcomentario").submit(function ()
 {
     var data = $(this).serialize();
-    result = $(this).children('.result-comentario');
-    agregarcomentario('?post=comentario', data, result, $('#myModal'), null);
+    var id = $(this).children("[name = 'Id_Insidencia']").val();
+    var result = $(this).children('.result-comentario');
+    var comentarios = $(this).children('.collection');
+    agregarcomentario('?post=comentario', data, result, $('#myModal'), $('#message'));
+    //loadComentarios(comentarios,result,id);
+    window.location.reload();
     return false;
 });
 /*-------
@@ -40,3 +44,32 @@ function agregarcomentario(url,data,result,modal,message_area_modal)
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
 }
+
+/*-------
+            AJAX Metodos load
+---------*/
+
+
+function loadComentarios(div,result , id)
+{
+    http = Connect();
+    http.onreadystatechange = function()
+    {
+        if(http.readyState == 4 && http.status ==200)
+        {
+            div.html(http.responseText);
+            result.html('');
+        }
+        else if(http.readyState != 4)
+        {
+            text = '<div class="alert alert-dismissible alert-info center s12 m12">' +
+                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                '<img src="views/img/load2.gif"></img> Cargando...</div>';
+            div.html(text);
+        }
+    }
+    http.open('GET','?get=comentarios&id='+ id);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(null);
+}
+

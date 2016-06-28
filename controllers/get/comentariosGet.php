@@ -3,8 +3,8 @@
 include_once(MODELS_DIR . 'insidencia.php');
 include_once(MODELS_DIR . 'usuario.php');
 include_once(MODELS_DIR . 'comentario.php');
-
-$comentarios = Comentario::getComentarios($insidencia->getId_Insidencia());
+$id_insidencia =  (isset($insidencia) )? $insidencia->getId_Insidencia() : $_GET['id'];
+$comentarios = Comentario::getComentarios($id_insidencia);
 
 foreach ($comentarios as &$comentario)
     {
