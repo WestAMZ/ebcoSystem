@@ -4,6 +4,7 @@ $("#agregarinsidencia").submit(function ()
     result = $('#result');
     var ms = $('#message');
     var modal = $('#myModal');
+
     agregarinsidencia('?post=insidencia', data, result, modal, ms);
 
     return false;
