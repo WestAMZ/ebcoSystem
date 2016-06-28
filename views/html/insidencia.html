@@ -183,5 +183,19 @@
     </div>
     -->
         <div>
+<<<<<<< HEAD
             <script src="<?php echo(AJAX_DIR)?>insidencias.js">
+=======
+            <script>
+                $("#agregarinsidencia").submit(function () {
+                    var data = $("#agregarinsidencia").serialize();
+                    result = $('#result');
+                    var ms = $('#message');
+                    var modal = $('#myModal');
+
+                    agregarinsidencia('?post=insidencia', data, result, modal, ms);
+
+                    return false;
+                });
+>>>>>>> origin/master
             </script>

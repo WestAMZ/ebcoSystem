@@ -81,5 +81,23 @@ class Comentario
         Connection::close();
         return $comentarios;
     }
+    function saveComentario()
+    {
+        $added = false;
+        Connection::connect();
+        try
+        {
+            $query = "INSERT INTO comentario(`fecha`,`contenido`,`id_insidencias`,`id_usuario`,`Adjunto`) VALUES(CURRENT_DATE,'$this->contenido','$this->id_incidencia','$this->usuario',null)";
+             $result = Connection :: getConnection() -> query($query);
+            $added = true;
+        }catch(Exception $e)
+        {
+            $this->add_error = '<div class="alert alert-dismissible alert-danger">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    ha ocurrido un error !! </div>';
+        }
+        Connection::close();
+         return $added;
+    }
 }
 ?>
