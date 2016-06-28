@@ -15,7 +15,9 @@
                 <div class="card-content" style="height:auto;">
                     <div class="row">
                         <div class="col s2">
-                            <img src="<?php echo(PROFILE_DIR . (Usuario :: getUsuarioById($insidencia->getId_Usuario()))->getFoto()) ?>" class="circle responsive-img">
+
+                            <div class="profile-preview-mini" style="background:url(<?php echo(PROFILE_DIR . (Usuario :: getUsuarioById($insidencia->getId_Usuario()))->getFoto())?>)">
+                            </div>
                         </div>
                         <div class="col s10 left-align">
                             <p class="grey-text text-darken-4 margin">
@@ -48,42 +50,15 @@
                         <button class="btn-floating btn-large waves-effect waves-light red tooltipped" type="submit" data-position="top" data-delay="50" data-tooltip="Enviar comentario"><i class="material-icons">send</i></button>
                     </div>
                     <input type="hidden" name="Id_Insidencia" value="<?php echo($insidencia->getId_Insidencia()) ?>">
-                    <div id="result2">
+                    <div class="result-comentario">
                     </div>
                 </form>
-
-                <script>
-                    $(".formcomentario").submit(function () {
-                        var data = $(this).serialize();
-                        result = $('#result2');
-                        agregarcomentario('?post=comentario', data, result, $('#myModal'), null);
-                        return false;
-                    });
-                </script>
 
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4 left-align">Comentarios<i class="material-icons right">close</i></span>
                     <ul class="collection">
-                        <?php
-                        $comentarios = Comentario::getComentarios($insidencia->getId_Insidencia());
 
-                        foreach ($comentarios as &$comentario)
-                        {
-
-                    ?>
-                            <li class="collection-item avatar">
-                                <img src="<?php echo(PROFILE_DIR . (Usuario::getUsuarioById($comentario->getUsuario()))->getFoto())?>" alt="" class="circle responsive-img">
-                                <span class="title green-text left"> <?php echo(Usuario::getNameUser($comentario->getUsuario()))?> </span>
-                                <br>
-                                <p class="left-align">
-                                    <?php echo($comentario->getContenido()) ?>
-                                </p>
-                            </li>
-
-                            <?php
-
-                        }
-                    ?>
+                        <?php include( GET_DIR . 'comentariosGet.php')?>
 
                     </ul>
                 </div>

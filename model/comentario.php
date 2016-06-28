@@ -7,6 +7,7 @@ class Comentario
     var $usuario;
     var $id_incidencia;
 
+    public function __construct(){}
     function __contruct($id_comentario, $fecha, $contenido, $usuario, $id_incidencia)
     {
         $this->id_comentario = $id_comentario;
@@ -75,7 +76,13 @@ class Comentario
         $comentarios = array();
         while($row = $result->fetch_assoc())
         {
-            $comentario = new Comentario($row['id_comentario'],$row['fecha'],$row['contenido'],$row['id_usuario'],$row['id_insidencias']);
+            $comentario = new Comentario();
+            $comentario->setIdComentario($row['id_comentario']);
+            $comentario->setFecha($row['fecha']);
+            $comentario->setContenido($row['contenido']);
+            $comentario->setUsuario($row['id_usuario']);
+            $comentario->setId_Incidencia($row['id_insidencias']);
+            // $comentario = new Comentario($row['id_comentario'],$row['fecha'],$row['contenido'],$row['id_usuario'],$row['id_insidencias']);
 
             array_push($comentarios,$comentario);
 

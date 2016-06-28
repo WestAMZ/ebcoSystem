@@ -1,3 +1,10 @@
+$(".formcomentario").submit(function ()
+{
+    var data = $(this).serialize();
+    result = $(this).children('.result-comentario');
+    agregarcomentario('?post=comentario', data, result, $('#myModal'), null);
+    return false;
+});
 /*-------
             AJAX
 ---------*/
