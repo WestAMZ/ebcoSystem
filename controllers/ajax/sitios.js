@@ -1,8 +1,7 @@
 /*-----------
                 ON load
 -------------*/
-$(docuement).ready(
-function()
+$(document).ready(function ()
 {
     $('.sitio').click(
     function (e)
