@@ -90,7 +90,7 @@ function agregarcomentario(url,data,result,modal,message_area_modal)
          {
                 if (http.responseText == 1)
                 {
-                    message_area_modal.html("<img src='views/img/success.png'></img> comentando.. !!");
+                    message_area_modal.html("<img src='views/img/success.png'></img> comentando correctamente !!");
                     modal.openModal();
                     result.html('');
                 } else
@@ -105,7 +105,7 @@ function agregarcomentario(url,data,result,modal,message_area_modal)
         {
             text = '<div class="alert alert-dismissible alert-info">' +
                 '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                '<img src="views/img/load.gif"></img> Posteando comentario ! </div>';
+                '<img src="views/img/load.gif"></img> Procesando informacion ! </div>';
             result.html(text);
         }
     }
