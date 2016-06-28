@@ -6,6 +6,7 @@
     $insidencias = Insidencia :: getInsidencias();
     foreach ($insidencias as &$insidencia)
     {
+
 ?>
 
     <div class="row">
@@ -37,14 +38,29 @@
                         <span class="badge green white-text left-align" style="border-radius:10px"> <?php echo(Comentario :: getTotalComment($insidencia->getId_Insidencia()))?></span>
                         <a class="activator" style="cursor:pointer">Ver Comentarios</a>
                     </div>
+
+
                     <div class="input-field col s10 m8">
-                        <textarea id="comment" row="2" class="materialize-textarea"></textarea>
+                        <textarea id="comment" row="2" class="materialize-textarea" name="comentario" required></textarea>
                         <label for="comment">Comentar</label>
                     </div>
                     <div class="col s1 m1" style="margin-top:40px">
-                        <a class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="top" data-delay="50" data-tooltip="Enviar comentario"><i class="material-icons">send</i></a>
+                        <button class="btn-floating btn-large waves-effect waves-light red tooltipped" type="submit" data-position="top" data-delay="50" data-tooltip="Enviar comentario"><i class="material-icons">send</i></button>
+                    </div>
+                    <input type="hidden" name="Id_Insidencia" value="<?php echo($insidencia->getId_Insidencia()) ?>">
+                    <div id="result2">
                     </div>
                 </form>
+
+                <script>
+                    $("#formcomentario").submit(function () {
+                        var data = $("#formcomentario").serialize();
+                        result = $('#result2');
+                        agregarcomentario('?post=comentario', data, result, $('#myModal'), null);
+                        return false;
+                    });
+                </script>
+
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4 left-align">Comentarios<i class="material-icons right">close</i></span>
                     <ul class="collection">
@@ -53,12 +69,15 @@
 
                         foreach ($comentarios as &$comentario)
                         {
+
                     ?>
                             <li class="collection-item avatar">
                                 <img src="<?php echo(PROFILE_DIR . (Usuario::getUsuarioById($comentario->getUsuario()))->getFoto())?>" alt="" class="circle responsive-img">
                                 <span class="title green-text left"> <?php echo($insidencia->getId_Insidencia())?> </span>
                                 <br>
-                                <p class="left-align"> <?php echo($comentario->getContenido()) ?> </p>
+                                <p class="left-align">
+                                    <?php echo($comentario->getContenido()) ?>
+                                </p>
                             </li>
                             <?php
 
@@ -70,7 +89,8 @@
         </div>
     </div>
 
+
     <?php
 
     }
-?>
+    ?>

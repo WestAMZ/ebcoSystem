@@ -187,7 +187,7 @@
                 $("#agregarinsidencia").submit(function () {
                     var data = $("#agregarinsidencia").serialize();
                     result = $('#result');
-                    agregarinsidencia('?post=insidencia', data, result, $('#myModal'), null);
+                    agregarinsidencia('?post=insidencia', data, result, $('#myModal'),$('#message'));
                     return false;
                 });
             </script>
