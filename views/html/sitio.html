@@ -38,7 +38,7 @@
             <label for="textarea1">Direccion</label>
         </div>
         <div class="row">
-            <table id="sitios" class="col s12 m10 offset-m1 centered bordered">
+            <table id="sitios" class="col s12 m10 offset-m1 centered bordered scroll-y">
                 <thead>
                     <tr>
                         <th data-field="id">No. Sucursal</th>
@@ -47,7 +47,7 @@
                         <th data-field="Pais">Pais</th>
                     </tr>
                 </thead>
-                <tbody id="table">
+                <tbody id="table " >
                     <?php include( GET_DIR . 'sitiosGet.php')?>
                 </tbody>
             </table>
@@ -55,27 +55,6 @@
     </form>
 </div>
 
-<script>
-    $("#formsitio").submit(function () {
-        var data = $("#formsitio").serialize();
-        var result = $('#result');
-        var table = $('#table');
-        var modal = $('#myModal');
-        var ms = $('#message');
-
-        if($('[name = "editar"]').prop('checked') == false)
-        {
-            addsitio('?post=sitio', data, result, modal, ms);
-            setTimeout(loadSitios(table,result,modal, ms,6000));
-        }
-        else
-        {
-            if($('selected').size() == 0)
-            {
-                alert('debe seleccionar el sitio a modificar!');
-            }
-        }
-        return false;
-    });
+<script src="<?php echo(AJAX_DIR)?>sitios.js">
 </script>
 
