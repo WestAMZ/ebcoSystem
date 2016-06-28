@@ -1,3 +1,19 @@
+/*-----------
+                ON load
+-------------*/
+$(docuement).ready(
+function()
+{
+    $('.sitio').click(
+    function (e)
+    {
+        $('.sitio').removeClass('selected');
+        $(this).toggleClass('selected');
+    });
+});
+/*-----------
+                ON submit
+-------------*/
 $("#formsitio").submit(function () {
         var data = $("#formsitio").serialize();
         var result = $('#result');
