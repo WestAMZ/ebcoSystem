@@ -183,11 +183,5 @@
     </div>
     -->
         <div>
-            <script>
-                $("#agregarinsidencia").submit(function () {
-                    var data = $("#agregarinsidencia").serialize();
-                    result = $('#result');
-                    agregarinsidencia('?post=insidencia', data, result, $('#myModal'), null);
-                    return false;
-                });
+            <script src="<?php echo(AJAX_DIR)?>insidencias.js">
             </script>

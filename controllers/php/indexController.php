@@ -42,19 +42,7 @@
     </div>
 
     <!-- this part is the script to use -->
-    <script>
-        $(document).ready(function () {
-            Materialize.updateTextFields();
-            $('#login_form').submit(function()
-            {
-                var result = $("#result");
-                var data = $('#login_form').serialize();
-                login('?post=login', data, result, $('#myModal'), $('#message'));
-                return false;
-            });
-        });
-    </script>
-    <script src="js/login.js">
+    <script src="<?php echo(AJAX_DIR) ?>login.js">
     </script>
 </body>
 
