@@ -68,13 +68,15 @@ class Comentario
     }
     static function getComentarios($idinsidencia)
     {
+
         Connection::connect();
-        $query = "SELECT `id_comentario` AS id_comentario,`fecha` as fecha,`contenido` as contenido,`id_insidencias` as id_insidencia,`id_usuario` as id_usuario FROM `comentario` WHERE `id_insidencias` = '$idinsidencia'";
+        $query = "SELECT `id_comentario`,`fecha`,`contenido`,`id_usuario`,`id_insidencias` FROM `comentario` WHERE `id_insidencias` = '$idinsidencia'";
         $result = Connection::getConnection()->query($query);
         $comentarios = array();
         while($row = $result->fetch_assoc())
         {
-            $comentario = new Comentario($row['id_comentario'],$row['fecha'],$row['contenido'],$row['id_usuario'],$row['id_insidencia']);
+            $comentario = new Comentario($row['id_comentario'],$row['fecha'],$row['contenido'],$row['id_usuario'],$row['id_insidencias']);
+
             array_push($comentarios,$comentario);
 
         }

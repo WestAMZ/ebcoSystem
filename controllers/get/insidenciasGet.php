@@ -6,6 +6,8 @@
     $insidencias = Insidencia :: getInsidencias();
     foreach ($insidencias as &$insidencia)
     {
+        echo('<br>');
+        echo($insidencia->getDescripcion());
 
 ?>
 
@@ -73,7 +75,7 @@
                     ?>
                             <li class="collection-item avatar">
                                 <img src="<?php echo(PROFILE_DIR . (Usuario::getUsuarioById($comentario->getUsuario()))->getFoto())?>" alt="" class="circle responsive-img">
-                                <span class="title green-text left"> <?php echo($insidencia->getId_Insidencia())?> </span>
+                                <span class="title green-text left"> <?php echo(Usuario::getNameUser($comentario->getUsuario()))?> </span>
                                 <br>
                                 <p class="left-align">
                                     <?php echo($comentario->getContenido()) ?>
@@ -93,6 +95,5 @@
 
 
     <?php
-
     }
-    ?>
+
