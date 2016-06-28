@@ -58,7 +58,7 @@ function loadSitios(div,result,modal,message_area_modal)
     {
         if(http.readyState == 4 && http.status ==200)
         {
-            table.html(http.responseText);
+            div.html(http.responseText);
             message_area_modal.html("<img src='views/img/success.png'></img> La insidencia ha sido publicada satisfactoriamente");
             modal.openModal();
             result.html('');

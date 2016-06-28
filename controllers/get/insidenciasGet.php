@@ -6,8 +6,6 @@
     $insidencias = Insidencia :: getInsidencias();
     foreach ($insidencias as &$insidencia)
     {
-        echo('<br>');
-        echo($insidencia->getDescripcion());
 
 ?>
 

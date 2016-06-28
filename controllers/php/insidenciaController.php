@@ -7,6 +7,7 @@
         App::getLeftMain();
         App::getRightMain();
         App::getInsidencia();
+        App::getModal();
 ?>
 
     </div>
