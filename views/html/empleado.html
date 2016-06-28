@@ -26,7 +26,9 @@
             <input id="icon_prefix" type="text" class="validate center" name="apellido1" required>
             <label for="icon_prefix">Primer Apellido</label>
         </div>
-        <div class="input-field col s6 m2 offset-m1">
+    </div>
+    <div class="row">
+        <div class="input-field col s6 m2">
             <input id="icon_prefix" type="text" class="validate center" name="apellido2">
             <label for="icon_prefix">Segundo Apellido</label>
         </div>
@@ -36,27 +38,29 @@
         </div>
         <div class="input-field col s6 m2">
             <select>
-                <option value="" disabled selected>Jefe</option>
+                <option value="" selected>Cargo</option>
                 <option value="1">Supervisor</option>
                 <option value="2">Bodega</option>
                 <option value="3">Vendedor</option>
             </select>
         </div>
-         <div class="input-field col s6 m2">
-            <input id="icon_prefix" type="text" class="validate center" name="telefono" pattern="[0-9]{8}">
+        <div class="input-field col s6 m2">
+            <select>
+                <option value="" selected>Jefe</option>
+                <option value="1">Ricardo</option>
+                <option value="2">Eleazar</option>
+                <option value="3">Westly</option>
+            </select>
+        </div>
+
+        <div class="input-field col s6 m2 offset-m1">
+            <input id="icon_prefix" type="text" class="validate center" name="telefono" pattern="[0-9]{7}">
             <label for="icon_prefix" data-error="Telefono invalido" data-success="Correcto">Inss</label>
         </div>
-        <button class="btn-floating btn-large waves-effect waves-light green tooltipped" type="submit" data-position="top" data-delay="50" data-tooltip="Agregar">
-            <i class="material-icons">add</i>
-        </button>
-        <button class="btn-floating btn-large waves-effect waves-light red tooltipped" data-position="top" data-delay="50" data-tooltip="Modificar">    <i class="material-icons">edit</i>
-        </button>
     </div>
-<script src="<?php echo(AJAX_DIR)?>empleado.js">
-</script>
-
 </form>
 
-</div>
+<script src="<?php echo(AJAX_DIR)?>empleado.js"></script>
 
+</div>
 </div>
