@@ -79,10 +79,12 @@
                                     <?php echo($comentario->getContenido()) ?>
                                 </p>
                             </li>
+
                             <?php
 
                         }
                     ?>
+
                     </ul>
                 </div>
             </div>
