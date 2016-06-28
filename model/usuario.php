@@ -8,6 +8,8 @@ class Usuario
     var $role;
     var $estado;
     var $id_empleado;
+
+    public function __construct(){}
     function __contruct($id_usuario, $correo, $contrasena, $foto, $role, $estado, $id_empleado)
     {
         $this->id_usuario = $id_usuario;
@@ -20,7 +22,7 @@ class Usuario
     }
     function setIdUsuario($id_usuario)
     {
-        $this->id_usuario = id_usuario;
+        $this->id_usuario = $id_usuario;
     }
     function getIdUsuario()
     {
@@ -86,7 +88,17 @@ class Usuario
 
             $result = Connection::getConnection()->query($query);
             $row=$result->fetch_assoc();
-            $usuario =  new Usuario($row['id_usuario'],$row['$correo'],$row['password'],$row['foto'],$row['role'],$row['estado'],$row['id_empleado']);
+            $usuario =  new Usuario();
+
+            $usuario->setIdUsuario($row['id_usuario']);
+            $usuario->setCorreo($row['correo']);
+            $usuario->setContrasena($row['password']);
+            $usuario->setFoto($row['foto']);
+            $usuario->setRole($row['role']);
+            $usuario->setEstado($row['estado']);
+            $usuario->setIdEmpleado($row['id_empleado']);
+
+        //Usuario($row['id_usuario'],$row['$correo'],$row['password'],$row['foto'],$row['role'],$row['estado'],$row['id_empleado']);
             Connection::close();
             return $usuario;
     }

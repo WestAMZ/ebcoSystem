@@ -10,7 +10,7 @@
 
             self :: connect();
             $pass = self :: codify($pass);
-            $query = "SELECT id_usuario,password,role,id_empleado FROM usuario  WHERE correo = '$correo' ";
+            $query = "SELECT id_usuario,password,role,id_empleado,foto FROM usuario  WHERE correo = '$correo' ";
             $result = self :: getConnection() ->query($query);
             if($result->num_rows > 0)
             {
@@ -27,6 +27,7 @@
                     $_SESSION['id_usuario'] = $row['id_usuario'];
                     $_SESSION['role'] = $row['role'];
                     $_SESSION['id_empleado'] = $row['id_empleado'];
+                    $_SESSION['foto'] = $row['foto'];
                     $_SESSION['hora_conexion'] = date("Y-m-d") .' '. date("h:i:sa");
                     echo 1;
                 }
@@ -74,6 +75,7 @@
             $_SESSION['id_user'] = null;
             $_SESSION['id_empleado'] = null;
             $_SESSION['role'] = null;
+            $_SESSION['foto'] = null;
             session_unset();
             session_destroy();
             header('Location: ?view=index');

@@ -15,7 +15,7 @@
                 <div class="card-content" style="height:auto;">
                     <div class="row">
                         <div class="col s2">
-                            <img src="<?php echo(PROFILE_DIR . ((Usuario :: getUsuarioById($insidencia->getId_Usuario()))->getFoto())) ?>" class="circle responsive-img">
+                            <img src="<?php echo(PROFILE_DIR . (Usuario :: getUsuarioById($insidencia->getId_Usuario()))->getFoto()) ?>" class="circle responsive-img">
                         </div>
                         <div class="col s10 left-align">
                             <p class="grey-text text-darken-4 margin">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <form id="formcomentario" class="card-action row">
+                <form class="formcomentario" id="formcomentario" class="card-action row">
                     <div class="col s12 m2 card-action-share left-align">
                         <span class="badge green white-text left-align" style="border-radius:10px"> <?php echo(Comentario :: getTotalComment($insidencia->getId_Insidencia()))?></span>
                         <a class="activator" style="cursor:pointer">Ver Comentarios</a>
@@ -53,8 +53,8 @@
                 </form>
 
                 <script>
-                    $("#formcomentario").submit(function () {
-                        var data = $("#formcomentario").serialize();
+                    $(".formcomentario").submit(function () {
+                        var data = $(this).serialize();
                         result = $('#result2');
                         agregarcomentario('?post=comentario', data, result, $('#myModal'), null);
                         return false;
@@ -94,4 +94,3 @@
 
     <?php
     }
-
