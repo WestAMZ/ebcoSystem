@@ -5,7 +5,7 @@
     {
         //$idSitio, $nombre, $pais, $ciudad, $direccion, $telefono, $latitud, $longitud, $estado
         $sitio = new
-         Sitio(null,$_POST['nombre'],$_POST['pais'],$_POST['ciudad'],$_POST['direccion'],$_POST['telefono'],$_POST['latitud'],$_POST['longitud'],1);
+         Sitio(null,$_POST['nombre'],$_POST['pais'],$_POST['ciudad'],$_POST['direccion'],$_POST['telefono'],null,null,1);
 
         if($sitio->saveSitio())
         {

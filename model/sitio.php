@@ -23,8 +23,8 @@
         $this->ciudad = $ciudad;
         $this->direccion = $direccion;
         $this->telefono = $telefono;
-        $this->latitud = $latitud;
-        $this->longitud = $longitud;
+        $this->latitud = 0;
+        $this->longitud = 0;
         $this->estado = $estado;
     }
  // Setter and Getter Methods
