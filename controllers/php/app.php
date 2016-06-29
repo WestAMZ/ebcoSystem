@@ -54,9 +54,9 @@
         {
             include(HTML_DIR . '404.html');
         }
-        static function getModalCargo()
+        static function getModalPuesto()
         {
-            include(HTML_DIR. 'modalcargo.html');
+            include(HTML_DIR. 'modalpuesto.html');
         }
     }
 ?>
