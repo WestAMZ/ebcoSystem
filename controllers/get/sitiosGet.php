@@ -9,6 +9,8 @@
         <td><?php echo($sitio->getName())?></td>
         <td><?php echo($sitio->getCity())?></td>
         <td><?php echo($sitio->getCountry())?></td>
+        <td><?php echo($sitio->getPhone())?></td>
+        <td><?php echo($sitio->getAddress())?></td>
     </tr>
 <?php
     }
