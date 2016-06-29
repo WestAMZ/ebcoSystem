@@ -10,7 +10,7 @@ $(document).ready(function ()
         $('.empleado').removeClass('selected');
         $(this).toggleClass('selected');
         var id_mod = $(this).children(0).html();
-        var form = $('#formempleado');
+        var form = $('#formEmpleado');
         getEmpleado(id_mod);
     });
 });
@@ -94,7 +94,7 @@ function getEmpleado(id)
             //Esperando respuesta
         }
     }
-    http.open('GET','?get=sitio&id='+id);
+    http.open('GET','?get=empleado&id='+id);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(null);
 }
