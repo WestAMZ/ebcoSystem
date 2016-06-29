@@ -120,6 +120,7 @@ function getEmpleado(id)
             $('[name= "id_empleado"]').val(empleado.id_empleado);
             $('[name= "telefono"]').val(empleado.telefono);
             $('[name= "inss"]').val(empleado.inss);
+            $('[name= "correo"]').val(empleado.correo);
 
         }
         else if(http.readyState != 4)
