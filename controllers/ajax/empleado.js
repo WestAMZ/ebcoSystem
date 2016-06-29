@@ -24,7 +24,8 @@ $(document).ready(function()
 /*-----------
                 ------------------ON submit
 -------------*/
-$("#formEmpleado").submit(function () {
+$("#formEmpleado").submit(function ()
+{
         var data = $("#forEmpleado").serialize();
         var result = $('#result');
         var table = $('#table');
@@ -44,7 +45,7 @@ $("#formEmpleado").submit(function () {
             }
             else
             {
-                updateSitio(data, result, modal, ms);
+                updateEmpleado(data, result, modal, ms);
             }
         }
         return false;
@@ -127,4 +128,46 @@ function getEmpleado(id)
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(null);
 }
+
+/*
+    ---------------------------------modificar empleado
+*/
+
+function updateSitio(data,result,modal,message_area_modal)
+{
+    http = Connect();
+    http.onreadystatechange = function ()
+    {
+         if (http.readyState == 4 && http.status == 200)
+         {
+
+            if (http.responseText == 1)
+            {
+                message_area_modal.html("<img src='views/img/success.png'></img> El sito ha sido modificado con exíto");
+                modal.openModal();
+                result.html('');
+            }
+            else
+            {
+                text = '<div class="alert alert-dismissible alert-danger">' +
+                    '<button type="button" class="close" data-dismiss="alert">&times;</button>' + http.responseText + '</div>';
+                    result.html(http.responseText);
+            }
+
+        }
+        else if (http.readyState != 4)
+        {
+            text = '<div class="alert alert-dismissible alert-info">' +
+                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                '<img src="views/img/load.gif"></img> Procesando acción...</div>';
+            result.html(text);
+        }
+    }
+    http.open('POST','?post=empleado&mod=1');
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(data);
+}
+
+
+
 
