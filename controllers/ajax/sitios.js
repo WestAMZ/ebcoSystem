@@ -1,5 +1,5 @@
 /*-----------
-                ON load
+                -------------------ON load
 -------------*/
 $(document).ready(function ()
 {
@@ -14,7 +14,7 @@ $(document).ready(function ()
     });
 });
 /*-----------
-                ON submit
+                ------------------ON submit
 -------------*/
 $("#formsitio").submit(function () {
         var data = $("#formsitio").serialize();
@@ -25,8 +25,8 @@ $("#formsitio").submit(function () {
 
         if($('[name = "editar"]').prop('checked') == false)
         {
-            addsitio('?post=sitio', data, result, modal, ms);
-            setTimeout(loadSitios(table,result,modal, ms,6000));
+            addsitio(data, result, modal, ms);
+            setTimeout(loadSitios(table,result,modal, ms),3000);
         }
         else
         {
@@ -36,16 +36,16 @@ $("#formsitio").submit(function () {
             }
             else
             {
-                alert('hay un sitio seleccionado!');
+                updateSitio(data, result, modal, ms);
             }
         }
         return false;
     });
 /*-------
-            AJAX
+           ---------------------AJAX
 ---------*/
 
-function addsitio(url,data,result,modal,message_area_modal)
+function addsitio(data,result,modal,message_area_modal)
 {
     http = Connect();
     http.onreadystatechange = function ()
@@ -75,29 +75,29 @@ function addsitio(url,data,result,modal,message_area_modal)
             result.html(text);
         }
     }
-    http.open('POST',url);
+    http.open('POST','?post=sitio');
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
 }
 
 /*-------
-            AJAX Metodos load
+           -------------------- AJAX Metodos load
 ---------*/
 
 
 function loadSitios(table,result,modal,message_area_modal)
 {
-    http = Connect();
-    http.onreadystatechange = function()
+    httpL = Connect();
+    httpL.onreadystatechange = function()
     {
-        if(http.readyState == 4 && http.status ==200)
+        if(httpL.readyState == 4 && httpl.status ==200)
         {
-            table.html(http.responseText);
+            table.html(httpL.responseText);
             message_area_modal.html("<img src='views/img/success.png'></img> El sito ha sido registrado satisfactoriamente");
             modal.openModal();
             result.html('');
         }
-        else if(http.readyState != 4)
+        else if(httpl.readyState != 4)
         {
             text = '<div class="alert alert-dismissible alert-info center s12 m12">' +
                 '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
@@ -105,14 +105,14 @@ function loadSitios(table,result,modal,message_area_modal)
             table.html(text);
         }
     }
-    http.open('GET','?get=sitios');
-    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.send(null);
+    httpL.open('GET','?get=sitios');
+    httpL.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpL.send(null);
 }
 
 
 /*
-    Load sitio unico
+    ----------------------------------Load sitio unico
 */
 
 function getSitio(id)
@@ -125,6 +125,7 @@ function getSitio(id)
             //Respuesta recivida
             var sitio = JSON.parse(http.responseText).sitio[0];
 
+            $('[name= "id_insidencia"]').val(sitio.idSitio);
             $('[name= "nombre"]').val(sitio.nombre);
             $('[name= "pais"]').val(sitio.pais);
             $('[name= "ciudad"]').val(sitio.ciudad);
@@ -139,4 +140,43 @@ function getSitio(id)
     http.open('GET','?get=sitio&id='+id);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(null);
+}
+
+/*
+    ---------------------------------modificar sitio
+*/
+
+function updateSitio(data,result,modal,message_area_modal)
+{
+    http = Connect();
+    http.onreadystatechange = function ()
+    {
+         if (http.readyState == 4 && http.status == 200)
+         {
+
+            if (http.responseText == 1)
+            {
+                message_area_modal.html("<img src='views/img/success.png'></img> El sito ha sido modificado con exíto");
+                modal.openModal();
+                result.html('');
+            }
+            else
+            {
+                text = '<div class="alert alert-dismissible alert-danger">' +
+                    '<button type="button" class="close" data-dismiss="alert">&times;</button>' + http.responseText + '</div>';
+                    result.html(http.responseText);
+            }
+
+        }
+        else if (http.readyState != 4)
+        {
+            text = '<div class="alert alert-dismissible alert-info">' +
+                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                '<img src="views/img/load.gif"></img> Procesando acción...</div>';
+            result.html(text);
+        }
+    }
+    http.open('POST','?post=sitio&mod=1');
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(data);
 }

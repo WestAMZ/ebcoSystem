@@ -4,16 +4,26 @@
     if($_POST)
     {
         //$idSitio, $nombre, $pais, $ciudad, $direccion, $telefono, $latitud, $longitud, $estado
-        $sitio = new
-         Sitio(null,$_POST['nombre'],$_POST['pais'],$_POST['ciudad'],$_POST['direccion'],$_POST['telefono'],null,null,1);
+        if(!isset($_GET['mod']))
+        {
+            $sitio = new
+            Sitio(null,$_POST['nombre'],$_POST['pais'],$_POST['ciudad'],$_POST['direccion'],$_POST['telefono'],null,null,1);
 
-        if($sitio->saveSitio())
-        {
-            echo ('1');
+            if($sitio->saveSitio())
+            {
+                echo ('1');
+            }
+            else
+            {
+                echo ($sitio->add_error());
+            }
         }
-        else
+        //mode 1 : update
+        else if($_GET['mod']==1)
         {
-            echo ($sitio->add_error());
+            $sitio = new Sitio($_POST['id_insidencia'],$_POST['nombre'],$_POST['pais'],$_POST['ciudad'],$_POST['direccion'],$_POST['telefono'],null,null,1);
+            $sitio->updateSitio();
+            echo ('1');
         }
     }
 ?>
