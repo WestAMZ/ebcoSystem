@@ -6,7 +6,9 @@
         if(isset($_GET['id']))
         {
             $id = $_GET['id'];
-            $empleado = Empleado::getEmpleadoById($id);
+            Connection::connet();
+            $query = "";
+            $empleado = result ->feth_assoc();
             echo ('{ "empleado" : [' );
             echo(JSON_encode($empleado));
             echo (']}' );
