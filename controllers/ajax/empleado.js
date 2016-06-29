@@ -21,6 +21,35 @@ $(document).ready(function()
     $('select').material_select();
 });
 
+/*-----------
+                ------------------ON submit
+-------------*/
+$("#formEmpleado").submit(function () {
+        var data = $("#forEmpleado").serialize();
+        var result = $('#result');
+        var table = $('#table');
+        var modal = $('#myModal');
+        var ms = $('#message');
+
+        if($('[name = "editar"]').prop('checked') == false)
+        {
+            addsitio(data, result, modal, ms);
+            setTimeout(loadSitios(table,result,modal, ms),3000);
+        }
+        else
+        {
+            if($('.selected').size() == 0)
+            {
+                alert('debe seleccionar el sitio a modificar!');
+            }
+            else
+            {
+                updateSitio(data, result, modal, ms);
+            }
+        }
+        return false;
+    });
+
 /*=======================================================
                     AJAX PART
 =========================================================*/
