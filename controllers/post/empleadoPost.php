@@ -13,7 +13,7 @@
                 //$id_usuario, $correo, $contrasena, $foto, $role, $estado, $id_empleado
                 $usuario = new Usuario(null,$_POST['correo'],null,null,$_POST['role'],1,null);
 
-                if($usuario->)
+                if($usuario->saveUsuario())
                 {
 
                 }
