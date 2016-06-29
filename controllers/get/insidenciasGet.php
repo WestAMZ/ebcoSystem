@@ -25,7 +25,11 @@
                             </p>
                             <span class="grey-text text-darken-1 ultra-small"><?php echo($insidencia->getFecha())?></span>
 
-                            <p> <a href="<?php echo(FILE_DIR . $insidencia->getAdjunto()) ?>"> <?php echo($insidencia->getAdjunto()) ?></a> </p>
+                            <p>
+                                <a href="<?php echo(FILE_DIR . $insidencia->getAdjunto()) ?>">
+                                    <?php echo($insidencia->getAdjunto()) ?>
+                                </a>
+                            </p>
                         </div>
                     </div>
                     <hr>
@@ -57,7 +61,8 @@
                 </form>
 
                 <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4 left-align">Comentarios<i class="material-icons right">close</i></span>
+                    <p class=" brown-text"><?php echo($insidencia->getDescripcion())?></p>
+                     <span class="card-title grey-text text-darken-4 left-align">Comentarios<i class="material-icons right">close</i></span>
                     <ul class="collection">
 
                         <?php include( GET_DIR . 'comentariosGet.php')?>
