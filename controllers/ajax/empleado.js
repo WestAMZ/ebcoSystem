@@ -116,9 +116,11 @@ function getEmpleado(id)
             $('[name= "nombre2"]').val(empleado.nombre2);
             $('[name= "apellido1"]').val(empleado.apellido1);
             $('[name= "apellido2"]').val(empleado.apellido2);
+            $('[name= "cedula"]').val(empleado.cedula);
             $('[name= "id_empleado"]').val(empleado.id_empleado);
             $('[name= "telefono"]').val(empleado.telefono);
-            $('[name= "cedula"]').val(empleado.cedula);
+            $('[name= "inss"]').val(empleado.inss);
+
         }
         else if(http.readyState != 4)
         {
