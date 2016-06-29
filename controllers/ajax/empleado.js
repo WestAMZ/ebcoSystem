@@ -2,11 +2,9 @@
       $('select').material_select();
   });
 
-<<<<<<< HEAD
   /*=======================================================
                       AJAX PART
   =========================================================*/
-=======
 function agregarEmpleado(data,result,modal,message_area_modal)
 {
     http = Connect();
@@ -40,4 +38,4 @@ function agregarEmpleado(data,result,modal,message_area_modal)
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
 }
->>>>>>> origin/master
+
