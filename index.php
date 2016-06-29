@@ -6,7 +6,15 @@
     {
         if(file_exists(PHP_DIR . strtolower($_GET['view']) . 'Controller.php'))
         {
-            include(PHP_DIR . strtolower($_GET['view']) . 'Controller.php');
+            if(strtolower($_GET['view'])!='index')
+            {
+                Connection::filterAccess();
+                include(PHP_DIR . strtolower($_GET['view']) . 'Controller.php');
+            }
+            else
+            {
+                include(PHP_DIR . strtolower($_GET['view']) . 'Controller.php');
+            }
         }
         else
         {

@@ -342,21 +342,21 @@ h1,h2,h3,h4,h5,h6
     {
         height : calc(100vh - 56px);
     }
-
+}
 /*
     funcionalidad
 */
-    .table tr
+    tr
     {
         cursor: pointer !important;
     }
-    .table tr
+    tr
     {
-        transition: 0.5 ease-in-out all;
+        transition: 0.5s ease-in-out all;
     }
-    .table .selected
+    .selected
     {
         background: #9adcfd !important;
     }
-}
+
 

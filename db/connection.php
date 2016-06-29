@@ -96,7 +96,7 @@
             return $string;
         }
 
-        public static function filterAuthorization()
+        public static function filterAccess()
         {
             #$isSessionActive = (session_status() == PHP_SESSION_ACTIVE);
             $isSessionActive = isset($_SESSION);
@@ -108,13 +108,14 @@
             {
                 if($_SESSION['session']!='active')
                 {
-                    header('Location: ../index.php');
+                    header('Location: index.php');
                 }
             }
             else
             {
-                header('?view=index');
+                    header('Location: index.php');
             }
+
         }
         public static function initSession()
         {

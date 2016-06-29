@@ -145,5 +145,22 @@
         $result = Connection::getConnection()->query($query);
         Connection :: close();
     }
+    function getSitioById($id)
+    {
+        Connection :: connect();
+        $query = "SELECT `id_sitio`, `nombre`, `pais`, `ciudad`, `direccion`, `latitud`, `longitud`, `telefono`, `estado` FROM `sitio` WHERE id_sitio = '$id' ";
+        $result = Connection::getConnection()->query($query);
+
+        $row = $result ->fetch_assoc();
+
+        //$idSitio, $nombre, $pais, $ciudad, $direccion, $telefono, $latitud, $longitud, $estado
+        $sitio = new Sitio( $row['id_sitio'] ,$row['nombre'] , $row['pais'] ,
+        $row['ciudad'],$row['direccion'] , $row['latitud'] , $row['longitud'] ,
+        $row['telefono'],$row['estado']);
+
+
+        Connection ::close();
+        return $sitio;
+    }
 }
 ?>
