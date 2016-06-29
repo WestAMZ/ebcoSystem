@@ -123,13 +123,12 @@ h1,h2,h3,h4,h5,h6
 #right-main
 {
     background: #dedede;
-    width: 80%;
+    width: calc(100% - 250px);
     overflow: hidden;
 }
 #left-main
 {
-    width: 20%;
-    min-width: 250px;
+    width: 250px;
     overflow: hidden;
     background: white;
 }
@@ -316,7 +315,7 @@ h1,h2,h3,h4,h5,h6
 /*
     --Responsive
 */
-@media screen and (max-width: 750px)
+@media screen and (max-width: 1000px)
 {
     #left-main
     {
