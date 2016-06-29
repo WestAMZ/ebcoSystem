@@ -58,6 +58,26 @@
             <label for="icon_prefix" data-error="Telefono invalido" data-success="Correcto">Inss</label>
         </div>
     </div>
+    <div class="input-field col s6 m4">
+            <input id="icon_prefix" type="text" class="validate center" name="corrreo" required>
+            <label for="icon_prefix">Correo</label>
+        </div>
+    <table id="empleados" class="responsive-table highlight" style="margin: 20px auto;">
+            <thead>
+                <tr>
+                    <th data-field="id">N. Empleado</th>
+                    <th data-field="cedula">Numero Cedula</th>
+                    <th data-field="nombre">Nombre</th>
+                    <th data-field="correo">Correo</th>
+                    <th data-field="celular">Celular</th>
+                    <th data-field="fecha">Fecha Ingreso</th>
+                </tr>
+            </thead>
+
+            <tbody id="table">
+                <?php include(GET_DIR.'empleadosGet.php')?>
+            </tbody>
+        </table>
 </form>
 
 <script src="<?php echo(AJAX_DIR)?>empleado.js"></script>
