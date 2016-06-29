@@ -125,7 +125,8 @@ ORDER BY id_insidencia DESC";
         }
         static function uploadfile($filename)
         {
-            $target_file = FILE_DIR . basename($_FILES["$filename"]["name"]);
+            $target_file = FILE_DIR . basename($filename["name"]);
+            echo ( $target_file);
             $uploadOk = false;
 
                 if (move_uploaded_file($_FILES["$filename"]["tmp_name"], $target_file))
