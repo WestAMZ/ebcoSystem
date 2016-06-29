@@ -1,6 +1,6 @@
 <?php
     include(MODELS_DIR . 'insidencia.php');
-    include(MODELS_DIR . 'usuario.php');
+    include_once (MODELS_DIR . 'usuario.php');
     include(MODELS_DIR . 'comentario.php');
 
     $insidencias = Insidencia :: getInsidencias();
