@@ -1,4 +1,5 @@
-<form class="col s10 offset-s1 panelbackground">
+<form class="col s10 offset-s1 panelbackground" id="formEmpleado">
+    <input type="hidden" name='id_empleado'>
     <div class="row">
         <div id="submenus" class="col s5 m2" style="border:1px solid black !important; margin:20px !important;">
             <div class="switch">
@@ -58,6 +59,7 @@
             <label for="icon_prefix" data-error="Telefono invalido" data-success="Correcto">Inss</label>
         </div>
     </div>
+    <button class="btn-floating btn-large waves-effect waves-light green tooltipped" type="submit" data-position="top" data-delay="50" data-tooltip="Agregar"><i class="material-icons">done</i></button>
     <div class="input-field col s6 m4">
             <input id="icon_prefix" type="text" class="validate center" name="corrreo" required>
             <label for="icon_prefix">Correo</label>
