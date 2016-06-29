@@ -175,12 +175,13 @@
         static function getEmpleados()
         {
              Connection :: connect();
-             $query = "SELECT e.id_empleado as id_empleado, e.cedula as cedula, e.nombre1 as nombre1, e.nombre2 as nombre2, e.apellido1 as apellido1, e.apellido2 as apellido2, e.telefono as telefono, e.id_puesto as id_puesto, e.id_sitio as id_sitio, e.id_jefe as id_jefe, e.inss as inss, e.fecha_ingreso as fecha_Ingreso, e.estado as estado FROM empleado e";
+             $query = "SELECT `id_empleado`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `cedula`, `telefono`, `firma`, `id_puesto`, `id_sitio`, `id_jefe`, `inss`, `fecha_ingreso`, `estado` FROM `empleado` ";
              $result = Connection::getConnection()->query($query);
              $empleados = array();
              while( $row = $result ->fetch_assoc())
              {
-                $empleado = new Empleado($row['id_empleado'],$row['nombre1'],$row['nombre2'],$row['apellido1'],$row['apellido2'],$row['telefono'],$row['id_puesto'],$row['id_sitio'],$row['id_jefe'],$row['inss'],$row['fecha_Ingreso'],$row['estado']);
+                //$id_empleado,$nombre1,$nombre2,$apellido1,$apellido2,$cedula,$telefono,$firma,$id_puesto,$id_sitio,$id_jefe,$inss,$fecha_ingreso,$estado
+                 $empleado = new Empleado($row['id_empleado'],$row['nombre1'],$row['nombre2'],$row['apellido1'],$row['apellido2'],$row['cedula'],$row['cedula'],$row['telefono'],$row['id_puesto'],$row['id_sitio'],$row['id_jefe'],$row['inss'],$row['fecha_ingreso'],$row['estado']);
                 array_push($empleados,$empleado);
              }
             Connection ::close();

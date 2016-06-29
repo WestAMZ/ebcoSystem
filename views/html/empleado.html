@@ -58,6 +58,49 @@
             <label for="icon_prefix" data-error="Telefono invalido" data-success="Correcto">Inss</label>
         </div>
     </div>
+    <div class="input-field col s6 m4">
+            <input id="icon_prefix" type="text" class="validate center" name="corrreo" required>
+            <label for="icon_prefix">Correo</label>
+        </div>
+    <table id="empleados" class="responsive-table highlight" style="margin: 20px auto;">
+            <thead>
+                <tr>
+                    <th data-field="id">N. Empleado</th>
+                    <th data-field="cedula">Numero Cedula</th>
+                    <th data-field="nombre">Nombre</th>
+                    <th data-field="correo">Correo</th>
+                    <th data-field="celular">Celular</th>
+                    <th data-field="fecha">Fecha Ingreso</th>
+                </tr>
+            </thead>
+
+            <tbody id="table">
+                <tr class="empleado">
+                    <td>01</td>
+                    <td>401-180196-0004D</td>
+                    <td>ELeazar Martinez Carballo</td>
+                    <td>meleazarg2112@gmail.com</td>
+                    <td>8894-0159</td>
+                    <td> 18-01-2015</td>
+                </tr>
+                <tr class="empleado">
+                    <td>02</td>
+                    <td>401-180196-0004B</td>
+                    <td>Ricardo Martinez Carballo</td>
+                    <td>ricardom0490@hotmail.com</td>
+                    <td>8502-1379</td>
+                    <td> 08-12-2013</td>
+                </tr>
+                <tr class="empleado">
+                    <td>03</td>
+                    <td>001-120595-0008J</td>
+                    <td>Westly Meza Sotomayor</td>
+                    <td>west2512@gmail.com</td>
+                    <td>8894-0829</td>
+                    <td> 02-04-2016</td>
+                </tr>
+            </tbody>
+        </table>
 </form>
 
 <script src="<?php echo(AJAX_DIR)?>empleado.js"></script>
