@@ -6,7 +6,7 @@
 ?>
         <tr class="empleado">
             <td><?php echo($empleado->getId_Empleado())?></td>
-            <td><?php echo($empleado->getCedula())?></td>
+            <td><?php echo($empleado->getCedula())?></td><!-correo-->
             <td><?php echo($empleado->getFullName())?></td>
             <td><?php echo($empleado->getCedula())?></td>
             <td><?php echo($empleado->getTelefono())?></td>
