@@ -162,5 +162,13 @@
         Connection ::close();
         return $sitio;
     }
+    function cambiarEstado($id,$nuevo_estado)
+    {
+        Connection::connect();
+        $query='UPDATE `sitio` SET `estado`= '$nuevo_estado' WHERE id_sitio = '$id'';
+        Connection::geConnection()->query($query);
+        Connection::close();
+    }
+
 }
 ?>

@@ -9,5 +9,5 @@
     App::getRightMain();
     App::getEmployee();
     App::getModal();
-    include(HTML_DIR.'modalcargo.html');
+    include(HTML_DIR.'modalpuesto.html');
 ?>
