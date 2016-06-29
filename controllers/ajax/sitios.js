@@ -9,7 +9,8 @@ $(document).ready(function ()
         $('.sitio').removeClass('selected');
         $(this).toggleClass('selected');
         var id_mod = $(this).children(0).html();
-        alert(id_mod);
+        var form = $('#formsitio');
+        getSitio(id_mod);
     });
 });
 /*-----------
@@ -101,6 +102,37 @@ function loadSitios(table,result,modal,message_area_modal)
         }
     }
     http.open('GET','?get=sitios');
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(null);
+}
+
+
+/*
+    Load sitio unico
+*/
+
+function getSitio(id)
+{
+    http = Connect();
+    http.onreadystatechange = function()
+    {
+        if(http.readyState == 4 && http.status ==200)
+        {
+            //Respuesta recivida
+            var sitio = JSON.parse(http.responseText).sitio[0];
+
+            $('[name= "nombre"]').val(sitio.nombre);
+            $('[name= "pais"]').val(sitio.pais);
+            $('[name= "ciudad"]').val(sitio.ciudad);
+            $('[name= "telefono"]').val(sitio.telefono);
+            $('[name= "direccion"]').val(sitio.direccion);
+        }
+        else if(http.readyState != 4)
+        {
+            //Esperando respuesta
+        }
+    }
+    http.open('GET','?get=sitio&id='+id);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(null);
 }
