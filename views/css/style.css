@@ -362,4 +362,10 @@ form
 {
     padding: 30px !important;
 }
+.search
+{
+    border: 1px solid;
+    background: #afe6ff !impotant;
+    height: 200px;
+}
 

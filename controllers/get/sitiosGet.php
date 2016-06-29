@@ -11,6 +11,20 @@
         <td><?php echo($sitio->getCountry())?></td>
         <td><?php echo($sitio->getPhone())?></td>
         <td><?php echo($sitio->getAddress())?></td>
+        <td><a href="?post=sitio&mod=2&id=<?php echo($sitio->getIdSitio())?>">
+            <button class="btn-large">
+                <?php
+                    if($sitio->getStatus()==1)
+                    {
+                        echo('Desabilidar');
+                    }
+                    else
+                    {
+                        echo('Habilitar');
+                    }
+                ?>
+            </button></a></td>
+        <td><?php echo($sitio->getAddress())?></td>
     </tr>
 <?php
     }

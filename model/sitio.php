@@ -96,6 +96,10 @@
     {
         $this->estado = $estado;
     }
+    function getStatus()
+    {
+        return $this->estado ;
+    }
     function saveSitio()
     {
         $added = false;
@@ -165,7 +169,7 @@
     function cambiarEstado($id,$nuevo_estado)
     {
         Connection::connect();
-        $query='UPDATE `sitio` SET `estado`= '$nuevo_estado' WHERE id_sitio = '$id'';
+        $query=" UPDATE `sitio` SET `estado`= $nuevo_estado' WHERE id_sitio = '$id'";
         Connection::geConnection()->query($query);
         Connection::close();
     }
