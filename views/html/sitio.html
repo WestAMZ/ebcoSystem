@@ -1,6 +1,6 @@
 <div id="menu-container">
     <form id="formsitio" class="col s10 m10 offset-m1 offset-s1 panelbackground" method="get" action="">
-       <input type="hidden" value="0" name="id_insidencia">
+        <input type="hidden" value="0" name="id_insidencia">
         <h5 class="center black-text">Gestionar Sitios</h5>
         <hr>
         <div id="result">
@@ -33,21 +33,24 @@
         <div class="col s6 m3 center">
             <button class="btn-floating btn-large waves-effect waves-light green tooltipped" type="submit" data-position="top" data-delay="50" data-tooltip="Agregar"><i class="material-icons">done</i></button>
         </div>
-        <div class="input-field col s8">
+        <div class="input-field col s8 offset-s2">
             <textarea id="textarea1" class="materialize-textarea" name="direccion"></textarea>
             <label for="textarea1">Direccion</label>
         </div>
+
         <div class="row">
-            <table id="sitios" class="col s12 m10 offset-m1 centered bordered scroll-y">
+            <table id="sitios" class="col s12 m12 centered bordered scroll-y">
                 <thead>
                     <tr>
                         <th data-field="id">No. Sucursal</th>
                         <th data-field="Nombre">Nombre</th>
                         <th data-field="ciudad">Ciudad</th>
                         <th data-field="Pais">Pais</th>
+                        <th data-field="Telefono">Telefono</th>
+                        <th data-field="Direccion">Direccion</th>
                     </tr>
                 </thead>
-                <tbody id="table " >
+                <tbody id="table ">
                     <?php include( GET_DIR . 'sitiosGet.php')?>
                 </tbody>
             </table>
@@ -57,4 +60,3 @@
 
 <script src="<?php echo(AJAX_DIR)?>sitios.js">
 </script>
-
