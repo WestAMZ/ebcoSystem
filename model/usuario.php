@@ -80,6 +80,28 @@ class Usuario
     {
         return $id_empleado;
     }
+
+    static function saveUsuario()
+    {
+        $added = false;
+        Connection :: connect();
+        $returned = Connection :: getConnection() -> query("SELECT `correo` FROM `usuario` WHERE `correo` = '$this->correo' LIMIT 1");
+        if(!($returned->num_rows >0))
+        {
+
+        }
+        else
+        {
+            $obj = $returned->fetch_assoc();
+                if(strtolower($obj['correo']) == strtolower($this->correo))
+                    {
+                     $this->add_error = '<div class="alert alert-dismissible alert-danger">
+                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                     ya existe un usuario con este correo electronico </div>';
+                    }
+        }
+    }
+
     //$id_usuario, $correo, $contrasena, $foto, $role, $estado, $id_empleado
     static function getUsuarioById($id)
     {
