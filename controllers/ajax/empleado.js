@@ -11,7 +11,7 @@ $(document).ready(function ()
         $(this).toggleClass('selected');
         var id_mod = $(this).children(0).html();
         var form = $('#formempleado');
-        getSitio(id_mod);
+        getEmpleado(id_mod);
     });
 });
 
@@ -65,5 +65,37 @@ function agregarEmpleado(data,result,modal,message_area_modal)
     http.open('POST','?post=empleado');
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
+}
+
+
+/*
+    ----------------------------------Load sitio unico
+*/
+
+function getEmpleado(id)
+{
+    http = Connect();
+    http.onreadystatechange = function()
+    {
+        if(http.readyState == 4 && http.status ==200)
+        {
+            //Respuesta recivida
+            var sitio = JSON.parse(http.responseText).empleado[0];
+
+            $('[name= "id_insidencia"]').val(sitio.idSitio);
+            $('[name= "nombre"]').val(sitio.nombre);
+            $('[name= "pais"]').val(sitio.pais);
+            $('[name= "ciudad"]').val(sitio.ciudad);
+            $('[name= "telefono"]').val(sitio.telefono);
+            $('[name= "direccion"]').val(sitio.direccion);
+        }
+        else if(http.readyState != 4)
+        {
+            //Esperando respuesta
+        }
+    }
+    http.open('GET','?get=sitio&id='+id);
+    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    http.send(null);
 }
 

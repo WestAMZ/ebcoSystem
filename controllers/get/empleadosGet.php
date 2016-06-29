@@ -1,5 +1,5 @@
 <?php
-    include(MODELS_DIR . 'empleado.php');
+    include_once(MODELS_DIR . 'empleado.php');
     $empleados = Empleado::getEmpleados();
     foreach( $empleados as &$empleado)
     {
