@@ -1,3 +1,4 @@
+<div id="menu-container">
 <form class="col s10 offset-s1 panelbackground" id="formEmpleado">
     <input type="hidden" name='id_empleado'>
     <div class="row">
@@ -38,7 +39,7 @@
             <label for="icon_prefix" data-error="Telefono invalido" data-success="Correcto">Telefono</label>
         </div>
         <div class="input-field col s6 m2">
-            <select>
+            <select class="browser-default">
                 <option value="" selected>Cargo</option>
                 <option value="1">Supervisor</option>
                 <option value="2">Bodega</option>
@@ -46,7 +47,7 @@
             </select>
         </div>
         <div class="input-field col s6 m2">
-            <select>
+            <select class="browser-default">
                 <option value="" selected>Jefe</option>
                 <option value="1">Ricardo</option>
                 <option value="2">Eleazar</option>
@@ -84,5 +85,6 @@
 
 <script src="<?php echo(AJAX_DIR)?>empleado.js"></script>
 
+</div>
 </div>
 </div>

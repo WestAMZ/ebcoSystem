@@ -195,7 +195,7 @@
             $returned = Connection :: getConnection() -> query("SELECT cedula as cedula FROM empleado   LIMIT 1");
             if(!($returned->num_rows >0))
             {
-                    $query = "INSERT INTO   empleado(`id_empleado`,`nombre1`,`nombre2`,`apellido1`,`apellido2`,`cedula`,`telefon  o`,`firma`,`id_puesto``id_sitio`,`id_jefe`,`inss`,`fecha_ingreso`,`estado`)   VALUES('$this->id_empleado','$this->nombre1','$this->nombre2','$this- >apellido1','$this->apellido2','$this->cedula','$this->telefono','$this- >firma','$this->id_puesto','$this->id_sitio','$this->id_jefe','$this->inss','$this-  >fecha_ingreso','$this->estado')";
+                    $query = "INSERT INTO   empleado(`id_empleado`,`nombre1`,`nombre2`,`apellido1`,`apellido2`,`cedula`,`telefon  o`,`firma`,`id_puesto``id_sitio`,`id_jefe`,`inss`,`fecha_ingreso`,`estado`)   VALUES('$this->id_empleado','$this->nombre1','$this->nombre2','$this- >apellido1','$this->apellido2','$this->cedula','$this->telefono','$this- >firma','$this->id_puesto','$this->id_sitio','$this->id_jefe','$this->inss',CURRENT_DATE,'$this->estado')";
                     $result = Connection :: getConnection() -> query($query);
                     $added = true;
             }
