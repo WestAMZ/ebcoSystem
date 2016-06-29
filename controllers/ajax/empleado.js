@@ -35,7 +35,7 @@ $("#formEmpleado").submit(function ()
         if($('[name = "editar"]').prop('checked') == false)
         {
             agregarEmpleado(data, result, modal, ms);
-            setTimeout(loadSitios(table,result,modal, ms),3000);
+            //setTimeout(loadSitios(table,result,modal, ms),3000);
         }
         else
         {
@@ -114,7 +114,11 @@ function getEmpleado(id)
 
             $('[name= "nombre1"]').val(empleado.nombre1);
             $('[name= "nombre2"]').val(empleado.nombre2);
-            $('[name= "apellido1"]').val(empleado.apellido1)
+            $('[name= "apellido1"]').val(empleado.apellido1);
+            $('[name= "apellido2"]').val(empleado.apellido2);
+            $('[name= "id_empleado"]').val(empleado.id_empleado);
+            $('[name= "telefono"]').val(empleado.telefono);
+            $('[name= "cedula"]').val(empleado.cedula);
         }
         else if(http.readyState != 4)
         {
