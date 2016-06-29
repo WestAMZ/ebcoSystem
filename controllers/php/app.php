@@ -54,5 +54,9 @@
         {
             include(HTML_DIR . '404.html');
         }
+        static function getModalCargo()
+        {
+            include(HTML_DIR. 'modalcargo.html');
+        }
     }
 ?>
