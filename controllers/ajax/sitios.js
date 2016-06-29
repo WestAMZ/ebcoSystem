@@ -4,7 +4,7 @@
 $(document).ready(function ()
 {
     $('.sitio').click(
-    function (e)
+    function ()
     {
         $('.sitio').removeClass('selected');
         $(this).toggleClass('selected');
@@ -30,9 +30,13 @@ $("#formsitio").submit(function () {
         }
         else
         {
-            if($('selected').size() == 0)
+            if($('.selected').size() == 0)
             {
                 alert('debe seleccionar el sitio a modificar!');
+            }
+            else
+            {
+                alert('hay un sitio seleccionado!');
             }
         }
         return false;

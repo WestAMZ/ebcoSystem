@@ -68,13 +68,13 @@
     {
         return $this->address;
     }
-    function setPhone($phone)
+    function setTelefono($phone)
     {
-        $this->phone = $phone;
+        $this->telefono = $phone;
     }
     function getPhone()
     {
-        return $this->phone;
+        return $this->telefono;
     }
     function setLatitud($latitud)
     {
@@ -130,7 +130,7 @@
         while( $row = $result ->fetch_assoc())
         {
             //$idSitio, $nombre, $pais, $ciudad, $direccion, $telefono, $latitud, $longitud, $estado
-            $sitio = new Sitio( $row['id_sitio'] ,$row['nombre'] , $row['pais'] ,$row['ciudad'] ,$row['direccion'] , $row['latitud'] , $row['longitud'] , $row['telefono'] , $row['estado']);
+            $sitio = new Sitio( $row['id_sitio'] ,$row['nombre'] , $row['pais'] ,$row['ciudad'] ,$row['direccion'] , $row['telefono'] ,$row['latitud'] , $row['longitud']  , $row['estado']);
             array_push($sitios,$sitio);
         }
         Connection ::close();
@@ -155,8 +155,8 @@
 
         //$idSitio, $nombre, $pais, $ciudad, $direccion, $telefono, $latitud, $longitud, $estado
         $sitio = new Sitio( $row['id_sitio'] ,$row['nombre'] , $row['pais'] ,
-        $row['ciudad'],$row['direccion'] , $row['latitud'] , $row['longitud'] ,
-        $row['telefono'],$row['estado']);
+        $row['ciudad'],$row['direccion'] , $row['telefono'] ,$row['latitud'] , $row['longitud'] ,
+        $row['estado']);
 
 
         Connection ::close();
