@@ -8,4 +8,5 @@
     App::getLeftMain();
     App::getRightMain();
     App::getEmployee();
+    App::getModal();
 ?>
