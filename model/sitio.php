@@ -60,13 +60,13 @@
     {
         return $this->ciudad;
     }
-    function setAddress($address)
+    function setAddress($direccion)
     {
-        $this->address = $address;
+        $this->direccion = $direccion;
     }
     function getAddress()
     {
-        return $this->address;
+        return $this->direccion;
     }
     function setTelefono($phone)
     {
