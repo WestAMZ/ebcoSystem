@@ -227,6 +227,12 @@
             Connection::close();
             return $empleado;
         }
-
+        function getUser()
+        {
+            Connection::connect();
+            $query = "";
+            Connection::getConnection()->query($query);
+            Connection::close();
+        }
     }
 ?>
