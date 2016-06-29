@@ -8,6 +8,8 @@ $(document).ready(function ()
     {
         $('.sitio').removeClass('selected');
         $(this).toggleClass('selected');
+        var id_mod = $(this).children(0).html();
+        alert(id_mod);
     });
 });
 /*-----------
