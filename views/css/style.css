@@ -362,4 +362,18 @@ form
 {
     padding: 30px !important;
 }
+#searchtxt
+{
+    width: 20% !important;
+    background-color: white !important;
+    background-image: url('searchicon.png') !important;
+    background-position: 10px 10px !important;
+    background-repeat: no-repeat !important;
+    -webkit-transition: width 0.4s ease-in-out !important;
+    transition: width 0.4s ease-in-out !important;
 
+}
+#searchtxt:focus
+{
+  width: 40% !important;
+}

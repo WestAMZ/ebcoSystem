@@ -35,27 +35,25 @@
         <div class="input-field col s6 m3">
             <input id="icon_prefix" type="text" class="validate center" name="apellido2" placeholder="Segundo Apellido">
         </div>
-        <div class="input-field col s6 m2">
+        <div class="input-field col s6 m3">
             <input id="icon_prefix" type="text" class="validate center" name="telefono" pattern="[0-9]{8}" placeholder="Telefono">
         </div>
-        <div class="input-field col s6 m3">
-            <select class="browser-default">
-                <option value="" selected>Cargo</option>
-                <option value="1">Supervisor</option>
-                <option value="2">Bodega</option>
-                <option value="3">Vendedor</option>
-            </select>
+
+
+            <div class="input-field col s6 m5">
+            <input id="icon_prefix" type="text" class="validate center" name="correo" required placeholder="Correo Electronico">
         </div>
-              <div class="input-field col s6 m2">
-            <a id="btncargo" class="waves-effect waves-light btn">...</a>
+
         </div>
-            </div>
 
 
         <div class="row">
 
-        </div>
-        <div class="input-field col s6 m2">
+            <div class="input-field col s6 m3">
+            <input id="icon_prefix" type="text" class="validate center" name="numero_inss" pattern="[0-9]{7}" placeholder="Numero INSS">
+            </div>
+
+            <div class="input-field col s6 m3">
 
             <select class="browser-default">
                 <option value="" selected>Jefe</option>
@@ -64,6 +62,7 @@
                 <option value="3">Westly</option>
             </select>
         </div>
+
 
         <div class="input-field col s6 m2">
             <select class="browser-default">
@@ -76,15 +75,35 @@
         </div>
 
         <div class="input-field col s6 m2">
-            <input id="icon_prefix" type="text" class="validate center" name="numero_inss" pattern="[0-9]{7}" placeholder="Numero INSS">
+            <select class="browser-default">
+                <option value="" selected>Cargo</option>
+                <option value="1">Supervisor</option>
+                <option value="2">Bodega</option>
+                <option value="3">Vendedor</option>
+            </select>
+        </div>
+
+        <div class="input-field col s6 m2">
+            <a id="btncargo" class="waves-effect waves-light btn">...</a>
+        </div>
+
+            <div class="center">
+            <a class="waves-effect waves-light btn"  style="margin-top: 50px; margin-bottom: 50px; margin-right:250px">Registrar empleado</a>
+            </div>
 
         </div>
-        <button class="btn-floating btn-large waves-effect waves-light green tooltipped" type="submit" data-position="top" data-delay="50" data-tooltip="Agregar"><i class="material-icons">done</i></button>
-        <div class="input-field col s6 m4">
-            <input id="icon_prefix" type="text" class="validate center" name="correo" required placeholder="Correo Electronico">
+
+        <hr>
+        <h3>Control de empleados</h3>
+        <hr>
+
+
+        <div class="center">
+            <i class="material-icons prefix">search</i>
+            <input id="searchtxt" type="text" class="validate center" placeholder="Buscar empleado">
         </div>
 
-        </div>
+
 <table id="empleados" class="responsive-table highlight scroll-y" style="margin: 20px auto;">
     <thead>
         <tr>
@@ -101,6 +120,7 @@
         <?php include(GET_DIR.'empleadosGet.php')?>
     </tbody>
 </table>
+
 </form>
 
 <script src="<?php echo(AJAX_DIR)?>empleado.js"></script>
