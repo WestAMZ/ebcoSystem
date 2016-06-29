@@ -92,8 +92,10 @@ class Usuario
            $returned2 = Connection :: getConnection() -> query("SELECT MAX(id_usuario) as id_usuario FROM usuario");
            $obj = $returned2->fetch_assoc();
 
+            $query = "INSERT INTO usuario(`correo`,`password`,`id_empleado`,`role,``estado`,`foto`) VALUES('$this->correo',null,'$obj['id_usuario']','$this->role',true,null)";
 
-
+            $result = Connection :: getConnection() -> query($query);
+            $added = true;
         }
         else
         {
@@ -105,6 +107,8 @@ class Usuario
                      ya existe un usuario con este correo electronico </div>';
                     }
         }
+
+        return $added;
     }
 
     //$id_usuario, $correo, $contrasena, $foto, $role, $estado, $id_empleado
