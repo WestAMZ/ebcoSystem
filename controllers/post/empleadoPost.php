@@ -14,6 +14,13 @@
                 $usuario = new Usuario(null,$_POST['correo'],null,null,$_POST['role'],1,null);
 
                 if($usuario->)
+                {
+
+                }
+                else
+                {
+                    echo($usuario->add_error());
+                }
             }
             else
             {
