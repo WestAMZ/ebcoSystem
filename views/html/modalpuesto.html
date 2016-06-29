@@ -4,17 +4,18 @@
     <div class="modal-content">
       <h4>Ingreso de Cargo</h4>
      <div class="row">
-      <form class="col s12">
+      <form class="col s12" id="modalPuesto">
           <div class="input-field col s12">
-          <input id="nombre_cargo" type="text" class="validate">
+          <input id="nombre" type="text" class="validate">
           <label for="last_name">Nombre del cargo</label>
+        </div>
+          <div class="modal-footer">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Agregar</button>
         </div>
       </form>
      </div>
     </div>
-    <div class="modal-footer">
-      <button class="btn waves-effect waves-light" type="submit" name="action">Agregar</button>
-    </div>
+
   </div>
 <script>
     $(document).ready(function ()
@@ -23,9 +24,17 @@
 
         function()
             {
-                $('#modalCargo').openModal();
+                $('#modalPuesto').openModal();
             }
         )
 
+        $('#btncargo').submit(
+
+        function()
+            {
+
+            }
+        )
     })
+
 </script>
