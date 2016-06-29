@@ -23,6 +23,7 @@
         Directorios de recursos alojados
     */
     define('PROFILE_DIR','sources/public/profile/');
+    define('FILE_DIR','sources/public/files/');
     /*
         Información de correo
     */

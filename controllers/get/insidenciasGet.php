@@ -24,6 +24,8 @@
                                 <?php echo(Usuario :: getNameUser($insidencia->getId_Usuario())) ?>
                             </p>
                             <span class="grey-text text-darken-1 ultra-small"><?php echo($insidencia->getFecha())?></span>
+
+                            <p> <a href="<?php echo(FILE_DIR . $insidencia->getAdjunto()) ?>"> <?php echo($insidencia->getAdjunto()) ?></a> </p>
                         </div>
                     </div>
                     <hr>

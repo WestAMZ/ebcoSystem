@@ -96,6 +96,8 @@
                 $query = "INSERT INTO `insidencia`(`fecha`,`descripcion`,`nivel`,`estado`,`id_usuario`,`adjunto`) VALUES(CURRENT_DATE,'$this->descripcion','$this->nivel','$this->estado','$this->id_usuario','$this->adjunto')";
                 $result = Connection :: getConnection() -> query($query);
                 $added = true;
+
+
             }catch(Exception $e)
             {
                 $this->add_error = '<div class="alert alert-dismissible alert-danger">
@@ -121,9 +123,25 @@ ORDER BY id_insidencia DESC";
             Connection ::close();
             return $insidencias;
         }
-        static function uploadfile()
+        static function uploadfile($filename)
         {
+            $target_file = FILE_DIR . basename($_FILES["$filename"]["name"]);
+            $uploadOk = false;
 
+                if (move_uploaded_file($_FILES["$filename"]["tmp_name"], $target_file))
+                {
+                    echo "The file ". basename( $_FILES["$filename"]["name"]). " has been uploaded.";
+                    $uploadOk = true;
+                }
+                else
+                {
+                    echo "Sorry, there was an error uploading your file.";
+                    $uploadOk = false;
+                }
+
+
+
+            return $uploadOk;
         }
 
     }
