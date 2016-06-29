@@ -12,6 +12,7 @@
             echo ('{ "empleado" : [' );
             echo(JSON_encode($empleado));
             echo (']}' );
+            Connection::close();
         }
     }
 ?>
