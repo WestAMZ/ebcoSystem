@@ -90,7 +90,8 @@ class Usuario
         {
 
            $returned2 = Connection :: getConnection() -> query("SELECT MAX(id_usuario) as id_usuario FROM usuario");
-           $obj = $returned->fetch_assoc();
+           $obj = $returned2->fetch_assoc();
+
 
 
         }
