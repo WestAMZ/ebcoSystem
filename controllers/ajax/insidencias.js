@@ -9,6 +9,10 @@ $("#agregarinsidencia").submit(function ()
     loadSitios($('#insidencias'),result,modal,ms);
     return false;
 });
+
+$(document).ready(function(){
+    $('.tooltipped').tooltip({delay: 50});
+  });
 /*-------
             AJAX
 ---------*/

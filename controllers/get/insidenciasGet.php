@@ -19,7 +19,7 @@
                             <div class="profile-preview-mini" style="background:url(<?php echo(PROFILE_DIR . (Usuario :: getUsuarioById($insidencia->getId_Usuario()))->getFoto())?>)">
                             </div>
                         </div>
-                        <div class="col s10 left-align">
+                        <div class="col s8 left-align">
                             <p class="grey-text text-darken-4 margin">
                                 <?php echo(Usuario :: getNameUser($insidencia->getId_Usuario())) ?>
                             </p>
@@ -30,6 +30,16 @@
                                     <?php echo($insidencia->getAdjunto()) ?>
                                 </a>
                             </p>
+                        </div>
+                        <div class="col s2">
+                            <?php
+                                if($insidencia->getId_Usuario() == $_SESSION['id_usuario'])
+                                {
+                            ?>
+                                <a href="#" class=" tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i class="material-icons">edit</i></a>
+                            <?php
+                                }
+                            ?>
                         </div>
                     </div>
                     <hr>
@@ -61,8 +71,10 @@
                 </form>
 
                 <div class="card-reveal">
-                    <p class=" brown-text"><?php echo($insidencia->getDescripcion())?></p>
-                     <span class="card-title grey-text text-darken-4 left-align">Comentarios<i class="material-icons right">close</i></span>
+                    <p class=" brown-text">
+                        <?php echo($insidencia->getDescripcion())?>
+                    </p>
+                    <span class="card-title grey-text text-darken-4 left-align">Comentarios<i class="material-icons right">close</i></span>
                     <ul class="collection">
 
                         <?php include( GET_DIR . 'comentariosGet.php')?>
@@ -72,7 +84,6 @@
             </div>
         </div>
     </div>
-
 
     <?php
     }
