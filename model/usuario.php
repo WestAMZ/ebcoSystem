@@ -88,7 +88,8 @@ class Usuario
         $returned = Connection :: getConnection() -> query("SELECT `correo` FROM `usuario` WHERE `correo` = '$this->correo' LIMIT 1");
         if(!($returned->num_rows >0))
         {
-            $row = $returned->fetch_assoc();
+           $query = "SELECT MAX(id_usuario) as id_usuario FROM usuario";
+
 
         }
         else
