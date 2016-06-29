@@ -6,7 +6,6 @@ $(".formcomentario").submit(function ()
     var comentarios = $(this).children('.collection');
     agregarcomentario('?post=comentario', data, result, $('#myModal'), $('#message'));
     //loadComentarios(comentarios,result,id);
-    window.location.reload();
     return false;
 });
 /*-------
@@ -24,6 +23,7 @@ function agregarcomentario(url,data,result,modal,message_area_modal)
                     message_area_modal.html("<img src='views/img/success.png'></img> comentando correctamente !!");
                     modal.openModal();
                     result.html('');
+                    setTimeout(window.location.reload(),2000);
                 } else
                 {
                     text = '<div class="alert alert-dismissible alert-danger">' +
