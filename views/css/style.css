@@ -345,17 +345,21 @@ h1,h2,h3,h4,h5,h6
 /*
     funcionalidad
 */
-    tr
-    {
-        cursor: pointer !important;
-    }
-    tr
-    {
-        transition: 0.5s ease-in-out all;
-    }
-    .selected
-    {
-        background: #9adcfd !important;
-    }
+tr
+{
+    cursor: pointer !important;
+}
+tr
+{
+    transition: 0.5s ease-in-out all;
+}
+.selected
+{
+    background: #9adcfd !important;
+}
 
+form
+{
+    padding: 30px !important;
+}
 
