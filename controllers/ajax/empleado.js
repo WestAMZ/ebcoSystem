@@ -34,7 +34,7 @@ $("#formEmpleado").submit(function ()
 
         if($('[name = "editar"]').prop('checked') == false)
         {
-            addsitio(data, result, modal, ms);
+            agregarEmpleado(data, result, modal, ms);
             setTimeout(loadSitios(table,result,modal, ms),3000);
         }
         else
@@ -110,14 +110,11 @@ function getEmpleado(id)
         if(http.readyState == 4 && http.status ==200)
         {
             //Respuesta recivida
-            var sitio = JSON.parse(http.responseText).empleado[0];
+            var empleado = JSON.parse(http.responseText).empleado[0];
 
-            $('[name= "id_insidencia"]').val(sitio.idSitio);
-            $('[name= "nombre"]').val(sitio.nombre);
-            $('[name= "pais"]').val(sitio.pais);
-            $('[name= "ciudad"]').val(sitio.ciudad);
-            $('[name= "telefono"]').val(sitio.telefono);
-            $('[name= "direccion"]').val(sitio.direccion);
+            $('[name= "nombre1"]').val(empleado.nombre1);
+            $('[name= "nombre2"]').val(empleado.nombre2);
+            $('[name= "apellido1"]').val(empleado.apellido1)
         }
         else if(http.readyState != 4)
         {
