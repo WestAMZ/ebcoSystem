@@ -25,5 +25,12 @@
             $sitio->updateSitio();
             echo ('1');
         }
+        //mode 2: cambio de estado
+        else if($_GET['mod']==2)
+        {
+            //Sitio::cambiarEstado($_GET['id']);
+            var_dump(Sitio::getSitioById($_GET['id']));
+        }
+
     }
 ?>
