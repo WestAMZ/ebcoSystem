@@ -58,5 +58,9 @@
         {
             include(HTML_DIR. 'modalpuesto.html');
         }
+        static function getSitioEstatico()
+        {
+            include(HTML_DIR . 'sitio-estatico.html');
+        }
     }
 ?>
