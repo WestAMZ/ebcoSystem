@@ -42,9 +42,10 @@
             //nombre del host
 
             $host ="localhost";
-            $db = "ebco";
-            $user = 'root';
-            $pass = '';
+            $db = "nicatrip_ebco";
+            $user = 'nicatrip';
+            $pass = 'ZwP7NSq3U';
+
            /*datos del host
 
             $host ="localhost";
