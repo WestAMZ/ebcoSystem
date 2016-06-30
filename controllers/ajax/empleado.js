@@ -185,7 +185,24 @@ function updateSitio(data,result,modal,message_area_modal)
 
 searchEmpleado(search)
 {
-
+    httpL = Connect();
+    httpL.onreadystatechange = function()
+    {
+        if(httpL.readyState == 4 && httpl.status ==200)
+        {
+            table.html(httpL.responseText);
+        }
+        else if(httpl.readyState != 4)
+        {
+            text = '<div class="alert alert-dismissible alert-info center s12 m12">' +
+                '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
+                '<img src="views/img/load2.gif"></img> Cargando...</div>';
+            table.html(text);
+        }
+    }
+    httpL.open('GET','?get=empleado&search='+search);
+    httpL.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    httpL.send(null);
 }
 
 

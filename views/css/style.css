@@ -4,8 +4,12 @@
 
 body
 {
-    background: #dedede;
+   background: #dedede;
 }
+::-webkit-input-placeholder { color: blue; } /* WebKit */
+:-moz-placeholder { color: blue; } /* Firefox 18- */
+::-moz-placeholder { color: blue; } /* Firefox 19+ */
+:-ms-input-placeholder { color: blue; } /* IE 10+ */
 
 /*
     _________________________________Login_________________________________
@@ -377,3 +381,5 @@ form
 {
   width: 40% !important;
 }
+
+
