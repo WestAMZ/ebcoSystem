@@ -8,6 +8,27 @@ $(".formcomentario").submit(function ()
     //loadComentarios(comentarios,result,id);
     return false;
 });
+
+/*-------------*/
+    $(document).ready(function ()
+    {
+        $('#btncargo').click(
+
+        function()
+            {
+                $('#modalPuesto').openModal();
+            }
+        )
+
+        $('#formCargo').submit(
+            function()
+            {
+                alert('hola');
+                return false;
+            }
+        )
+    })
+
 /*-------
             AJAX
 ---------*/
