@@ -13,6 +13,13 @@ $(document).ready(function ()
         var form = $('#formEmpleado');
         getEmpleado(id_mod);
     });
+
+    $('#searchtxt').keypress(
+        function(e)
+        {
+            var search =$(this).val()+e.key;
+            searchEmpleado(search);
+        });
 });
 
 
@@ -170,6 +177,15 @@ function updateSitio(data,result,modal,message_area_modal)
     http.open('POST','?post=empleado&mod=1');
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
+}
+
+/*--------
+            Busqueda con AJAX
+---------*/
+
+searchEmpleado(search)
+{
+
 }
 
 
