@@ -27,7 +27,7 @@ foreach ($comentarios as &$comentario)
         }
         ?>
 
-        <input type="hidden" value="<?php echo($comentario->getIdComentario()) ?>" name="id_comentario">
+
     </li>
 
     <?php
