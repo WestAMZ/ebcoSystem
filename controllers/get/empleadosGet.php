@@ -2,13 +2,13 @@
     include_once(MODELS_DIR . 'empleado.php');
 
 
-    if(isset($_GET['search']))
+    if(isset($_GET['search']) and $_GET['search'] !='')
     {
         $empleados = Empleado::searchInEmpleado(Connection::filterInput($_GET['search']));
         foreach( $empleados as &$empleado)
         {
 ?>
-                <tr class="empleado">
+            <tr class="empleado" onclick="select()">
                 <td><?php echo($empleado->getId_Empleado())?></td>
                 <td><?php echo($empleado->getCedula())?></td><!-correo-->
                 <td><?php echo($empleado->getAllName())?></td>
@@ -25,7 +25,7 @@
         foreach( $empleados as &$empleado)
         {
 ?>
-                <tr class="empleado">
+            <tr class="empleado" onclick="select()">
                 <td><?php echo($empleado->getId_Empleado())?></td>
                 <td><?php echo($empleado->getCedula())?></td><!-correo-->
                 <td><?php echo($empleado->getAllName())?></td>

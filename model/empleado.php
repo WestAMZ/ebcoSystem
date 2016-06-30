@@ -217,7 +217,7 @@
         }
         function getAllName()
         {
-            $all_name = $this->getNombre1() . ' '.$this->getNombre2() . ' '. $this->getApellido1().''.$this->getApellido2();
+            $all_name = $this->getNombre1() . ' '.$this->getNombre2() . ' '. $this->getApellido1().' '.$this->getApellido2();
             return $all_name;
         }
         static function getEmpleadoById($id)

@@ -2,23 +2,28 @@
 /*-----------
                 -------------------ON load
 -------------*/
+
+
+function select()
+{
+    $('.empleado').removeClass('selected');
+    $(this).toggleClass('selected');
+    var id_mod = $(this).children(0).html();
+    var form = $('#formEmpleado');
+    getEmpleado(id_mod);
+}
+
 $(document).ready(function ()
 {
-    $('.empleado').click(
-    function ()
-    {
-        $('.empleado').removeClass('selected');
-        $(this).toggleClass('selected');
-        var id_mod = $(this).children(0).html();
-        var form = $('#formEmpleado');
-        getEmpleado(id_mod);
-    });
+
 
     $('#searchtxt').keypress(
         function(e)
         {
-            var search =$(this).val()+e.key;
-            searchEmpleado(search);
+            //condicion para linpiar de caracteres especiales (no alfa nunmericos)
+            var pressed = (e.key.toString().length == 1)? e.key :'';
+            var search = $(this).val()+ pressed;
+            searchEmpleado(search,$('#table'));
         });
 });
 
@@ -119,15 +124,18 @@ function getEmpleado(id)
             //Respuesta recivida
             var empleado = JSON.parse(http.responseText).empleado[0];
 
-            $('[name= "nombre1"]').val(empleado.nombre1);
-            $('[name= "nombre2"]').val(empleado.nombre2);
-            $('[name= "apellido1"]').val(empleado.apellido1);
-            $('[name= "apellido2"]').val(empleado.apellido2);
-            $('[name= "cedula"]').val(empleado.cedula);
-            $('[name= "id_empleado"]').val(empleado.id_empleado);
-            $('[name= "telefono"]').val(empleado.telefono);
-            $('[name= "inss"]').val(empleado.inss);
-            $('[name= "correo"]').val(empleado.correo);
+            if(empleado != null)
+            {
+                $('[name= "nombre1"]').val(empleado.nombre1);
+                $('[name= "nombre2"]').val(empleado.nombre2);
+                $('[name= "apellido1"]').val(empleado.apellido1);
+                $('[name= "apellido2"]').val(empleado.apellido2);
+                $('[name= "cedula"]').val(empleado.cedula);
+                $('[name= "id_empleado"]').val(empleado.id_empleado);
+                $('[name= "telefono"]').val(empleado.telefono);
+                $('[name= "inss"]').val(empleado.inss);
+                $('[name= "correo"]').val(empleado.correo);
+            }
 
         }
         else if(http.readyState != 4)
@@ -183,16 +191,16 @@ function updateSitio(data,result,modal,message_area_modal)
             Busqueda con AJAX
 ---------*/
 
-searchEmpleado(search)
+function searchEmpleado(search,table)
 {
     httpL = Connect();
     httpL.onreadystatechange = function()
     {
-        if(httpL.readyState == 4 && httpl.status ==200)
+        if(httpL.readyState == 4 && httpL.status ==200)
         {
             table.html(httpL.responseText);
         }
-        else if(httpl.readyState != 4)
+        else if(httpL.readyState != 4)
         {
             text = '<div class="alert alert-dismissible alert-info center s12 m12">' +
                 '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
@@ -200,7 +208,7 @@ searchEmpleado(search)
             table.html(text);
         }
     }
-    httpL.open('GET','?get=empleado&search='+search);
+    httpL.open('GET','?get=empleados&search='+search);
     httpL.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     httpL.send(null);
 }
