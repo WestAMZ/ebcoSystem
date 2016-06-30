@@ -200,7 +200,8 @@ h1,h2,h3,h4,h5,h6
     height: 200px;
     margin: 0px auto;
     background-size: cover !important;
-    background-position: top;
+    background-position: center;
+    background-origin: content-box;
     border-radius: 100%;
     padding: 20px;
 }
@@ -313,7 +314,7 @@ h1,h2,h3,h4,h5,h6
 .scroll-y
 {
     overflow-y: scroll ;
-    height: 300px;
+    height: 400px;
     display: inline-block;
 }
 /*
