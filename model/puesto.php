@@ -50,7 +50,20 @@
         {
             return $this->descripcion;
         }
-
+        function getPuesto()
+        {
+            Connection :: connect();
+            $query = 'SELECT `id_puesto`,`nombre`,`descripcion` FROM `puesto`';
+            $result = Connection::getConnection()->query($query);
+            $puestos = array();
+            while( $row = $result ->fetch_assoc())
+            {
+                $puesto = new Puesto($row['id_puesto'],$row['nombre'],$row['descripcion']);
+                array_push($puestos,$puesto);
+            }
+            Connection ::close();
+            return $puestos;
+        }
     }
 
 ?>

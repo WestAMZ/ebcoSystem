@@ -1,3 +1,29 @@
+    $(document).ready(function ()
+    {
+        $('#btncargo').click(
+
+        function()
+            {
+                $('#modalPuesto').openModal();
+            }
+        )
+
+        $('#formCargo').submit(
+            function()
+            {
+                alert('hola');
+                return false;
+            }
+        )
+    })
+
+/*
+==============================
+AJAX
+==============================
+*/
+
+
 function agregarpuesto(data,result,modal,message_area_modal)
 {
     http = Connect();

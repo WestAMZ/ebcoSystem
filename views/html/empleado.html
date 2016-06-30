@@ -71,15 +71,29 @@
                 <option value="2">Gerente de sitio</option>
                 <option value="3">Empleado</option>
                 <option value="4">Cliente</option>
+
             </select>
         </div>
 
         <div class="input-field col s6 m2">
             <select class="browser-default">
+              <option value="" selected>Cargo</option>
+               <?php
+                 include_once(MODELS_DIR . 'puesto.php');
+                  $puestos = Puesto::getPuesto();
+                  foreach ($puestos as &$puesto)
+                  {
+              ?>
+                  <option value="<?php echo($puesto->getId_Puesto())?>" selected><?php echo($puesto->getNombre())?></option>
+               <?php
+                  }
+            ?>
+               <!--
                 <option value="" selected>Cargo</option>
                 <option value="1">Supervisor</option>
                 <option value="2">Bodega</option>
                 <option value="3">Vendedor</option>
+                -->
             </select>
         </div>
 
