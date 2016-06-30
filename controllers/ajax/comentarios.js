@@ -12,21 +12,17 @@ $(".formcomentario").submit(function ()
 /*-------------*/
     $(document).ready(function ()
     {
-        $('#btncargo').click(
+        $('.editar-comentario').click(
 
         function()
             {
-                $('#modalPuesto').openModal();
+
+                var id_comentario =  $(this).attr('name');
+
+                $('#modal-modificar-comentario').openModal();
             }
         )
 
-        $('#formCargo').submit(
-            function()
-            {
-                alert('hola');
-                return false;
-            }
-        )
     })
 
 /*-------

@@ -8,6 +8,7 @@
         App::getRightMain();
         App::getInsidencia();
         App::getModal();
+        App::getModalModificarComentario();
 ?>
 
     </div>

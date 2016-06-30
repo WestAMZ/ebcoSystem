@@ -62,5 +62,9 @@
         {
             include(HTML_DIR . 'sitio-estatico.html');
         }
+        static function getModalModificarComentario()
+        {
+            include(HTML_DIR . 'modal-modificar-comentario.html');
+        }
     }
 ?>
