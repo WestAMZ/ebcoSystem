@@ -21,13 +21,13 @@ foreach ($comentarios as &$comentario)
         <?php  if($comentario->getUsuario() == $_SESSION['id_usuario'])
         {
         ?>
-            <a href="#!" class="secondary-content"><i class="material-icons">edit</i></a>
+            <a  class="editar-comentario secondary-content" name="<?php echo($comentario->getIdComentario()) ?>"><i class="material-icons" >edit</i></a>
 
         <?php
         }
         ?>
 
-        <input type="hidden" value="<?php echo($comentario->getIdComentario()) ?>" name="id_comentario">
+
     </li>
 
     <?php

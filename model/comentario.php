@@ -108,5 +108,13 @@ class Comentario
         Connection::close();
          return $added;
     }
+    function updateComentario()
+    {
+        Connection::connect();
+        $query = "UPDATE `comentario` SET`contenido` = '$this->contenido' WHERE `id_comentario` = '$this->id_comentario'";
+        $result = Connection::getConnection()->query($query);
+        Connection :: close();
+
+    }
 }
 ?>
