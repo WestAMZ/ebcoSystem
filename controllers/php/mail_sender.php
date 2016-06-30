@@ -12,14 +12,14 @@
             */
             $mail->WordWrap = 50;
             $mail->IsHTML(true);
-            $mail->Subject  =  'Datos de confirmación de registro';
+            $mail->Subject  =  'Datos de cuenta EBCO Systems';
             /*
                 Cuerpo del correo
             */
             $mail->Body =
-            "<h1>Bienvenido a NicaTrip</h1>\n<br />"+
+            "<h1>EBCO Systems</h1>\n<br />"+
             "<strong>Usuario:</strong> $user \n<br />".
-            "<strong>Password:</strong> $pass \n<br />";
+            "<strong>Password:</strong>$pass \n<br />";
             /*
                 Datos del servidor SMTP
             */
