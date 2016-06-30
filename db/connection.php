@@ -42,9 +42,9 @@
             //nombre del host
 
             $host ="localhost";
-            $db = "nicatrip_ebco";
-            $user = 'nicatrip';
-            $pass = 'ZwP7NSq3U';
+            $db = "ebco";
+            $user = 'root';
+            $pass = '';
 
            /*datos del host
 
@@ -57,6 +57,7 @@
             self:: $mysqli =new mysqli($host, $user, $pass,$db);
             if( self :: $mysqli -> connect_error)
             {
+
                  self :: $mysqli -> close();
                  self :: $mysqli = null;
             }
