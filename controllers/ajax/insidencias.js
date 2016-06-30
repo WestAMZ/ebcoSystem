@@ -1,4 +1,4 @@
-$("#agregarinsidencia").submit(function ()
+/*$("#agregarinsidencia").submit(function ()
 {
     var data = $("#agregarinsidencia").serialize();
     result = $('#result');
@@ -8,8 +8,33 @@ $("#agregarinsidencia").submit(function ()
     agregarinsidencia('?post=insidencia', data, result, modal, ms);
     loadSitios($('#insidencias'),result,modal,ms);
     return false;
-});
+});*/
 
+
+        $("#agregarinsidencia").on("submit", function(e)
+        {
+
+            e.preventDefault();
+            var f = $(this);
+            //var formData = new FormData(document.getElementById("agregarinsidencia"));
+            //formData.append("dato", "valor");
+            alert( $(this)[0].files[0]);
+            //formData.append(f.attr("name"), $(this)[0].files[0]);
+            /*$.ajax(
+            {
+                url: "?post=empleado",
+                type: "post",0
+                dataType: "html",
+                data: formData,
+                cache: false,
+                contentType: false,
+	           processData: false
+            })
+                .done(function(res){
+                    $("#mensaje").html("Respuesta: " + res);
+                });*/
+
+        });
 $(document).ready(function(){
     $('.tooltipped').tooltip({delay: 50});
   });

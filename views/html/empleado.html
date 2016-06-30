@@ -1,4 +1,3 @@
-
 <div id="menu-container">
     <form class="col s10 offset-s1 panelbackground" id="formEmpleado">
         <input type="hidden" name='id_empleado' form="formEmpleado">
@@ -33,17 +32,17 @@
             <div class="input-field col s6 m3">
                 <input id="icon_prefix" type="text" class="validate center" name="apellido1" required placeholder="Primer Apellido">
             </div>
-        <div class="input-field col s6 m3">
-            <input id="icon_prefix" type="text" class="validate center" name="apellido2" placeholder="Segundo Apellido">
-        </div>
-        <div class="input-field col s6 m3">
-            <input id="icon_prefix" type="text" class="validate center" name="telefono" pattern="[0-9]{8}" placeholder="Telefono">
-        </div>
+            <div class="input-field col s6 m3">
+                <input id="icon_prefix" type="text" class="validate center" name="apellido2" placeholder="Segundo Apellido">
+            </div>
+            <div class="input-field col s6 m3">
+                <input id="icon_prefix" type="text" class="validate center" name="telefono" pattern="[0-9]{8}" placeholder="Telefono">
+            </div>
 
 
             <div class="input-field col s6 m5">
-            <input id="icon_prefix" type="text" class="validate center" name="correo" required placeholder="Correo Electronico">
-        </div>
+                <input id="icon_prefix" type="text" class="validate center" name="correo" required placeholder="Correo Electronico">
+            </div>
 
         </div>
 
@@ -51,61 +50,88 @@
         <div class="row">
 
             <div class="input-field col s6 m3">
-            <input id="icon_prefix" type="text" class="validate center" name="numero_inss" pattern="[0-9]{7}" placeholder="Numero INSS">
+                <input id="icon_prefix" type="text" class="validate center" name="numero_inss" pattern="[0-9]{7}" placeholder="Numero INSS">
             </div>
 
             <div class="input-field col s6 m3">
 
-            <select class="browser-default">
-                <option value="" selected>Jefe</option>
-                <option value="1">Ricardo</option>
-                <option value="2">Eleazar</option>
-                <option value="3">Westly</option>
-            </select>
-        </div>
+                <select class="browser-default">
+                    <option value="" selected>Jefe</option>
+                    <option value="1">Ricardo</option>
+                    <option value="2">Eleazar</option>
+                    <option value="3">Westly</option>
+                </select>
+            </div>
 
 
-        <div class="input-field col s6 m2">
-            <select class="browser-default">
-                <option value="" selected>Rol</option>
-                <option value="1">Gerente General</option>
-                <option value="2">Gerente de sitio</option>
-                <option value="3">Empleado</option>
-                <option value="4">Cliente</option>
+            <div class="input-field col s6 m2">
+                <select class="browser-default" name="id_rol">
+                    <option value="" selected>Rol</option>
+                    <option value="1">Gerente General</option>
+                    <option value="2">Gerente de sitio</option>
+                    <option value="3">Empleado</option>
+                    <option value="4">Cliente</option>
 
-            </select>
-        </div>
+                </select>
+            </div>
 
-        <div class="input-field col s6 m2">
-            <select class="browser-default">
-              <option value="" selected>Cargo</option>
-               <?php
+            <div class="input-field col s6 m2">
+                <select class="browser-default" name="id_puesto">
+                    <option value="" selected>Cargo</option>
+                    <?php
                  include_once(MODELS_DIR . 'puesto.php');
                   $puestos = Puesto::getPuesto();
                   foreach ($puestos as &$puesto)
                   {
               ?>
-                  <option value="<?php echo($puesto->getId_Puesto())?>" selected><?php echo($puesto->getNombre())?></option>
-               <?php
+                        <option value="<?php echo($puesto->getId_Puesto())?>" selected>
+                            <?php echo($puesto->getNombre())?>
+                        </option>
+                        <?php
                   }
             ?>
-               <!--
-                <option value="" selected>Cargo</option>
-                <option value="1">Supervisor</option>
-                <option value="2">Bodega</option>
-                <option value="3">Vendedor</option>
-                -->
-            </select>
-        </div>
-
-        <div class="input-field col s6 m2">
-            <a id="btncargo" class="waves-effect waves-light btn">...</a>
-        </div>
-
-            <div class="center">
-            <button type="submit" class="waves-effect waves-light btn"  style="margin-top: 50px; margin-bottom: 50px; margin-right:250px">Realizar acción</button>
+                </select>
             </div>
 
+            <div class="input-field col s6 m2">
+                <a id="btncargo" class="waves-effect waves-light btn">...</a>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="file-field input-field col s12 m6">
+                <div class="btn">
+                    <i class="material-icons">attach_file</i>
+                    <span>Adjuntar</span>
+                    <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" name="fileToUpload" id="fileToUpload">
+                </div>
+            </div>
+
+            <div class="input-field col s12 m4">
+                <select class="browser-default" name="id_sitio">
+                    <option value="" selected>Sitio</option>
+                    <?php
+                 include_once(MODELS_DIR . 'sitio.php');
+                  $sitios = Sitio::getSitios();
+                  foreach ($sitios as &$sitio)
+                  {
+              ?>
+                        <option value="<?php echo($sitio->getIdSitio())?>" selected>
+                            <?php echo($sitio->getName())?>
+                        </option>
+                        <?php
+                  }
+            ?>
+                </select>
+            </div>
+        </div>
+
+        <div class="center">
+            <button type="submit" class="waves-effect waves-light btn" style="margin-top: 50px; margin-bottom: 50px; margin-right:250px">Realizar acción</button>
         </div>
 
         <hr>
@@ -119,26 +145,26 @@
         </div>
 
 
-<table id="empleados" class="responsive-table highlight scroll-y" style="margin: 20px auto;">
-    <thead>
-        <tr>
-            <th data-field="id">N. Empleado</th>
-            <th data-field="cedula">Numero Cedula</th>
-            <th data-field="nombre">Nombre</th>
-            <th data-field="correo">Correo</th>
-            <th data-field="celular">Celular</th>
-            <th data-field="fecha">Fecha Ingreso</th>
-        </tr>
-    </thead>
+        <table id="empleados" class="responsive-table highlight scroll-y" style="margin: 20px auto;">
+            <thead>
+                <tr>
+                    <th data-field="id">N. Empleado</th>
+                    <th data-field="cedula">Numero Cedula</th>
+                    <th data-field="nombre">Nombre</th>
+                    <th data-field="correo">Correo</th>
+                    <th data-field="celular">Celular</th>
+                    <th data-field="fecha">Fecha Ingreso</th>
+                </tr>
+            </thead>
 
-    <tbody id="table">
-        <?php include(GET_DIR.'empleadosGet.php')?>
-    </tbody>
-</table>
+            <tbody id="table">
+                <?php include(GET_DIR.'empleadosGet.php')?>
+            </tbody>
+        </table>
 
-</form>
+    </form>
 
-<script src="<?php echo(AJAX_DIR)?>empleado.js"></script>
+    <script src="<?php echo(AJAX_DIR)?>empleado.js"></script>
 
 </div>
 </div>

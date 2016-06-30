@@ -36,10 +36,10 @@ $(document).ready(function()
 /*-----------
                 ------------------ON submit
 -------------*/
-$("#formEmpleado").submit(function ()
+/*$("#formEmpleado").submit(function ()
 {
 
-        /*var data = $("#formEmpleado").serialize();
+        var data = $("#formEmpleado").serialize()
         var result = $('#result');
         var table = $('#table');
         var modal = $('#myModal');
@@ -60,10 +60,9 @@ $("#formEmpleado").submit(function ()
             {
                 updateEmpleado(data, result, modal, ms);
             }
-        }*/
-    aler( $("#formEmpleado").serialize());
+        }
         return false;
-    });
+    });*/
 
 /*=======================================================
                     AJAX PART
@@ -77,7 +76,7 @@ $("#formEmpleado").submit(function ()
   /*=======================================================
                       AJAX PART
   =========================================================*/
-function agregarEmpleado(data,result,modal,message_area_modal)
+/*function agregarEmpleado(data,result,modal,message_area_modal)
 {
     http = Connect();
     http.onreadystatechange = function ()
@@ -109,7 +108,7 @@ function agregarEmpleado(data,result,modal,message_area_modal)
     http.open('POST','?post=empleado');
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
-}
+}*/
 
 
 /*
@@ -215,6 +214,34 @@ function searchEmpleado(search,table)
     httpL.send(null);
 }
 
+/*
+    Subida de archivo
+*/
 
 
+$(function()
+  {
+        $("#formEmpleado").on("submit", function(e)
+        {
 
+            var f = $(this);
+            var formData = new FormData(document.getElementById("formEmpleado"));
+            formData.append("dato", "valor");
+            alert( $(this)[0].files[0]);
+            //formData.append(f.attr("name"), $(this)[0].files[0]);
+            /*$.ajax(
+            {
+                url: "?post=empleado",
+                type: "post",
+                dataType: "html",
+                data: formData,
+                cache: false,
+                contentType: false,
+	           processData: false
+            })
+                .done(function(res){
+                    $("#mensaje").html("Respuesta: " + res);
+                });*/
+            return false;
+        });
+    });
