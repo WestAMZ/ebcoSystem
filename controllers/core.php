@@ -43,7 +43,7 @@
         Carga de librerías externas php
     */
     include(LIBS_DIR . 'libs_loader.php');
-    include(LIBS_DIR . 'fpdf/fpdf.php')
+    include(LIBS_DIR . 'fpdf/fpdf.php');
     /*
         Carga de clases propias
     */
