@@ -64,6 +64,10 @@
             Connection ::close();
             return $puestos;
         }
+        function savePuesto()
+        {
+            Connection
+        }
     }
 
 ?>

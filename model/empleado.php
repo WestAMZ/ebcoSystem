@@ -236,10 +236,7 @@
         function searchInEmpleado($search)
         {
             Connection :: connect();
-             $query = "SELECT `id_empleado`, `nombre1`, `nombre2`, `apellido1`, `apellido2`,
-             `cedula`, `telefono`, `firma`, `id_puesto`, `id_sitio`, `id_jefe`, `inss`,
-             `fecha_ingreso`, `estado` FROM `empleado` WHERE nombre1 LIKE '%$search%' OR nombre2
-             LIKE '%$search%'  OR apellido1 LIKE '%$search%' OR apellido2 LIKE '%$search%' OR cedula LIKE '%$search%' OR inss  LIKE '%$search%' ";
+             $query = "SELECT `id_empleado`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `cedula`, `telefono`, `firma`, `id_puesto`, `id_sitio`, `id_jefe`, `inss`, `fecha_ingreso`, `estado` FROM empleado HAVING CONCAT(`nombre1`,' ', `nombre2`,' ', `apellido1`,' ',`apellido2`) LIKE  '%$search%' or `inss` LIKE '%$search%'  or `cedula` LIKE '%$search%'";
              $result = Connection::getConnection()->query($query);
              $empleados = array();
              while( $row = $result ->fetch_assoc())
