@@ -70,7 +70,7 @@
                     </div>
                 </form>
 
-                <div class="card-reveal">
+                <form class="formcomentario card-reveal">
                     <p class=" brown-text">
                         <?php echo($insidencia->getDescripcion())?>
                     </p>
@@ -80,7 +80,7 @@
                         <?php include( GET_DIR . 'comentariosGet.php')?>
 
                     </ul>
-                </div>
+                </form>
             </div>
         </div>
     </div>
