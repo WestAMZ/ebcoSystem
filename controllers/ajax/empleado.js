@@ -38,7 +38,8 @@ $(document).ready(function()
 -------------*/
 $("#formEmpleado").submit(function ()
 {
-        var data = $("#forEmpleado").serialize();
+
+        /*var data = $("#formEmpleado").serialize();
         var result = $('#result');
         var table = $('#table');
         var modal = $('#myModal');
@@ -59,7 +60,8 @@ $("#formEmpleado").submit(function ()
             {
                 updateEmpleado(data, result, modal, ms);
             }
-        }
+        }*/
+    aler( $("#formEmpleado").serialize());
         return false;
     });
 
