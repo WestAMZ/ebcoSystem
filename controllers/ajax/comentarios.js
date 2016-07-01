@@ -7,7 +7,7 @@ $(".formcomentario").submit(function ()
     agregarcomentario('?post=comentario', data, result, $('#myModal'), $('#message'));
     //loadSitios($('#insidencias'),result,modal,ms);
     //loadComentarios(comentarios,result,id);
-    setTimeout(window.location.reload(),3000);
+
     return false;
 });
 
