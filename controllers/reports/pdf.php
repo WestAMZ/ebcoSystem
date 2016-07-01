@@ -1,11 +1,12 @@
 <?php
-class PDF extends FPDF()
+require("../libs/fpdf/fpdf.php");
+class PDF extends FPDF
 {
     function createHeader($tipo)
     {   // here we add the logo
         $this->Image(IMG_DIR . 'logo.png', 10, 6, 30);
         // here we set the font
-        $this->setFont('Arial', 'B' 15);
+        $this->setFont('Arial', 'B', 15);
         $pdf->AddPage();
 
         if(strcmp($tipo, 'licencia_medica') == 0)
