@@ -144,6 +144,34 @@ class Usuario
             return $fullname;
     }
 
+    static function saveUser()
+    {
+        Connection::connect();
+        $query="INSERT
+                    INTO
+                      `usuario`
+                      (
+                        `id_usuario`,
+                        `correo`,
+                        `password`,
+                        `id_empleado`,
+                        `role`,
+                        `estado`,
+                        `foto`
+                      )
+                    VALUES
+                    (
+                      '$this->id_usuario',
+                      '$this->correo',
+                      'Connection::codify($this->password)',
+                      '$this->id_empleado',
+                      '$this->role',
+                      '$this->estado',
+                      '$this->foto'
+                    )";
+        Connection::getConnection()->query();
+        Connection::close();
+    }
 
 }
 ?>

@@ -6,12 +6,14 @@
         //$id_empleado,$nombre1,$nombre2,$apellido1,$apellido2,$cedula,$telefono,$firma,$id_puesto,$id_sitio,$id_jefe,$inss,$fecha_ingreso,$estado
         if(!isset($_GET['mod']))
         {
-            $empleado = new Empleado (null,$_POST['nombre1'],$_POST['nombre2'],$_POST['apellido1'],$_POST['apellido2'],$_POST['cedula'],$_POST['cedula'],$_POST['telefono'],null,$_POST['id_puesto'],$_POST['id_sitio'],$_POST['id_jefe'],$_POST['inss'],null,1);
+            $empleado = new Empleado (null,$_POST['nombre1'],$_POST['nombre2'],$_POST['apellido1'],$_POST['apellido2'],$_POST['cedula'],$_POST['telefono'],$_POST['firma'],$_POST['id_puesto'],$_POST['id_sitio'],$_POST['id_jefe'],$_POST['inss'],null,1);
 
             if($empleado->saveEmpleado())
             {
+                echo ('bien');
                 //$id_usuario, $correo, $contrasena, $foto, $role, $estado, $id_empleado
-                $usuario = new Usuario(null,$_POST['correo'],null,null,$_POST['role'],1,null);
+                $pass = Connection::generarCodigo(15);
+                $usuario = new Usuario(null,$_POST['correo'],$pass,null,$_POST['role'],1,null);
 
                 if($usuario->saveUsuario())
                 {
@@ -24,7 +26,8 @@
             }
             else
             {
-                echo ($empleado->add_error());
+                echo ($empleado->add_error);
+                echo ('hubo un error');
             }
         }
         //mode 1 : update

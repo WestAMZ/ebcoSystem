@@ -35,10 +35,10 @@ $(document).ready(function()
 /*-----------
                 ------------------ON submit
 -------------*/
-/*$("#formEmpleado").submit(function ()
+$("#formEmpleado").submit(function ()
 {
 
-        var data = $("#formEmpleado").serialize()
+        var data = $("#formEmpleado").serialize();
         var result = $('#result');
         var table = $('#table');
         var modal = $('#myModal');
@@ -47,13 +47,13 @@ $(document).ready(function()
         if($('[name = "editar"]').prop('checked') == false)
         {
             agregarEmpleado(data, result, modal, ms);
-            //setTimeout(loadSitios(table,result,modal, ms),3000);
+
         }
         else
         {
             if($('.selected').size() == 0)
             {
-                alert('debe seleccionar el sitio a modificar!');
+                alert('debe seleccionar el empleado a modificar!');
             }
             else
             {
@@ -61,7 +61,7 @@ $(document).ready(function()
             }
         }
         return false;
-    });*/
+    });
 
 /*=======================================================
                     AJAX PART
@@ -75,7 +75,7 @@ $(document).ready(function()
   /*=======================================================
                       AJAX PART
   =========================================================*/
-/*function agregarEmpleado(data,result,modal,message_area_modal)
+function agregarEmpleado(data,result,modal,message_area_modal)
 {
     http = Connect();
     http.onreadystatechange = function ()
@@ -107,7 +107,7 @@ $(document).ready(function()
     http.open('POST','?post=empleado');
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
-}*/
+}
 
 
 /*
@@ -152,7 +152,7 @@ function getEmpleado(id)
     ---------------------------------modificar empleado
 */
 
-function updateSitio(data,result,modal,message_area_modal)
+function updateEmpleado(data,result,modal,message_area_modal)
 {
     http = Connect();
     http.onreadystatechange = function ()
@@ -218,29 +218,3 @@ function searchEmpleado(search,table)
 */
 
 
-$(function()
-  {
-        $("#formEmpleado").on("submit", function(e)
-        {
-
-            var f = $(this);
-            var formData = new FormData(document.getElementById("formEmpleado"));
-            formData.append("dato", "valor");
-            alert( $(this)[0].files[0]);
-            //formData.append(f.attr("name"), $(this)[0].files[0]);
-            /*$.ajax(
-            {
-                url: "?post=empleado",
-                type: "post",
-                dataType: "html",
-                data: formData,
-                cache: false,
-                contentType: false,
-	           processData: false
-            })
-                .done(function(res){
-                    $("#mensaje").html("Respuesta: " + res);
-                });*/
-            return false;
-        });
-    });

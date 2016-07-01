@@ -17,7 +17,7 @@
         var $fecha_ingreso;
         var $fecha_retiro;
         var $estado;
-
+        var $add_error;
         /*
         constructor por defecto
         */
@@ -45,6 +45,10 @@
         /*
          Metodos setters
         */
+        function add_error()
+		{
+			return $this->add_error;
+		}
 
         function setId_Empleado($id_empleado)
         {
@@ -188,14 +192,49 @@
             return $empleados;
         }
 
-        static function saveEmpleado()
+        function saveEmpleado()
         {
             $added = false;
             Connection :: connect();
-            $returned = Connection :: getConnection() -> query("SELECT cedula as cedula FROM empleado   LIMIT 1");
+            $returned = Connection :: getConnection() -> query("SELECT cedula FROM empleado WHERE cedula='$this->cedula'  LIMIT 1");
+
+
             if(!($returned->num_rows >0))
             {
-                    $query = "INSERT INTO   empleado(`id_empleado`,`nombre1`,`nombre2`,`apellido1`,`apellido2`,`cedula`,`telefon  o`,`firma`,`id_puesto``id_sitio`,`id_jefe`,`inss`,`fecha_ingreso`,`estado`)   VALUES('$this->id_empleado','$this->nombre1','$this->nombre2','$this- >apellido1','$this->apellido2','$this->cedula','$this->telefono','$this- >firma','$this->id_puesto','$this->id_sitio','$this->id_jefe','$this->inss',CURRENT_DATE,'$this->estado')";
+                    $query = "INSERT
+                                INTO
+                                  `empleado`(
+                                    `id_empleado`,
+                                    `nombre1`,
+                                    `nombre2`,
+                                    `apellido1`,
+                                    `apellido2`,
+                                    `cedula`,
+                                    `telefono`,
+                                    `firma`,
+                                    `id_puesto`,
+                                    `id_sitio`,
+                                    `id_jefe`,
+                                    `inss`,
+                                    `fecha_ingreso`,
+                                    `estado`
+                                  )
+                                VALUES(
+                                  '$this->id_empleado',
+                                  '$this->nombre1',
+                                  '$this->nombre2',
+                                  '$this->apellido1',
+                                  '$this->apellido2',
+                                  '$this->cedula',
+                                  '$this->telefono',
+                                  '$this->firma',
+                                  '$this->id_puesto',
+                                  '$this->id_sitio',
+                                  '$this->id_jefe',
+                                  '$this->inss',
+                                  '$this->fecha_ingreso',
+                                  1
+                                )";
                     $result = Connection :: getConnection() -> query($query);
                     $added = true;
             }
