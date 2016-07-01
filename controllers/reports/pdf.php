@@ -2,7 +2,7 @@
 require("../libs/fpdf/fpdf.php");
 class PDF extends FPDF
 {
-    function createHeader($tipo)
+    function createReport($tipo)
     {   // here we add the logo
         $this->Image(IMG_DIR . 'logo.png', 10, 6, 30);
         // here we set the font
