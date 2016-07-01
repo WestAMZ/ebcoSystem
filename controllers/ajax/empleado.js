@@ -16,6 +16,15 @@ $(document).ready(function ()
         getEmpleado(id_mod);
     });
 
+    $('#modal-jefe').on('click','.empleado',function()
+    {
+        $('#table-jefe .selected').removeClass('selected');
+        $(this).toggleClass('selected');
+        var id_jefe= $(this).children(0).html();
+        var form = $('#id_jefe').val(d_jefe);
+
+    });
+
     $('#searchtxt').keypress(
         function(e)
         {
@@ -24,6 +33,11 @@ $(document).ready(function ()
             var search = $(this).val()+ pressed;
             searchEmpleado(search,$('#table'));
         });
+
+    $('#select-jefe').click(function()
+    {
+        $('#modal-jefe').openModal();
+    });
 });
 
 
