@@ -66,9 +66,15 @@
         {
             include(HTML_DIR . 'modal-modificar-comentario.html');
         }
+<<<<<<< HEAD
+        static function getUsuario()
+        {
+            include(HTML_DIR . 'usuario.html');
+=======
         static function getSubir()
         {
             include(HTML_DIR . 'example.html');
+>>>>>>> origin/master
         }
     }
 ?>
