@@ -382,5 +382,8 @@ form
 {
   width: 40% !important;
 }
-
+.addcursor
+{
+    cursor: pointer !importan;
+}
 

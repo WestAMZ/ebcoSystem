@@ -145,6 +145,14 @@ ORDER BY id_insidencia DESC";
             return $uploadOk;
         }
 
+        function cambiarEstado($id,$estado)
+        {
+            Connection::connect();
+            $query = "UPDATE `insidencia` SET `estado`= '$estado' WHERE id_insidencia = '$id'";
+            Connection::getConnection()->query($query);
+            echo(Connection::getConnection()->affected_rows );
+            Connection::close();
+        }
     }
 
 ?>

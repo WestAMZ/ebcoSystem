@@ -1,29 +1,33 @@
-$(".formcomentario").submit(function ()
-{
-    var data = $(this).serialize();
-    var id = $(this).children("[name = 'Id_Insidencia']").val();
-    result = $(this).children('.result-comentario');
-    var comentarios = $(this).children('.collection');
-    agregarcomentario('?post=comentario', data, result, $('#myModal'), $('#message'));
-    loadInsidencias($('#insidencias'),result,null,null);
-    //loadComentarios(comentarios,result,id);
 
-    return false;
-});
+
+ $('#insidencias').on('submit','.formcomentario',function()
+    {
+        var data = $(this).serialize();
+        var id = $(this).children("[name = 'Id_Insidencia']").val();
+        result = $(this).children('.result-comentario');
+        var comentarios = $(this).children('.collection');
+        agregarcomentario('?post=comentario', data, result, $('#myModal'), $('#message'));
+        loadInsidencias($('#insidencias'),result,null,null);
+        //loadComentarios(comentarios,result,id);
+
+        return false;
+    });
 
 /*-------------*/
     $(document).ready(function ()
     {
-        $('.editar-comentario').click(
+
+
+        $('#insidencias').on('click','.editar-comentario',
 
         function()
-            {
-
-                var id_comentario =  $(this).attr('name');
+        {
+            var id_comentario =  $(this).attr('name');
                 $('#id_comentario').val(id_comentario);
                 $('#modal-modificar-comentario').openModal();
-            });
 
+
+        });
 
         $("#formmodificar").submit(function ()
         {
@@ -33,9 +37,10 @@ $(".formcomentario").submit(function ()
             var ms = $('#message');
 
             updatecomentario(data,null, modal, ms);
-
+            loadInsidencias($('#insidencias'),null,null,null);
             return false;
         });
+
 
     });
 

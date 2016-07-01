@@ -122,7 +122,7 @@
                                 if($insidencia->getId_Usuario() == $_SESSION['id_usuario'])
                                 {
                             ?>
-                                    <a href="#" class=" tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i class="material-icons">edit</i></a>
+                                    <a href="" class=" tooltipped addcursor" data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i class="material-icons ">edit</i></a>
                                     <?php
                                 }
                             ?>
@@ -141,7 +141,7 @@
                         <div class="col s12 m2 card-action-share left-align">
                             <span class="badge green white-text left-align" style="border-radius:10px"> <?php echo(Comentario :: getTotalComment($insidencia->getId_Insidencia()))?></span>
                             <a class="activator" style="cursor:pointer">Ver Comentarios</a>
-                            <a style="cursor:pointer">Reanudar</a>
+                            <a class="activar" style="cursor:pointer" name="<?php echo($insidencia->getId_Insidencia())?>">Reanudar</a>
                         </div>
 
 
