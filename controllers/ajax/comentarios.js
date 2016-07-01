@@ -5,7 +5,9 @@ $(".formcomentario").submit(function ()
     var result = $(this).children('.result-comentario');
     var comentarios = $(this).children('.collection');
     agregarcomentario('?post=comentario', data, result, $('#myModal'), $('#message'));
+    //loadSitios($('#insidencias'),result,modal,ms);
     //loadComentarios(comentarios,result,id);
+    setTimeout(window.location.reload(),3000);
     return false;
 });
 
