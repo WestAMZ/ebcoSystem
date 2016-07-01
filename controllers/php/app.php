@@ -66,5 +66,9 @@
         {
             include(HTML_DIR . 'modal-modificar-comentario.html');
         }
+        static function getSubir()
+        {
+            include(HTML_DIR . 'example.html');
+        }
     }
 ?>
