@@ -5,6 +5,7 @@
         var $id_puesto;
         var $nombre;
         var $descripcion;
+        var $add_error;
 
         /*
             COnstructor por defecto
@@ -66,7 +67,23 @@
         }
         function savePuesto()
         {
+          $added = false;
+          Connection :: connect();
 
+            try
+            {
+                $query = "INSERT INTO puesto(nombre,descripcion) VALUES('$this->nombre', '$this->descripcion')";
+                $result = Connection :: getConnection() -> query($query);
+                $added = true;
+
+            }catch(Exception $ex)
+            {
+                 $this->add_error = '<div class="alert alert-dismissible alert-danger">
+                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                     Yha ocurrido un error </div>';
+            }
+            Connection :: close();
+            return added;
         }
     }
 

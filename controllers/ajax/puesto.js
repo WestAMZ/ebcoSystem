@@ -33,7 +33,7 @@ function agregarpuesto(data,result,modal,message_area_modal)
          {
                 if (http.responseText == 1)
                 {
-                    //message_area_modal.html("<img src='views/img/success.png'></img> cargo agregado con exito!!");
+                    message_area_modal.html("<img src='views/img/success.png'></img> cargo agregado con exito!!");
                     modal.openModal();
                     result.html('');
                     setTimeout(window.location.reload(),2000);

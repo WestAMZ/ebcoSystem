@@ -94,9 +94,9 @@ CREATE TABLE `empleado` (
 INSERT INTO `empleado` (`id_empleado`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `cedula`, `telefono`, `firma`, `id_puesto`, `id_sitio`, `id_jefe`, `inss`, `fecha_ingreso`, `estado`) VALUES
 (1, 'westly', 'alejandro', 'meza', 'sotomayor', '001-160695-0026D', NULL, NULL, 1, 1, NULL, '', '2000-02-02', 1),
 (2, 'Eleazar', 'Gerardo', 'Martinez', 'Carballo', '401-180196-0004C', NULL, NULL, 2, 4, 1, '', '2004-04-02', 1),
-(4, 'Ricardo', 'Enmanuel', 'Martinez', 'Carballo', '401-180196-0003B', NULL, NULL, 2, 5, 1, '', '2006-06-12', 1),
+(4, 'Ricardo', 'Enmanuel', 'Martinez', 'Carballo', '401-180196-0003B', NULL, NULL, 2, 5, 2, '', '2006-06-12', 1),
 (5, 'Donaldo', 'Javier', 'Vargas', 'Mena', '001-180397-0002S', NULL, NULL, 3, 2, 1, '', '2004-03-10', 1),
-(6, 'Martin', 'Rene', 'Larios', NULL, '001-150593-0023D', NULL, NULL, 3, 1, 1, '', '2002-11-02', 1),
+(6, 'Martin', 'Rene', 'Larios', 'Sotomayor', '001-150593-0023D', '88941156', '', 6, 5, 5, '5648521-9', '0000-00-00', 1),
 (7, 'Reymundo', 'Javier', 'Tenorio', 'Quiroz', '401-130192-003X', NULL, NULL, 5, 2, 1, '', '2000-06-23', 1),
 (8, 'Nuvia', 'Yolanda', 'Sanchez', 'Sandigo', '401-251293-0006F', NULL, NULL, 6, 5, 1, '', '2006-05-02', 1),
 (9, 'Luis', 'Alfonso', 'Cardoza', 'Bird', '001-150795-0002K', NULL, NULL, 6, 1, 1, '', '2005-04-08', 1),
@@ -267,7 +267,7 @@ CREATE TABLE `solicitud` (
 --
 
 INSERT INTO `solicitud` (`id_solicitud`, `fecha_solicitud`, `observacion`, `estado`, `id_empleado`, `fase`, `id_tipo_solicitud`, `generado_por`, `fecha_aprovacion`, `aprobado_por`) VALUES
-(2, '2016-07-02 00:00:00', 'cmsooooooooooooooooooooo cmsooooooooooooooooooooooooooooooooooooooooooo cmsoooo\ncmsoooooooooooooooooooooooooooooooo cmsooooooooooooooooooooooooooooooooooooooooooo cmsooooooooooooooooooo\nscmooooooooooooooooooooooooooooooooooooooooooooooooooo', '1', 4, 1, 1, 1, '0000-00-00 00:00:00', 1);
+(2, '2016-07-02 00:00:00', 'La personalidad del deportista o atleta es un punto a veces no ponderado pero decisivo en el resultado y proyección.El carisma del sujeto incide mucho en su actuación competitiva y su relación con el entorno participativo se afecta por esa particular', '1', 4, 1, 1, 1, '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
