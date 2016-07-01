@@ -2,20 +2,19 @@
 /*-----------
                 -------------------ON load
 -------------*/
-
-
-function select()
-{
-    $('.empleado').removeClass('selected');
-    $(this).toggleClass('selected');
-    var id_mod = $(this).children(0).html();
-    var form = $('#formEmpleado');
-    getEmpleado(id_mod);
-}
+//Asignar eventos a cosas cargadas con AJAX desde el elemento PADRE
 
 $(document).ready(function ()
 {
 
+    $('#table').on('click','.empleado',function()
+    {
+        $('#table .selected').removeClass('selected');
+        $(this).toggleClass('selected');
+        var id_mod = $(this).children(0).html();
+        var form = $('#formEmpleado');
+        getEmpleado(id_mod);
+    });
 
     $('#searchtxt').keypress(
         function(e)

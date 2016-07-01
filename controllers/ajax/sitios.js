@@ -3,10 +3,10 @@
 -------------*/
 $(document).ready(function ()
 {
-    $('.sitio').click(
-    function ()
+
+    $('#table').on('click','.sitio',function()
     {
-        $('.sitio').removeClass('selected');
+        $('#table .selected').removeClass('selected');
         $(this).toggleClass('selected');
         var id_mod = $(this).children(0).html();
         var form = $('#formsitio');
@@ -41,6 +41,7 @@ $("#formsitio").submit(function () {
         }
         return false;
     });
+
 /*-------
            ---------------------AJAX
 ---------*/
