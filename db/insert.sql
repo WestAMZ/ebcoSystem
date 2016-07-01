@@ -1,3 +1,17 @@
+INSERT INTO `puesto` (`id_puesto`, `nombre`, `descripcion`) VALUES
+(1, 'Gerente general', 'Administra los sitios a nivel general'),
+(2, 'Gerente de sitio', 'Administra a nivel de sitio o sucursal'),
+(3, 'Contador', 'lleva la contabilidad de la empresa'),
+(4, 'Jefe Recursos Humanos', 'Lleva el control del personal dentro de la empresa'),
+(5, 'Jefe de Finanzas', 'Encargado del area de finanzas dentro de la empresa'),
+(6, 'Tecnico de Mantenimiento', 'Realiza las distintas actividades de mantenimiento a las maquinas de la empresa');
+
+INSERT INTO `sitio` (`id_sitio`, `nombre`, `pais`, `ciudad`, `direccion`, `latitud`, `longitud`, `telefono`, `estado`) VALUES
+(1, 'Sucursal Corinto', 'Nicaragua', 'Chinandega', '', 0, 0, '25223765', 1),
+(2, 'Sucursal San Jorge', 'Nicaragua', 'Rivas', '', 0, 0, '25223740', 1),
+(3, 'Puerto Sandino', 'Nicaragua', 'Nagarote', NULL, 0, 0, NULL, 1),
+(4, 'Sucursal San Juan del sur', 'Nicaragua', 'Rivas', NULL, 0, 0, NULL, 1),
+(5, 'Sucursal Puerto Cabeza', 'Nicaragua', 'Zelaya RAAN', NULL, 0, 0, NULL, 1);
 
 INSERT INTO `empleado` (`id_empleado`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `cedula`, `telefono`, `firma`, `id_puesto`, `id_sitio`, `id_jefe`, `inss`, `fecha_ingreso`, `estado`) VALUES
 (1, 'westly', 'alejandro', 'meza', 'sotomayor', '001-160695-0026D', NULL, NULL, 1, 1, NULL, '', '2000-02-02', 1),
@@ -15,20 +29,8 @@ INSERT INTO `insidencia` (`id_insidencia`, `fecha`, `descripcion`, `nivel`, `est
 (2, '2016-06-29', 'Tambien estoy teniendo unos inconvenientes en esa area, si sabe de algo me lo hacen saber por favor', 0, 1, 1, ''),
 (3, '2016-06-29', 'jghg', 0, 1, 1, '');
 
-INSERT INTO `puesto` (`id_puesto`, `nombre`, `descripcion`) VALUES
-(1, 'Gerente general', 'Administra los sitios a nivel general'),
-(2, 'Gerente de sitio', 'Administra a nivel de sitio o sucursal'),
-(3, 'Contador', 'lleva la contabilidad de la empresa'),
-(4, 'Jefe Recursos Humanos', 'Lleva el control del personal dentro de la empresa'),
-(5, 'Jefe de Finanzas', 'Encargado del area de finanzas dentro de la empresa'),
-(6, 'Tecnico de Mantenimiento', 'Realiza las distintas actividades de mantenimiento a las maquinas de la empresa');
 
-INSERT INTO `sitio` (`id_sitio`, `nombre`, `pais`, `ciudad`, `direccion`, `latitud`, `longitud`, `telefono`, `estado`) VALUES
-(1, 'Sucursal Corinto', 'Nicaragua', 'Chinandega', '', 0, 0, '25223765', 1),
-(2, 'Sucursal San Jorge', 'Nicaragua', 'Rivas', '', 0, 0, '25223740', 1),
-(3, 'Puerto Sandino', 'Nicaragua', 'Nagarote', NULL, 0, 0, NULL, 1),
-(4, 'Sucursal San Juan del sur', 'Nicaragua', 'Rivas', NULL, 0, 0, NULL, 1),
-(5, 'Sucursal Puerto Cabeza', 'Nicaragua', 'Zelaya RAAN', NULL, 0, 0, NULL, 1);
+
 
 INSERT INTO `usuario` (`id_usuario`, `correo`, `password`, `id_empleado`, `role`, `estado`, `foto`) VALUES
 (1, 'westlymeza@gmail.com', 'a1d5285401e5441cf7ff053c4276c1af764f4ef3', 1, 1, 1, '120161106.jpg'),

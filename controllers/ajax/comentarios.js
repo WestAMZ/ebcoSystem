@@ -1,42 +1,50 @@
-$(".formcomentario").submit(function ()
-{
-    var data = $(this).serialize();
-    var id = $(this).children("[name = 'Id_Insidencia']").val();
-    var result = $(this).children('.result-comentario');
-    var comentarios = $(this).children('.collection');
-    agregarcomentario('?post=comentario', data, result, $('#myModal'), $('#message'));
-    //loadSitios($('#insidencias'),result,modal,ms);
-    //loadComentarios(comentarios,result,id);
 
-    return false;
-});
+
+ $('#insidencias').on('submit','.formcomentario',function()
+    {
+        var data = $(this).serialize();
+        var id = $(this).children("[name = 'Id_Insidencia']").val();
+        result = $(this).children('.result-comentario');
+        var comentarios = $(this).children('.collection');
+        agregarcomentario('?post=comentario', data, result, $('#myModal'), $('#message'));
+        loadInsidencias($('#insidencias'),result,null,null);
+        //loadComentarios(comentarios,result,id);
+
+        return false;
+    });
 
 /*-------------*/
     $(document).ready(function ()
     {
-        $('.editar-comentario').click(
+
+
+        $('#insidencias').on('click','.editar-comentario',
 
         function()
-            {
-
-                var id_comentario =  $(this).attr('name');
+        {
+            var id_comentario =  $(this).attr('name');
                 $('#id_comentario').val(id_comentario);
                 $('#modal-modificar-comentario').openModal();
-            }
-        )
+
+
+        });
+
+        $("#formmodificar").submit(function ()
+        {
+            var data = $("#formmodificar").serialize();
+            var result = $('#result');
+            var modal = $('#myModal');
+            var ms = $('#message');
+
+            updatecomentario(data,null, modal, ms);
+            loadInsidencias($('#insidencias'),null,null,null);
+            return false;
+        });
+
 
     });
 
-$("#formmodificar").submit(function () {
-        var data = $("#formmodificar").serialize();
-        var result = $('#result');
-        var modal = $('#myModal');
-        var ms = $('#message');
 
-        updatecomentario(data,null, modal, ms);
-
-        return false;
-    });
 
 /*-------
             AJAX
@@ -53,7 +61,7 @@ function agregarcomentario(url,data,result,modal,message_area_modal)
                     message_area_modal.html("<img src='views/img/success.png'></img> comentando correctamente !!");
                     modal.openModal();
                     result.html('');
-                    setTimeout(window.location.reload(),2000);
+
                 } else
                 {
                     text = '<div class="alert alert-dismissible alert-danger">' +

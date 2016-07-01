@@ -382,5 +382,11 @@ form
 {
   width: 40% !important;
 }
-
-
+.addcursor
+{
+    cursor: pointer !importan;
+}
+.formcomentario
+{
+    min-height: 200px !important;
+}
