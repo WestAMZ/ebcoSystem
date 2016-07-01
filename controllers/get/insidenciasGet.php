@@ -208,7 +208,7 @@
                                 if($insidencia->getId_Usuario() == $_SESSION['id_usuario'])
                                 {
                             ?>
-                                        <a href="#" class=" tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip"><i class="material-icons">edit</i></a>
+                                        <a href="" class=" tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip" name=<?php $insidencia->getId_Insidencia()?>><i class="material-icons editar-inisdencia">edit</i></a>
                                         <?php
                                 }
                             ?>

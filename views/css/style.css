@@ -386,4 +386,7 @@ form
 {
     cursor: pointer !importan;
 }
-
+.formcomentario
+{
+    min-height: 200px !important;
+}
