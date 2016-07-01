@@ -18,10 +18,11 @@ $(document).ready(function ()
 
     $('#modal-jefe').on('click','.empleado',function()
     {
-        $('#table-jefe .selected').removeClass('selected');
+        $('#tabla-jefe .selected').removeClass('selected');
         $(this).toggleClass('selected');
         var id_jefe= $(this).children(0).html();
-        var form = $('#id_jefe').val(d_jefe);
+        var form = $('#id_jefe').val(id_jefe);
+
 
     });
 
