@@ -8,7 +8,7 @@
         {   //$_POST['firma']
             $empleado = new Empleado                                                         (null,$_POST['nombre1'],$_POST['nombre2'],$_POST['apellido1'],$_POST['apellido2'],$_POST['cedula'],$_POST['telefono'],null,$_POST['id_puesto'],$_POST['id_sitio'],$_POST['id_jefe'],$_POST['inss'],null,1);
 
-            if($empleado->saveEmpleado())
+            if($empleado->saveEmpleado($_POST['correo'],$_POST['id_role'],null))
             {
                 echo('1');
             }

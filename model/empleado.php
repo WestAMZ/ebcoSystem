@@ -192,7 +192,7 @@
             return $empleados;
         }
 
-        function saveEmpleado()
+        function saveEmpleado($correo,$role,$foto)
         {
             $added = false;
             Connection :: connect();
@@ -201,42 +201,38 @@
 
             if(!($returned->num_rows >0))
             {
-                    $query = "INSERT
-                                INTO
-                                  `empleado`(
-                                    `id_empleado`,
-                                    `nombre1`,
-                                    `nombre2`,
-                                    `apellido1`,
-                                    `apellido2`,
-                                    `cedula`,
-                                    `telefono`,
-                                    `firma`,
-                                    `id_puesto`,
-                                    `id_sitio`,
-                                    `id_jefe`,
-                                    `inss`,
-                                    `fecha_ingreso`,
-                                    `estado`
-                                  )
-                                VALUES(
-                                  '$this->id_empleado',
-                                  '$this->nombre1',
-                                  '$this->nombre2',
-                                  '$this->apellido1',
-                                  '$this->apellido2',
-                                  '$this->cedula',
-                                  '$this->telefono',
-                                  '$this->firma',
-                                  '$this->id_puesto',
-                                  '$this->id_sitio',
-                                  '$this->id_jefe',
-                                  '$this->inss',
-                                  '$this->fecha_ingreso',
-                                  1
-                                )";
+                try
+                {
+                    $query = "INSERT INTO `empleado`(`id_empleado`,`nombre1`,`nombre2`,`apellido1`,`apellido2`,`cedula`,`telefono`,`firma`,`id_puesto`,`id_sitio`,`id_jefe`,`inss`,`fecha_ingreso`,`estado`) VALUES('$this->id_empleado','$this->nombre1','$this->nombre2','$this->apellido1','$this->apellido2','$this->cedula','$this->telefono','$this->firma','$this->id_puesto','$this->id_sitio','$this->id_jefe','$this->inss','$this->fecha_ingreso',1)";
                     $result = Connection :: getConnection() -> query($query);
                     $added = true;
+                }catch(Exception $e)
+                {
+                    $added = false;
+
+                    $this->add_error = '<div class="alert alert-dismissible alert-danger">
+                     <button type="button" class="close" data-dismiss="alert">&times;</button>
+                     Yha ocurrido un error </div>';
+                }
+
+                 if($added == true)
+                    {
+                        $query = "SELECT MAX(`id_empleado`) as id_empleado FROM `empleado`";
+                        $result = Connection::getConnection()->query($query);
+                        $row = $result ->fetch_assoc();
+                        $id_empleado = $row['id_empleado'];
+                        $password =Connection::codify(Connection::generarCodigo(10));
+
+                        echo('id empleado: '. $id_empleado);
+
+                        $query2 = "INSERT INTO usuario(`correo`,`password`,`id_empleado`,`role`,`estado`,`foto`) VALUES('$correo','$password','$id_empleado','$role',1,'$foto')";
+
+                        $result2 = Connection :: getConnection() -> query($query2);
+                        echo(Connection::getConnection()->error);
+
+                        $added = true;
+                    }
+
             }
             else
             {
