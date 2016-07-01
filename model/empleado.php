@@ -185,7 +185,7 @@
              while( $row = $result ->fetch_assoc())
              {
                 //$id_empleado,$nombre1,$nombre2,$apellido1,$apellido2,$cedula,$telefono,$firma,$id_puesto,$id_sitio,$id_jefe,$inss,$fecha_ingreso,$estado
-                 $empleado = new Empleado($row['id_empleado'],$row['nombre1'],$row['nombre2'],$row['apellido1'],$row['apellido2'],$row['cedula'],$row['cedula'],$row['telefono'],$row['id_puesto'],$row['id_sitio'],$row['id_jefe'],$row['inss'],$row['fecha_ingreso'],$row['estado']);
+                 $empleado = new Empleado($row['id_empleado'],$row['nombre1'],$row['nombre2'],$row['apellido1'],$row['apellido2'],$row['cedula'],$row['telefono'],$row['firma'],$row['id_puesto'],$row['id_sitio'],$row['id_jefe'],$row['inss'],$row['fecha_ingreso'],$row['estado']);
                 array_push($empleados,$empleado);
              }
             Connection ::close();
@@ -274,7 +274,7 @@
              while($row = $result ->fetch_assoc())
              {
                 //$id_empleado,$nombre1,$nombre2,$apellido1,$apellido2,$cedula,$telefono,$firma,$id_puesto,$id_sitio,$id_jefe,$inss,$fecha_ingreso,$estado
-                 $empleado = new Empleado($row['id_empleado'],$row['nombre1'],$row['nombre2'],$row['apellido1'],$row['apellido2'],$row['cedula'],$row['cedula'],$row['telefono'],$row['id_puesto'],$row['id_sitio'],$row['id_jefe'],$row['inss'],$row['fecha_ingreso'],$row['estado']);
+                 $empleado = new Empleado($row['id_empleado'],$row['nombre1'],$row['nombre2'],$row['apellido1'],$row['apellido2'],$row['cedula'],$row['telefono'],$row['firma'],$row['id_puesto'],$row['id_sitio'],$row['id_jefe'],$row['inss'],$row['fecha_ingreso'],$row['estado']);
                 array_push($empleados,$empleado);
              }
             Connection ::close();
