@@ -248,6 +248,7 @@
                      Ya existe un usuario registrado con este numero de cedula !! </div>';
                     }
             }
+            return $added;
         }
         function getFullName()
         {
@@ -278,7 +279,7 @@
              $query = "SELECT `id_empleado`, `nombre1`, `nombre2`, `apellido1`, `apellido2`, `cedula`, `telefono`, `firma`, `id_puesto`, `id_sitio`, `id_jefe`, `inss`, `fecha_ingreso`, `estado` FROM empleado HAVING CONCAT(`nombre1`,' ', `nombre2`,' ', `apellido1`,' ',`apellido2`) LIKE  '%$search%' or `inss` LIKE '%$search%'  or `cedula` LIKE '%$search%'";
              $result = Connection::getConnection()->query($query);
              $empleados = array();
-             while( $row = $result ->fetch_assoc())
+             while($row = $result ->fetch_assoc())
              {
                 //$id_empleado,$nombre1,$nombre2,$apellido1,$apellido2,$cedula,$telefono,$firma,$id_puesto,$id_sitio,$id_jefe,$inss,$fecha_ingreso,$estado
                  $empleado = new Empleado($row['id_empleado'],$row['nombre1'],$row['nombre2'],$row['apellido1'],$row['apellido2'],$row['cedula'],$row['cedula'],$row['telefono'],$row['id_puesto'],$row['id_sitio'],$row['id_jefe'],$row['inss'],$row['fecha_ingreso'],$row['estado']);
@@ -287,5 +288,35 @@
             Connection ::close();
             return $empleados;
         }
+
+
+        function update()
+        {
+            Connection :: connect();
+            $query = "UPDATE
+                      `empleado`
+                    SET
+                      `id_empleado` = '$this->id_empleado',
+                      `nombre1` = '$this->nombre1',
+                      `nombre2` = '$this->nombre2',
+                      `apellido1` = '$this->apellido1',
+                      `apellido2` = '$this->apellido2',
+                      `cedula` = '$this->cedula',
+                      `telefono` = '$this->telefono',
+                      `firma` = '$this->firma',
+                      `id_puesto` = '$this->id_puesto',
+                      `id_sitio` = '$this->id_sitio',
+                      `id_jefe` = '$this->id_jefe',
+                      `inss` = '$this->inss',
+                      `fecha_ingreso` = '$this->fecha_ingreso',
+                      `estado` = '$this->estado'
+                    WHERE
+                      id_empleado = '$this->id_empleado' ";
+            Connection::getConnection()->query($query);
+            Connection ::close();
+
+
+        }
+
     }
 ?>
