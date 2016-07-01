@@ -1,6 +1,8 @@
+<?php include(HTML_DIR . 'modal-seleccionar-jefe.html');?>
 <div id="menu-container">
     <form class="col s10 offset-s1 panelbackground" id="formEmpleado">
         <input type="hidden" name='id_empleado' form="formEmpleado">
+        <input type="hidden" name='id_jefe' form="formEmpleado" id="id_jefe">
         <div class="row">
 
             <hr>
@@ -39,28 +41,21 @@
                 <input id="icon_prefix" type="text" class="validate center" name="telefono" pattern="[0-9]{8}" placeholder="Telefono">
             </div>
 
-
-            <div class="input-field col s6 m5">
-                <input id="icon_prefix" type="text" class="validate center" name="correo" required placeholder="Correo Electronico">
+            <div class="input-field col s6 m3">
+                <input id="icon_prefix" type="text" class="validate center" name="inss" pattern="[0-9]{7}-[0-9]{1}" placeholder="Numero INSS">
             </div>
-
         </div>
 
 
         <div class="row">
 
-            <div class="input-field col s6 m3">
-                <input id="icon_prefix" type="text" class="validate center" name="inss" pattern="[0-9]{7}-[0-9]{1}" placeholder="Numero INSS">
-            </div>
 
-            <div class="input-field col s6 m3">
 
-                <select class="browser-default" name="id_jefe">
-                    <option value="" selected>Jefe</option>
-                    <option value="1">Ricardo</option>
-                    <option value="2">Eleazar</option>
-                    <option value="3">Westly</option>
-                </select>
+            <div class="input-field col s6 m6">
+
+
+                <button  class="waves-effect waves-light btn" style="margin-top: 50px; margin-bottom: 50px; margin-right:250px" id="select-jefe">Seleccionar jefe</button>
+
             </div>
 
 
@@ -151,7 +146,6 @@
                     <th data-field="id">N. Empleado</th>
                     <th data-field="cedula">Numero Cedula</th>
                     <th data-field="nombre">Nombre</th>
-                    <th data-field="correo">Correo</th>
                     <th data-field="celular">Celular</th>
                     <th data-field="fecha">Fecha Ingreso</th>
                 </tr>
