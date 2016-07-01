@@ -172,6 +172,20 @@ class Usuario
         Connection::getConnection()->query();
         Connection::close();
     }
+    function searchInUser($search)
+    {
+        Connection :: connect();
+        $query = "SELECT u.id_usuario, e.cedula, CONCAT(e.`nombre1`,' ', e.`nombre2`,' ', e.`apellido1`,' ',e.`apellido2`) as nombre, u.correo, u.password as contrasena FROM empleado e INNER JOIN usuario u on e.id_empleado = u.id_empleado HAVING nombre LIKE  '%$search%' or `cedula` LIKE '%$search%' OR u.correo LIKE '%$search%'";
+        $result = Connection::getConnection()->query($query);
+        $usuarios = array();
+        while($row = $result ->fetch_assoc())
+        {
+           $usuario = new Usuario($row['id_usuario'],$row['correo'],$row['contrasena'],null,null,null,null);
+            array_push($usuarios,$usuario);
+        }
+        Connection ::close();
+        return $usuarios;
+    }
 
 }
 ?>

@@ -66,5 +66,9 @@
         {
             include(HTML_DIR . 'modal-modificar-comentario.html');
         }
+        static function getUsuario()
+        {
+            include(HTML_DIR . 'usuario.html');
+        }
     }
 ?>
