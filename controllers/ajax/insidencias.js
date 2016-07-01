@@ -12,7 +12,7 @@ $("#agregarinsidencia").submit(function ()
     var modal = $('#myModal');
 
     agregarinsidencia('?post=insidencia', data, result, modal, ms);
-    loadSitios($('#insidencias'),result,modal,ms);
+    loadInsidencias($('#insidencias'),result,modal,ms);
     return false;
 });
 
@@ -96,7 +96,7 @@ function agregarinsidencia(url,data,result,modal,message_area_modal)
 ---------*/
 
 
-function loadSitios(div,result,modal,message_area_modal)
+function loadInsidencias(div,result,modal,message_area_modal)
 {
     http = Connect();
     http.onreadystatechange = function()
