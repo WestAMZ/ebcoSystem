@@ -1,6 +1,12 @@
-/*$("#agregarinsidencia").submit(function ()
+$("#agregarinsidencia").submit(function ()
 {
     var data = $("#agregarinsidencia").serialize();
+    /*var file_input = document.getElementById('fileToUpload');
+    if(file_input.files.length > 0)
+    {
+        var nombre_archivo = file_input.files[0].name;
+        data += '&fileToUpload='+nombre_archivo;
+    }*/
     result = $('#result');
     var ms = $('#message');
     var modal = $('#myModal');
@@ -8,9 +14,9 @@
     agregarinsidencia('?post=insidencia', data, result, modal, ms);
     loadSitios($('#insidencias'),result,modal,ms);
     return false;
-});*/
+});
 
-
+/*
         $("#agregarinsidencia").on("submit", function(e)
         {
 
@@ -35,7 +41,7 @@
                     $("#mensaje").html("Respuesta: " + res);
                 });*/
 
-        });
+//        });
 $(document).ready(function()
 {
     $('.tooltipped').tooltip({delay: 50});
