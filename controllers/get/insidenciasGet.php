@@ -58,7 +58,7 @@
                     <div class="col s12 m2 card-action-share left-align">
                         <span class="badge green white-text left-align" style="border-radius:10px"> <?php echo(Comentario :: getTotalComment($insidencia->getId_Insidencia()))?></span>
                         <a class="activator" style="cursor:pointer">Ver Comentarios</a>
-                        <a style="cursor:pointer">Finalizar</a>
+                        <a class="finalizar" name="<?php echo($insidencia->getId_Insidencia())?>" style="cursor:pointer">Finalizar</a>
                     </div>
 
 
