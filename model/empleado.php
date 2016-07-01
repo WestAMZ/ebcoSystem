@@ -192,7 +192,7 @@
             return $empleados;
         }
 
-        function saveEmpleado($correo,$role,$foto)
+        function saveEmpleado($correo,$role,$foto,$password)
         {
             $added = false;
             Connection :: connect();
@@ -221,14 +221,10 @@
                         $result = Connection::getConnection()->query($query);
                         $row = $result ->fetch_assoc();
                         $id_empleado = $row['id_empleado'];
-                        $password =Connection::codify(Connection::generarCodigo(10));
-
-                        echo('id empleado: '. $id_empleado);
+                        $password = Connection::codify($password);
 
                         $query2 = "INSERT INTO usuario(`correo`,`password`,`id_empleado`,`role`,`estado`,`foto`) VALUES('$correo','$password','$id_empleado','$role',1,'$foto')";
-
                         $result2 = Connection :: getConnection() -> query($query2);
-                        echo(Connection::getConnection()->error);
 
                         $added = true;
                     }
