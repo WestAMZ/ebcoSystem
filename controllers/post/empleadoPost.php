@@ -10,24 +10,11 @@
 
             if($empleado->saveEmpleado())
             {
-                echo ('bien');
-                //$id_usuario, $correo, $contrasena, $foto, $role, $estado, $id_empleado
-                $pass = Connection::generarCodigo(15);
-                $usuario = new Usuario(null,$_POST['correo'],$pass,null,$_POST['role'],1,null);
-
-                if($usuario->saveUsuario())
-                {
-
-                }
-                else
-                {
-                    echo($usuario->add_error());
-                }
+                echo('1');
             }
             else
             {
                 echo ($empleado->add_error);
-                echo ('hubo un error');
             }
         }
         //mode 1 : update
