@@ -1,5 +1,8 @@
 <?php
+include_once(MODELS_DIR . 'reporte.php');
 
+echo(Reporte::generateReport(4));
+/*
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->Image(IMG_DIR . 'logo.png', 10, 6, 30);
@@ -91,4 +94,6 @@ $pdf->Cell(90,15, '', 1 , 0 , 'C');
 $pdf->Cell(90,15, '', 1 , 0 , 'C');
 
 $pdf->output();
+
+*/
 ?>
