@@ -17,8 +17,8 @@
                 Cuerpo del correo
             */
             $mail->Body =
-            "<h1>EBCO Systems</h1>\n<br />"+
-            "<strong>Correo de acceso:</strong> $user \n<br />".
+            "<h1>EBCO Systems</h1>\n<br/>"+
+            "<strong>Correo de acceso:</strong>$user \n<br/>".
             "<strong>Password:</strong>$pass \n<br />";
             /*
                 Datos del servidor SMTP

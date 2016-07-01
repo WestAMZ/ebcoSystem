@@ -26,7 +26,7 @@
     /*
         Información de correo
     */
-    define('SENDER_NAME','NicaTrip');
+    define('SENDER_NAME','EBCO Systems');
     define('MAIL_ADDRESS','nicatriplblog@gmail.com');
     define('MAIL_PASS','admin2016');
 
@@ -43,12 +43,6 @@
     */
     include_once(LIBS_DIR . 'libs_loader.php');
 
-    /*
-        Información de correo
-    */
-    define('SENDER_NAME','NicaTrip');
-    define('MAIL_ADDRESS','nicatriplblog@gmail.com');
-    define('MAIL_PASS','admin2016');
     /*
         Carga de clases propias
     */
