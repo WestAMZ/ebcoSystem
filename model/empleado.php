@@ -248,6 +248,7 @@
                      Ya existe un usuario registrado con este numero de cedula !! </div>';
                     }
             }
+            return $added;
         }
         function getFullName()
         {
@@ -287,5 +288,35 @@
             Connection ::close();
             return $empleados;
         }
+
+
+        function update()
+        {
+            Connection :: connect();
+            $query = "UPDATE
+                      `empleado`
+                    SET
+                      `id_empleado` = '$this->id_empleado',
+                      `nombre1` = '$this->nombre1',
+                      `nombre2` = '$this->nombre2',
+                      `apellido1` = '$this->apellido1',
+                      `apellido2` = '$this->apellido2',
+                      `cedula` = '$this->cedula',
+                      `telefono` = '$this->telefono',
+                      `firma` = '$this->firma',
+                      `id_puesto` = '$this->id_puesto',
+                      `id_sitio` = '$this->id_sitio',
+                      `id_jefe` = '$this->id_jefe',
+                      `inss` = '$this->inss',
+                      `fecha_ingreso` = '$this->fecha_ingreso',
+                      `estado` = '$this->estado'
+                    WHERE
+                      id_empleado = '$this->id_empleado' ";
+            Connection::getConnection()->query($query);
+            Connection ::close();
+
+
+        }
+
     }
 ?>

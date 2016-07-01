@@ -75,5 +75,10 @@
         {
             include(HTML_DIR . 'example.html');
         }
+        static function getSubir()
+        {
+            include(HTML_DIR . 'example.html');
+
+        }
     }
 ?>

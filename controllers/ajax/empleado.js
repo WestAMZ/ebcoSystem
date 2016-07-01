@@ -18,10 +18,11 @@ $(document).ready(function ()
 
     $('#modal-jefe').on('click','.empleado',function()
     {
-        $('#table-jefe .selected').removeClass('selected');
+        $('#tabla-jefe .selected').removeClass('selected');
         $(this).toggleClass('selected');
         var id_jefe= $(this).children(0).html();
-        var form = $('#id_jefe').val(d_jefe);
+        var form = $('#id_jefe').val(id_jefe);
+
 
     });
 
@@ -57,7 +58,7 @@ $("#formEmpleado").submit(function ()
         var table = $('#table');
         var modal = $('#myModal');
         var ms = $('#message');
-
+        var id = $('[name= "id_empleado"]').val();
         if($('[name = "editar"]').prop('checked') == false)
         {
             agregarEmpleado(data, result, modal, ms);
@@ -71,7 +72,7 @@ $("#formEmpleado").submit(function ()
             }
             else
             {
-                updateEmpleado(data, result, modal, ms);
+                updateEmpleado(data,id, result, modal, ms);
             }
         }
         return false;
@@ -166,7 +167,7 @@ function getEmpleado(id)
     ---------------------------------modificar empleado
 */
 
-function updateEmpleado(data,result,modal,message_area_modal)
+function updateEmpleado(data,id,result,modal,message_area_modal)
 {
     http = Connect();
     http.onreadystatechange = function ()
@@ -176,7 +177,7 @@ function updateEmpleado(data,result,modal,message_area_modal)
 
             if (http.responseText == 1)
             {
-                message_area_modal.html("<img src='views/img/success.png'></img> El sito ha sido modificado con exíto");
+                message_area_modal.html("<img src='views/img/success.png'></img> El empleado ha sido modificado con exíto");
                 modal.openModal();
                 result.html('');
             }
@@ -196,7 +197,7 @@ function updateEmpleado(data,result,modal,message_area_modal)
             result.html(text);
         }
     }
-    http.open('POST','?post=empleado&mod=1');
+    http.open('POST','?post=empleado&mod=1&id='+id);
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     http.send(data);
 }
