@@ -15,10 +15,11 @@
         {
 
             e.preventDefault();
-            var f = $(this);
+            var input_file = document.getElementById('fileToUpload');
+            var file = input_file.files;
+            console.log(file);
             //var formData = new FormData(document.getElementById("agregarinsidencia"));
             //formData.append("dato", "valor");
-            alert( $(this)[0].files[0]);
             //formData.append(f.attr("name"), $(this)[0].files[0]);
             /*$.ajax(
             {
@@ -35,9 +36,10 @@
                 });*/
 
         });
-$(document).ready(function(){
+$(document).ready(function()
+{
     $('.tooltipped').tooltip({delay: 50});
-  });
+});
 /*-------
             AJAX
 ---------*/
