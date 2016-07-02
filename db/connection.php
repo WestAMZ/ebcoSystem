@@ -45,6 +45,7 @@
             $db = "ebco";
             $user = 'root';
             $pass = '';
+
            /*datos del host
 
             $host ="localhost";
@@ -56,6 +57,7 @@
             self:: $mysqli =new mysqli($host, $user, $pass,$db);
             if( self :: $mysqli -> connect_error)
             {
+
                  self :: $mysqli -> close();
                  self :: $mysqli = null;
             }
