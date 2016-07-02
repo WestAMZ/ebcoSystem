@@ -48,4 +48,5 @@
     */
     require_once(PHP_DIR . 'app.php');
     require_once(DB_DIR . 'connection.php');
+    echo('CORE CARGADO');
 ?>

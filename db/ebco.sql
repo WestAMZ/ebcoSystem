@@ -1,5 +1,5 @@
 --
--- Base de datos: `ebco`
+-- Base de datos: `nicatrip_ebco`
 --
 
 -- --------------------------------------------------------
@@ -7,6 +7,7 @@
 --
 -- Estructura de tabla para la tabla `aviso`
 --
+use nicatrip_ebco;
 
 CREATE TABLE `aviso` (
   `idaviso` int(11) NOT NULL,
