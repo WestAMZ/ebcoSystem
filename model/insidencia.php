@@ -10,6 +10,7 @@
         var $id_usuario;
         var $adjunto;
 
+
         function __construct($id_insidencia,$fecha,$descripcion,$nivel,$estado,$id_usuario,$adjunto)
         {
             $this->id_insidencia = $id_insidencia;
@@ -151,6 +152,14 @@ ORDER BY id_insidencia DESC";
             $query = "UPDATE `insidencia` SET `estado`= '$estado' WHERE id_insidencia = '$id'";
             Connection::getConnection()->query($query);
             echo(Connection::getConnection()->affected_rows );
+            Connection::close();
+        }
+
+        function modificarcontenido()
+        {
+            Connection::connect();
+            $query = "UPDATE `insidencia` SET `descripcion`= '$this->descripcion' WHERE id_insidencia = '$this->id_insidencia'";
+            Connection::getConnection()->query($query);
             Connection::close();
         }
     }
