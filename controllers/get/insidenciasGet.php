@@ -32,7 +32,7 @@
                             <span class="grey-text text-darken-1 ultra-small"><?php echo($insidencia->getFecha())?></span>
 
                             <p>
-                                <a href="<?php echo(FILE_DIR . $insidencia->getAdjunto()) ?>">
+                                <a href="<?php echo(INSIDENCIAS_DIR. $insidencia->getAdjunto()) ?>">
                                     <?php echo($insidencia->getAdjunto()) ?>
                                 </a>
                             </p>
