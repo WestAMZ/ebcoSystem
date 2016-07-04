@@ -15,6 +15,10 @@
             }
             else
             {
+                if(isset($_SESSION['session']))
+                {
+                    echo("<script>window.location = '?view=home'</script>");
+                }
                 include(PHP_DIR . strtolower($_GET['view']) . 'Controller.php');
             }
         }
@@ -50,9 +54,9 @@
     //en este punto verificamos que no existe ni una de las tres variables anteriores
     else if ( !isset($_GET['view']) && !isset($_GET['post']) && !isset($_GET['get']) )
     {
-        if($_SESSION['session']=='active')
+        if(isset($_SESSION['session']))
         {
-            header('Location : ?view=home');
+            echo("<script>window.location = '?view=home'</script>");
         }
         include(PHP_DIR . 'indexController.php');
     }
