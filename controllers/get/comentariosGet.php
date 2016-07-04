@@ -12,7 +12,10 @@ foreach ($comentarios as &$comentario)
 
 ?>
     <li class="collection-item avatar">
-        <img src="<?php echo(PROFILE_DIR . (Usuario::getUsuarioById($comentario->getUsuario()))->getFoto())?>" alt="" class="circle responsive-img">
+        <img src="<?php
+                    $usuario = Usuario::getUsuarioById($comentario->getUsuario());
+                    echo(PROFILE_DIR . $usuario->getFoto());
+                  ?>" alt="" class="circle responsive-img">
         <span class="title green-text left"> <?php echo(Usuario::getNameUser($comentario->getUsuario()) . ' (' . $comentario->getFecha() . ')')?> </span>
         <br>
         <p class="left-align">

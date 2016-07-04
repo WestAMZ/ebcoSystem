@@ -19,7 +19,10 @@
                     <div class="row">
                         <div class="col s2">
 
-                            <div class="profile-preview-mini" style="background:url(<?php echo(PROFILE_DIR . (Usuario :: getUsuarioById($insidencia->getId_Usuario()))->getFoto())?>)">
+                            <div class="profile-preview-mini" style="background:url(<?php
+                    $usuario = Usuario::getUsuarioById($insidencia->getId_Usuario());
+                    echo(PROFILE_DIR . $usuario->getFoto());
+                  ?>)">
                             </div>
                         </div>
                         <div class="col s8 left-align">
@@ -102,7 +105,10 @@
                         <div class="row">
                             <div class="col s2">
 
-                                <div class="profile-preview-mini" style="background:url(<?php echo(PROFILE_DIR . (Usuario :: getUsuarioById($insidencia->getId_Usuario()))->getFoto())?>)">
+                                <div class="profile-preview-mini" style="background:url(<?php
+                    $usuario = Usuario::getUsuarioById($insidencia->getId_Usuario());
+                    echo(PROFILE_DIR . $usuario->getFoto());
+                  ?>)">
                                 </div>
                             </div>
                             <div class="col s8 left-align">
@@ -189,7 +195,10 @@
                             <div class="row">
                                 <div class="col s2">
 
-                                    <div class="profile-preview-mini" style="background:url(<?php echo(PROFILE_DIR . (Usuario :: getUsuarioById($insidencia->getId_Usuario()))->getFoto())?>)">
+                                    <div class="profile-preview-mini" style="background:url(<?php
+                    $usuario = Usuario::getUsuarioById($insidencia->getId_Usuario());
+                    echo(PROFILE_DIR . $usuario->getFoto());
+                  ?>)">
                                     </div>
                                 </div>
                                 <div class="col s8 left-align">
@@ -271,7 +280,10 @@
                             <div class="row">
                                 <div class="col s2">
 
-                                    <div class="profile-preview-mini" style="background:url(<?php echo(PROFILE_DIR . (Usuario :: getUsuarioById($insidencia->getId_Usuario()))->getFoto())?>)">
+                                    <div class="profile-preview-mini" style="background:url(<?php
+                    $usuario = Usuario::getUsuarioById($insidencia->getId_Usuario());
+                    echo(PROFILE_DIR . $usuario->getFoto());
+                  ?>)">
                                     </div>
                                 </div>
                                 <div class="col s8 left-align">

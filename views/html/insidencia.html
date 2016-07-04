@@ -14,7 +14,10 @@
                 <div id="result">
                 </div>
                 <div class="row">
-                    <div class="col s3 profile-style responsive-img " style="background:url(<?php echo(PROFILE_DIR . (Usuario::getUsuarioById($_SESSION['id_usuario']))->getFoto()) ?>)">
+                    <div class="col s3 profile-style responsive-img " style="background:url(<?php
+                    $usuario = Usuario::getUsuarioById($_SESSION['id_usuario']);
+                    echo(PROFILE_DIR . $usuario->getFoto());
+                  ?>)">
                         <img src="" alt="" class="circle responsive-img">
                     </div>
                     <div class="input-field col s9" style="margin-top:30px">
@@ -44,23 +47,14 @@
                             <i class="material-icons">send</i>Agregar
                         </button>
                     </div>
-                    <!--
-                    <div class="col s8 m10 right-align">
-                        <button class="waves-effect waves-light btn" type="submit">
-                            <i class="material-icons">send</i>Agregar
-                        </button>
-                    </div> -->
                 </div>
             </form>
-
             <!-- this is to post a document with a description -->
-
-
         </div>
     </div>
 
     <div id="insidencias">
-        <?php include( GET_DIR . 'insidenciasGet.php')?>
+        <?php include(GET_DIR . 'insidenciasGet.php') ?>
     </div>
 
     <div>
