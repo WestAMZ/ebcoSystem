@@ -41,17 +41,17 @@
         {
             //nombre del host
 
-            /*$host ="localhost";
-            $db = "ebco_sistema";
+           $host ="localhost";
+            $db = "ebco";
             $user = 'root';
-            $pass = '';*/
+            $pass = '';
 
 
-
+             /*
             $host ="localhost";
             $db = "ebco_sistema";
             $user = 'ebco_sistema';
-            $pass = '$$ebco';
+            $pass = '$$ebco'; */
 
 
             self:: $mysqli =new mysqli($host, $user, $pass,$db);
