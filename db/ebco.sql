@@ -7,7 +7,7 @@
 --
 -- Estructura de tabla para la tabla `aviso`
 --
-use nicatrip_ebco;
+use ebco_sistema;
 
 CREATE TABLE `aviso` (
   `idaviso` int(11) NOT NULL,
