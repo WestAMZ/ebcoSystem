@@ -12,7 +12,7 @@
         <td><?php echo($sitio->getPhone())?></td>
         <td><?php echo($sitio->getAddress())?></td>
         <td><a href="?post=sitio&mod=2&id=<?php echo($sitio->getIdSitio())?>">
-            <button class="btn-large">
+            <button class="btn">
                 <?php
                     if($sitio->getStatus()==1)
                     {
@@ -24,7 +24,6 @@
                     }
                 ?>
             </button></a></td>
-        <td><?php echo($sitio->getAddress())?></td>
     </tr>
 <?php
     }
